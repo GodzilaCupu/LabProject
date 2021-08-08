@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d6c1d8d1a385a514f93953d550eb4aff, type: 2}
+  - {fileID: 2100000, guid: 2eb1091d2f9ce9545ab965b28f5d1561, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -104,13 +104,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 737610438217972713}
-  m_LocalRotation: {x: 0.33963072, y: 3.534103e-17, z: -4.676319e-18, w: 0.9405589}
-  m_LocalPosition: {x: 0.00014328002, y: -0.011743087, z: 0.005229225}
+  m_LocalRotation: {x: 0.5354632, y: -0.006640151, z: 0.0023977268, w: 0.8445291}
+  m_LocalPosition: {x: 0.0001, y: -0.0128, z: 0.005229225}
   m_LocalScale: {x: 30.806025, y: 23.256813, z: 26.560612}
   m_Children: []
   m_Father: {fileID: 1832251857435381069}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 64.751, y: -1.1620001, z: -0.411}
 --- !u!33 &6063880699585360848
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -137,7 +137,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d6c1d8d1a385a514f93953d550eb4aff, type: 2}
+  - {fileID: 2100000, guid: 2eb1091d2f9ce9545ab965b28f5d1561, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -219,8 +219,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2f05b6def21901446a0544cecece5eb6, type: 2}
-  - {fileID: -8153699037382336775, guid: 91a1a774197518b43a78b9b0a15d0dfb, type: 3}
+  - {fileID: 2100000, guid: 69769c696536faf4e8f1037d2ade58a0, type: 2}
+  - {fileID: 2100000, guid: 69769c696536faf4e8f1037d2ade58a0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -299,7 +299,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8595692191621211525, guid: 91a1a774197518b43a78b9b0a15d0dfb, type: 3}
+  - {fileID: 2100000, guid: cc027d038ef75444dbab1b450516a846, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
