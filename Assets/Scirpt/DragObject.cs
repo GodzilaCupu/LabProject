@@ -12,10 +12,17 @@ public class DragObject : MonoBehaviour
 
     public string dragTag;
 
+    public BTN_Controller btnControl;
+
     private void Awake()
     {
         if (cam == null)
             cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
+    }
+
+    private void Start()
+    {
+        btnControl = gameObject.GetComponent<BTN_Controller>();
     }
 
     private void FixedUpdate()
@@ -34,17 +41,21 @@ public class DragObject : MonoBehaviour
 
         Touch touch = Input.touches[0];
 
-        //touched        
-        if (touch.phase == TouchPhase.Began)
-            Touching(touch);
+        if ( btnControl.taskPanelIsActive == false && btnControl.settingPanelIsActive == false)
+        {
+            //touched        
+            if (touch.phase == TouchPhase.Began)
+                Touching(touch);
 
-        //Dragging
-        if(touched = true && touch.phase == TouchPhase.Moved)
-            Dragging();
+            //Dragging
+            if (touched = true && touch.phase == TouchPhase.Moved)
+                Dragging();
 
-        //touched Canceled
-        if (dragging = true && touch.phase == TouchPhase.Canceled || touch.phase == TouchPhase.Ended)
-            StopDragging();
+            //touched Canceled
+            if (dragging = true && touch.phase == TouchPhase.Canceled || touch.phase == TouchPhase.Ended)
+                StopDragging();
+        }
+
     }
 
     #region Actions

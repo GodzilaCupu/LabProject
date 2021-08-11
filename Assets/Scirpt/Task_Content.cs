@@ -31,9 +31,9 @@ public class Task_Content : MonoBehaviour
         if(scene == SceneManager.GetSceneByName("Gameplay_3"))
         {
             taskTexts = new string[3];
-            taskTexts[0] = "Mencoba sebuah text yang \n sangat panjang bener adalah ada disini ";
-            taskTexts[1] = "Mencoba sebuah text yang \n sangat panjang bener adalah ada disini ";
-            taskTexts[2] = "Mencoba sebuah text yang \n sangat panjang bener adalah ada disini ";
+            taskTexts[0] = "Pilih Lah Sample yang akan di uji ";
+            taskTexts[1] = "Masukan sample yang telah di uji \n ke dalam  tabung reaksi ";
+            taskTexts[2] = "Ukurlah Aquades menggunakan Tabung \n Ukur sebanyak 9 ml ";
         }
 
     }
