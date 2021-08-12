@@ -16,6 +16,11 @@ public class Task_Content : MonoBehaviour
         SetText();
     }
 
+    private void Update()
+    {
+        ChangeColor();
+    }
+
     private void SetText()
     {
         for(int i = 0; i < tasks.Length; i++)
@@ -39,4 +44,23 @@ public class Task_Content : MonoBehaviour
 
     }
 
+    private void ChangeColor()
+    {
+
+        Scene scene = SceneManager.GetActiveScene();
+
+        if (scene == SceneManager.GetSceneByName("Gameplay_3"))
+        {
+            if (1 <= Save.GetCurrentProgres("Stage3"))
+                tasks[0].color = Color.grey;
+            if (2 <= Save.GetCurrentProgres("Stage3"))
+                tasks[1].color = Color.grey;
+            if (3 <= Save.GetCurrentProgres("Stage3"))
+                tasks[2].color = Color.grey;
+            if (4 <= Save.GetCurrentProgres("Stage3"))
+                tasks[3].color = Color.grey;
+
+        }
+
+    }
 }

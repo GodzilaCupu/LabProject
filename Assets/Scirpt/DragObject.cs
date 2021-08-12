@@ -88,20 +88,26 @@ public class DragObject : MonoBehaviour
                 SetDraggingPorperties(toDragRB);
 
                 touched = true;
+                if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject.name == "SampleA")
+            {
+                _story3.sampleB.SetActive(false);
+                _story3.isSampleB = false;
+                Save.SetSample("Sample", hit.collider.gameObject.name);
+                Save.SetCurrentProgres("Stage3", 1);
+                Debug.LogWarning(Save.GetSample("Sample"));
+                Debug.LogWarning(Save.GetCurrentProgres("Stage3"));
+            }
+                else if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject.name == "SampleB")
+            {
+                _story3.sampleA.SetActive(false);
+                _story3.isSampleA = false;
+                Save.SetSample("Sample", hit.collider.gameObject.name);
+                Save.SetCurrentProgres("Stage3", 1);
+                Debug.LogWarning(Save.GetSample("Sample"));
+                Debug.LogWarning(Save.GetCurrentProgres("Stage3"));
 
-                 if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject.name == "SampleA")
-                 {
-                    _story3.sampleB.SetActive(false);
-                    Save.SetSample("Sample", hit.collider.gameObject.name);
-                    Debug.LogWarning(Save.GetSample("Sample"));
-                 }
-                 else if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject.name == "SampleB")
-                 {
-                    _story3.sampleA.SetActive(false);
-                    Save.SetSample("Sample", hit.collider.gameObject.name);
-                    Debug.LogWarning(Save.GetSample("Sample"));
-                 }
-                Debug.Log("Touched " + touched + " Dragging " + dragging );
+            }
+            Debug.Log("Touched " + touched + " Dragging " + dragging );
             }
 
 

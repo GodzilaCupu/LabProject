@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Device
   - Task_text
+  - Meja
   layers:
   - Default
   - TransparentFX

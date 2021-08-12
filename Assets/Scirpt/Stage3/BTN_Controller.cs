@@ -5,9 +5,13 @@ using UnityEngine.UI;
 
 public class BTN_Controller : MonoBehaviour
 {
-    [SerializeField] private Button taskBTN, settingBTN;
+    [SerializeField] private Button taskBTN, settingBTN,kiriBTN,kananBTN;
     [SerializeField] private GameObject panelTask, panelSetting;
     public Toggle toggleSound, toggleMusic;
+
+    public Transform cameraTransform;
+
+    private int countPos = 0;
 
     public bool isMute { get; private set; }
 
@@ -23,11 +27,28 @@ public class BTN_Controller : MonoBehaviour
         isMute = false;
     }
 
+
+    private void Update()
+    {
+        if (countPos <= 0)
+            kiriBTN.interactable = false;
+        else if (countPos < 3 && countPos > 0)
+        {
+            kiriBTN.interactable = true;
+            kananBTN.interactable = true;
+        }
+        else if (countPos >= 3)
+            kananBTN.interactable = false;
+    }
     public void TaskGetOpen()
     {
         panelTask.SetActive(true);
         taskBTN.interactable = false;
         taskPanelIsActive = true;
+
+        kananBTN.interactable = false;
+        kananBTN.interactable = false;
+        settingBTN.interactable = false;
         Debug.Log(taskPanelIsActive + "Task Pannel" );
     }
 
@@ -36,6 +57,11 @@ public class BTN_Controller : MonoBehaviour
         taskPanelIsActive = false;
         panelTask.SetActive(false);
         taskBTN.interactable = true;
+
+        kananBTN.interactable = true;
+        kananBTN.interactable = true;
+        settingBTN.interactable = true;
+
     }
 
     public void SettingGetOpen()
@@ -43,6 +69,10 @@ public class BTN_Controller : MonoBehaviour
         panelSetting.SetActive(true);
         settingBTN.interactable = false;
         settingPanelIsActive = true;
+
+        kananBTN.interactable = false;
+        kananBTN.interactable = false;
+        taskBTN.interactable = false;
         Debug.Log(settingPanelIsActive + "Setting Pannel" );
     }
 
@@ -51,6 +81,11 @@ public class BTN_Controller : MonoBehaviour
         settingPanelIsActive = false;
         panelSetting.SetActive(false);
         settingBTN.interactable = true;
+
+        kananBTN.interactable = true;
+        kananBTN.interactable = true;
+        taskBTN.interactable = true;
+
     }
 
     public void SoundToggle()
@@ -72,6 +107,18 @@ public class BTN_Controller : MonoBehaviour
             Debug.Log(isMute);
 
         }
+    }
+
+    public void GeserKanan()
+    {
+        countPos++;
+        cameraTransform.transform.Translate(Vector3.right , Camera.main.transform);
+    }
+
+    public void GeserKiri()
+    {
+        countPos--;
+        cameraTransform.transform.Translate(Vector3.left, Camera.main.transform);
     }
 
 }
