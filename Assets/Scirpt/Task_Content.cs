@@ -30,10 +30,11 @@ public class Task_Content : MonoBehaviour
 
         if(scene == SceneManager.GetSceneByName("Gameplay_3"))
         {
-            taskTexts = new string[3];
+            taskTexts = new string[4];
             taskTexts[0] = "Pilih Lah Sample yang akan di uji ";
-            taskTexts[1] = "Masukan sample yang telah di uji \n ke dalam  tabung reaksi ";
-            taskTexts[2] = "Ukurlah Aquades menggunakan Tabung \n Ukur sebanyak 9 ml ";
+            taskTexts[1] = "Masukan sample yang telah di uji ke dalam  tabung reaksi ";
+            taskTexts[2] = "Ukurlah Aquades menggunakan Tabung Ukur sebanyak 9 ml ";
+            taskTexts[3] = "Masukan Aquades yang telah di ukur, kedalam tabung reaksi";
         }
 
     }

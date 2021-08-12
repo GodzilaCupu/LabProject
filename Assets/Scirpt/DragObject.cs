@@ -2,7 +2,8 @@
 
 public class DragObject : MonoBehaviour
 {
-    private bool touched = false, dragging = false;
+    public bool touched { get; private set; }
+    public bool dragging { get; private set; }
 
     private float posX, posY;
     private Transform toDrag;
@@ -12,17 +13,25 @@ public class DragObject : MonoBehaviour
 
     public string dragTag;
 
-    public BTN_Controller btnControl;
+    private BTN_Controller btnControl;
+
+    private StoryControllerStage3 _story3;
 
     private void Awake()
     {
+        touched = false;
+        dragging = false;
+
         if (cam == null)
             cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
+
     }
 
     private void Start()
     {
+
         btnControl = gameObject.GetComponent<BTN_Controller>();
+        _story3 = gameObject.GetComponent<StoryControllerStage3>();
     }
 
     private void FixedUpdate()
@@ -79,8 +88,23 @@ public class DragObject : MonoBehaviour
                 SetDraggingPorperties(toDragRB);
 
                 touched = true;
+
+                 if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject.name == "SampleA")
+                 {
+                    _story3.sampleB.SetActive(false);
+                    Save.SetSample("Sample", hit.collider.gameObject.name);
+                    Debug.LogWarning(Save.GetSample("Sample"));
+                 }
+                 else if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject.name == "SampleB")
+                 {
+                    _story3.sampleA.SetActive(false);
+                    Save.SetSample("Sample", hit.collider.gameObject.name);
+                    Debug.LogWarning(Save.GetSample("Sample"));
+                 }
                 Debug.Log("Touched " + touched + " Dragging " + dragging );
             }
+
+
     }
 
     private void Dragging() 
@@ -128,4 +152,5 @@ public class DragObject : MonoBehaviour
 
     }
     #endregion
+
 }
