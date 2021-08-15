@@ -172,6 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tasks: []
+  progres: 0
 --- !u!114 &41038012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1193,6 +1194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tasks: []
+  progres: 0
 --- !u!1 &564345751
 GameObject:
   m_ObjectHideFlags: 0
@@ -1336,6 +1338,7 @@ MonoBehaviour:
   - {fileID: 41038012}
   - {fileID: 1256659192}
   - {fileID: 2006033200}
+  progres: -1
 --- !u!114 &595813904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1389,8 +1392,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3950bc69f24ec94ba5e606de609e895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sampleA: {fileID: 2493769116107033585}
-  sampleB: {fileID: 5369781305462302309}
   anim: {fileID: 919132147571929639}
   isSampleA: 0
   isSampleB: 0
@@ -2416,6 +2417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tasks: []
+  progres: 0
 --- !u!114 &1256659192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3346,6 +3348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tasks: []
+  progres: 0
 --- !u!114 &2006033200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3913,7 +3916,7 @@ GameObject:
   - component: {fileID: 1907358980036981974}
   - component: {fileID: 1907358980036981976}
   m_Layer: 0
-  m_Name: Tabung ukur
+  m_Name: TabungUkur
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3967,12 +3970,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4141811136597613583}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2493769116107033585 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8010317298881397260, guid: 90e9216a99b480c4cbad915e3365688e,
-    type: 3}
-  m_PrefabInstance: {fileID: 5598529491352177149}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2598023009816331004
 GameObject:
   m_ObjectHideFlags: 0
@@ -4022,7 +4019,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tabungKosong: {fileID: 5123671475212470228}
   tabungSample: {fileID: 919132147826764453}
-  _story3: {fileID: 0}
 --- !u!4 &3406366758931830854
 Transform:
   m_ObjectHideFlags: 0
@@ -4362,12 +4358,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4141811136597613583}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &5369781305462302309 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 519237001908940696, guid: 90e9216a99b480c4cbad915e3365688e,
-    type: 3}
-  m_PrefabInstance: {fileID: 5598529491352177149}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5598529491352177149
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4583,7 +4573,7 @@ GameObject:
   - component: {fileID: 6512510687008007763}
   - component: {fileID: 6512510687008007762}
   m_Layer: 0
-  m_Name: Cylinder.007
+  m_Name: Ak
   m_TagString: Device
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
