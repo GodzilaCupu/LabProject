@@ -40,6 +40,8 @@ public class BTN_Controller : MonoBehaviour
         else if (countPos >= 3)
             kananBTN.interactable = false;
     }
+
+    #region Panel Configuration
     public void TaskGetOpen()
     {
         panelTask.SetActive(true);
@@ -49,7 +51,7 @@ public class BTN_Controller : MonoBehaviour
         kananBTN.interactable = false;
         kananBTN.interactable = false;
         settingBTN.interactable = false;
-        Debug.Log(taskPanelIsActive + "Task Pannel" );
+        Debug.Log(taskPanelIsActive + "Task Pannel");
     }
 
     public void TaskGetClosed()
@@ -73,7 +75,7 @@ public class BTN_Controller : MonoBehaviour
         kananBTN.interactable = false;
         kananBTN.interactable = false;
         taskBTN.interactable = false;
-        Debug.Log(settingPanelIsActive + "Setting Pannel" );
+        Debug.Log(settingPanelIsActive + "Setting Pannel");
     }
 
     public void SettingGetClosed()
@@ -87,6 +89,8 @@ public class BTN_Controller : MonoBehaviour
         taskBTN.interactable = true;
 
     }
+    #endregion
+
 
     public void SoundToggle()
     {

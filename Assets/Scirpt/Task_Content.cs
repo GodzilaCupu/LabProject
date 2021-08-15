@@ -8,6 +8,8 @@ public class Task_Content : MonoBehaviour
 {
 
     [SerializeField] private Text[] tasks;
+    private int progres;
+
     public string[] taskTexts { get; private set; }
 
     private void Start()
@@ -51,14 +53,11 @@ public class Task_Content : MonoBehaviour
 
         if (scene == SceneManager.GetSceneByName("Gameplay_3"))
         {
-            if (1 <= Save.GetCurrentProgres("Stage3"))
-                tasks[0].color = Color.grey;
-            if (2 <= Save.GetCurrentProgres("Stage3"))
-                tasks[1].color = Color.grey;
-            if (3 <= Save.GetCurrentProgres("Stage3"))
-                tasks[2].color = Color.grey;
-            if (4 <= Save.GetCurrentProgres("Stage3"))
-                tasks[3].color = Color.grey;
+            while (progres <= Save.GetCurrentProgres("Stage3"))
+            {
+                tasks[progres].color = Color.gray;
+                Debug.LogWarning(progres);
+            }
 
         }
 

@@ -2,6 +2,8 @@
 
 public class DragObject : MonoBehaviour
 {
+    [SerializeField] private string dragTag;
+
     public bool touched { get; private set; }
     public bool dragging { get; private set; }
 
@@ -11,11 +13,8 @@ public class DragObject : MonoBehaviour
     private Vector3 prevPos, thisPos;
     private Camera cam;
 
-    public string dragTag;
-
     private BTN_Controller btnControl;
-
-    private StoryControllerStage3 _story3;
+    private StoryControllerStage3 story3;
 
     private void Awake()
     {
@@ -25,13 +24,15 @@ public class DragObject : MonoBehaviour
         if (cam == null)
             cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
 
+
     }
 
     private void Start()
     {
+        GameObject _gamemanager = GameObject.Find("GameManager");
 
-        btnControl = gameObject.GetComponent<BTN_Controller>();
-        _story3 = gameObject.GetComponent<StoryControllerStage3>();
+        btnControl = _gamemanager.GetComponent<BTN_Controller>();
+        story3 = _gamemanager.GetComponent<StoryControllerStage3>();
     }
 
     private void FixedUpdate()
@@ -71,44 +72,29 @@ public class DragObject : MonoBehaviour
 
     private void Touching(Touch touch)
     {   
-            Vector3 touchPos = touch.position;
-            Ray raycastTouch = cam.ScreenPointToRay(touchPos);
-            RaycastHit hit;
+        Vector3 touchPos = touch.position;
+        Ray raycastTouch = cam.ScreenPointToRay(touchPos);
+        RaycastHit hit;
+        if (Physics.Raycast(raycastTouch, out hit) && hit.collider.tag == dragTag)
+        {
+            toDrag = hit.transform;
+            prevPos = toDrag.position;
 
-            if (Physics.Raycast(raycastTouch, out hit) && hit.collider.tag == dragTag)
-            {
-                toDrag = hit.transform;
-                prevPos = toDrag.position;
+            toDragRB = toDrag.GetComponent<Rigidbody>();
+            thisPos = cam.WorldToScreenPoint(prevPos);
+            posX = Input.GetTouch(0).position.x - thisPos.x;
+            posY = Input.GetTouch(0).position.y - thisPos.y;
 
-                toDragRB = toDrag.GetComponent<Rigidbody>();
-                thisPos = cam.WorldToScreenPoint(prevPos);
-                posX = Input.GetTouch(0).position.x - thisPos.x;
-                posY = Input.GetTouch(0).position.y - thisPos.y;
+            SetDraggingPorperties(toDragRB);
+            touched = true;
 
-                SetDraggingPorperties(toDragRB);
+            if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject.name == "SampleA")
+                story3.IfSampleA();
+            else if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject.name == "SampleB")
+                story3.IfSampleB();
 
-                touched = true;
-                if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject.name == "SampleA")
-            {
-                _story3.sampleB.SetActive(false);
-                _story3.isSampleB = false;
-                Save.SetSample("Sample", hit.collider.gameObject.name);
-                Save.SetCurrentProgres("Stage3", 1);
-                Debug.LogWarning(Save.GetSample("Sample"));
-                Debug.LogWarning(Save.GetCurrentProgres("Stage3"));
-            }
-                else if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject.name == "SampleB")
-            {
-                _story3.sampleA.SetActive(false);
-                _story3.isSampleA = false;
-                Save.SetSample("Sample", hit.collider.gameObject.name);
-                Save.SetCurrentProgres("Stage3", 1);
-                Debug.LogWarning(Save.GetSample("Sample"));
-                Debug.LogWarning(Save.GetCurrentProgres("Stage3"));
-
-            }
             Debug.Log("Touched " + touched + " Dragging " + dragging );
-            }
+        }
 
 
     }
@@ -146,15 +132,12 @@ public class DragObject : MonoBehaviour
         rb.useGravity = false;
         rb.drag = 8;
 
-        Debug.Log(rb.useGravity);
     }
 
     private void SetNotDragingPorperties(Rigidbody rb)
     {
         rb.useGravity = true;
         rb.drag = 5;
-
-        Debug.Log(rb.useGravity);
 
     }
     #endregion

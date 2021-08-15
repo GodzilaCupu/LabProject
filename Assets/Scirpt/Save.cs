@@ -41,4 +41,9 @@ public class Save
     {
         PlayerPrefs.DeleteAll();
     }
+
+    public static void DelateKey(string key)
+    {
+        PlayerPrefs.DeleteKey(key);
+    }
 }
