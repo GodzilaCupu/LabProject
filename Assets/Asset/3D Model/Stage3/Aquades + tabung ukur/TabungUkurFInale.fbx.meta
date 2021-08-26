@@ -1,14 +1,18 @@
 fileFormatVersion: 2
-guid: d509620229cb27f4da5f85bd1b26e2ff
+guid: 387a944e9594d27499defe81bf942f6e
 ModelImporter:
   serializedVersion: 19301
-  internalIDToNameTable: []
-  externalObjects:
+  internalIDToNameTable:
   - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: sample + aquades
-    second: {fileID: 2100000, guid: 7f2bc646c7c6e204987fc16909a066dd, type: 2}
+      74: 5221306909911044803
+    second: Tabung ukur.001|Cylinder.007|Scene|Scene
+  - first:
+      74: -3557158855519413094
+    second: Tabung ukur.001|Cylinder.008|Scene|Scene
+  - first:
+      74: -3196964225065100634
+    second: Tabung ukur.001|Tabung ukur.001|Scene|Scene
+  externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 0

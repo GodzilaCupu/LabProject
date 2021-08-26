@@ -18,6 +18,7 @@ public class StoryControllerStage3 : MonoBehaviour
         sampleB = GameObject.Find("SampleB");
 
         task = _gamemanager.GetComponent<Task_Content>();
+        Save.SetCurrentLevel("Level", "Stage3");
 
         anim.GetComponent<Animator>();
         Restart();
@@ -30,14 +31,14 @@ public class StoryControllerStage3 : MonoBehaviour
         isSampleB = false;
 
         sampleB.SetActive(false);
+        task.ChangeColor();
+
 
         Save.SetSample("Sample", "SampleA");
         Save.SetCurrentProgres("Stage3", 1);
-        task.progres++;
 
         Debug.LogWarning(Save.GetSample("Sample"));
-        Debug.LogWarning(task.progres + "Progres1");
-        Debug.LogWarning(Save.GetCurrentProgres("Stage3"));
+        Debug.LogWarning("Progres" + Save.GetCurrentProgres("Stage3"));
 
     }
 
@@ -47,14 +48,13 @@ public class StoryControllerStage3 : MonoBehaviour
         isSampleB = true;
 
         sampleA.SetActive(false);
+        task.ChangeColor();
 
         Save.SetSample("Sample", "SampleB");
         Save.SetCurrentProgres("Stage3", 1);
-        task.progres++;
 
         Debug.LogWarning(Save.GetSample("Sample"));
-        Debug.LogWarning(task.progres + "Progres1");
-        Debug.LogWarning(Save.GetCurrentProgres("Stage3"));
+        Debug.LogWarning("Progres" + Save.GetCurrentProgres("Stage3"));
     }
 
 

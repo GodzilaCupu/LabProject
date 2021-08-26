@@ -7,29 +7,25 @@ using UnityEngine.UI;
 public class Task_Content : MonoBehaviour
 {
 
-    [SerializeField] private Text[] tasks;
-    public int progres;
+    [SerializeField] private Text[] tasks, congrats;
 
     public string[] taskTexts { get; private set; }
+    public string[] CongratsText { get; private set; }
 
     private void Start()
     {
         ArrayTugas();
         SetText();
-        progres = -1;
-    }
-
-    private void Update()
-    {
-        ChangeColor();
     }
 
     private void SetText()
     {
         for(int i = 0; i < tasks.Length; i++)
-        {
             tasks[i].text = taskTexts[i];
-        }
+
+
+        for (int j = 0; j < congrats.Length; j++)
+            congrats[j].text = CongratsText[j];
     }
 
     private void ArrayTugas()
@@ -40,22 +36,47 @@ public class Task_Content : MonoBehaviour
         {
             taskTexts = new string[4];
             taskTexts[0] = "Pilih Lah Sample yang akan di uji ";
-            taskTexts[1] = "Masukan sample yang telah di uji ke dalam  tabung reaksi ";
+            taskTexts[1] = "Masukan sample yang telah di uji ke dalam tabung ukur";
             taskTexts[2] = "Ukurlah Aquades menggunakan Tabung Ukur sebanyak 9 ml ";
-            taskTexts[3] = "Masukan Aquades yang telah di ukur, kedalam tabung reaksi";
+            taskTexts[3] = "Masukan Aquades yang telah di ukur, kedalam tabungUkurTrigger reaksi";
+
+            CongratsText = new string[4];
+            CongratsText[0] = "Selamat !!!";
+            CongratsText[1] = "Selamat Anda telah berhasil \n menyelesaikan tahapan persiapan sample \n Sample telah siap untuk digunakan \n Ayo Lanjut ke tahapan selanjutnya";
+            CongratsText[2] = "Main Menu";
+            CongratsText[3] = "Lanjut";
         }
 
     }
 
-    private void ChangeColor()
+    public void ChangeColor()
     {
         Scene scene = SceneManager.GetActiveScene();
+
         if (scene == SceneManager.GetSceneByName("Gameplay_3"))
         {
-            if (progres == Save.GetCurrentProgres("Stage3"))
-            { 
-                tasks[progres].color = Color.gray;
-                Debug.LogWarning(progres);
+            switch (Save.GetCurrentProgres("Stage3"))
+            {
+                case 1:
+                    tasks[0].color = Color.grey;
+                    break;
+
+                case 2:
+                    tasks[1].color = Color.grey;
+                    break;
+
+                case 3:
+                    tasks[2].color = Color.grey;
+                    break;
+
+                case 4:
+                    tasks[3].color = Color.grey;
+                    break;
+
+                default:
+                    Debug.LogWarning("Check Ur Key");
+                    break;
+
             }
 
         }

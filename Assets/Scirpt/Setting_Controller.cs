@@ -25,13 +25,12 @@ public class Setting_Controller : MonoBehaviour
 
     private void ArrayText()
     {
-        setingText = new string[6];
+        setingText = new string[5];
         setingText[0] = "Pengaturan";
         setingText[1] = "Sound";
         setingText[2] = "Musik";
         setingText[3] = "Save";
-        setingText[4] = "Load";
-        setingText[5] = "Tutup";
+        setingText[4] = "Tutup";
     }
     #endregion
 

@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BTN_Controller : MonoBehaviour
 {
     [SerializeField] private Button taskBTN, settingBTN,kiriBTN,kananBTN;
-    [SerializeField] private GameObject panelTask, panelSetting;
+    [SerializeField] private GameObject panelTask, panelSetting,popupSave, panelCongrats;
+    [SerializeField] private Text popupSaveText;
     public Toggle toggleSound, toggleMusic;
 
     public Transform cameraTransform;
@@ -30,6 +32,8 @@ public class BTN_Controller : MonoBehaviour
 
     private void Update()
     {
+        CheckToCongrats();
+
         if (countPos <= 0)
             kiriBTN.interactable = false;
         else if (countPos < 3 && countPos > 0)
@@ -89,9 +93,39 @@ public class BTN_Controller : MonoBehaviour
         taskBTN.interactable = true;
 
     }
+
+    public void CongratsGetOpen()
+    {
+        panelCongrats.SetActive(true);
+        settingBTN.interactable = false;
+        settingPanelIsActive = false;
+
+        kananBTN.interactable = false;
+        kananBTN.interactable = false;
+        taskBTN.interactable = false;
+    }
     #endregion
 
+    #region Setting BTN
+    public void SaveLevel()
+    {
+        Scene scene = SceneManager.GetActiveScene();
 
+        if (scene == SceneManager.GetSceneByName("Gameplay_1"))
+            Save.SetCurrentLevel("Level", "Stage1");
+
+        if (scene == SceneManager.GetSceneByName("Gameplay_2"))
+            Save.SetCurrentLevel("Level", "Stage2");
+
+        if (scene == SceneManager.GetSceneByName("Gameplay_3"))
+            Save.SetCurrentLevel("Level", "Stage3");
+
+        if (scene == SceneManager.GetSceneByName("Gameplay_4"))
+            Save.SetCurrentLevel("Level", "Stage4");
+
+        StartCoroutine(PopupMassage("Tersimpan !!", 2));
+
+    }
     public void SoundToggle()
     {
         if (toggleSound.isOn) 
@@ -112,7 +146,9 @@ public class BTN_Controller : MonoBehaviour
 
         }
     }
+    #endregion
 
+    #region UI BTN
     public void GeserKanan()
     {
         countPos++;
@@ -124,5 +160,46 @@ public class BTN_Controller : MonoBehaviour
         countPos--;
         cameraTransform.transform.Translate(Vector3.left, Camera.main.transform);
     }
+    #endregion
 
+    #region Congrats BTN
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene("Main_Menu");
+        Save.SetCurrentLevel("Level", "Stage3");
+    }
+
+    public void NextLevel()
+    {
+        Scene scene = SceneManager.GetActiveScene();
+
+        if (scene == SceneManager.GetSceneByName("Gameplay_1"))
+            SceneManager.LoadScene("Gameplay_2");
+
+        if (scene == SceneManager.GetSceneByName("Gameplay_2"))
+            SceneManager.LoadScene("Gameplay_3");
+
+        if (scene == SceneManager.GetSceneByName("Gameplay_3"))
+            SceneManager.LoadScene("Gameplay_4");
+
+        if (scene == SceneManager.GetSceneByName("Gameplay_4"))
+            SceneManager.LoadScene("MainMenu");
+    }
+
+    #endregion
+
+    private void CheckToCongrats()
+    {
+        if (Save.GetCurrentProgres("Stage3") == 4)
+            CongratsGetOpen();
+    }
+    IEnumerator PopupMassage(string massage, int delay)
+    {
+        popupSave.SetActive(true);
+        popupSaveText.text = massage;
+        yield return new WaitForSeconds(delay);
+        popupSave.SetActive(false);
+
+
+    }
 }
