@@ -5,15 +5,15 @@ using UnityEngine;
 public class Save
 {
 
-    public static void SetCurrentLevel(string key, string value)
+    public static void SetCurrentLevel(string key, int value)
     {
-        PlayerPrefs.SetString(key, value);
+        PlayerPrefs.SetInt(key, value);
     }
 
 
-    public static string GetCurrentLevel(string keyName)
+    public static int GetCurrentLevel(string keyName)
     {
-        return PlayerPrefs.GetString(keyName);
+        return PlayerPrefs.GetInt(keyName);
     }
 
     public static void SetCurrentProgres(string key, int value)

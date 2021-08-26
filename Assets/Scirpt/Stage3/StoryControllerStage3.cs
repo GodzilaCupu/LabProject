@@ -18,7 +18,7 @@ public class StoryControllerStage3 : MonoBehaviour
         sampleB = GameObject.Find("SampleB");
 
         task = _gamemanager.GetComponent<Task_Content>();
-        Save.SetCurrentLevel("Level", "Stage3");
+        Save.SetCurrentLevel("Level", 3);
 
         anim.GetComponent<Animator>();
         Restart();

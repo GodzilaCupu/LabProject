@@ -103,6 +103,7 @@ public class BTN_Controller : MonoBehaviour
         kananBTN.interactable = false;
         kananBTN.interactable = false;
         taskBTN.interactable = false;
+
     }
     #endregion
 
@@ -112,16 +113,16 @@ public class BTN_Controller : MonoBehaviour
         Scene scene = SceneManager.GetActiveScene();
 
         if (scene == SceneManager.GetSceneByName("Gameplay_1"))
-            Save.SetCurrentLevel("Level", "Stage1");
+            Save.SetCurrentLevel("Level",1);
 
         if (scene == SceneManager.GetSceneByName("Gameplay_2"))
-            Save.SetCurrentLevel("Level", "Stage2");
+            Save.SetCurrentLevel("Level",2);
 
         if (scene == SceneManager.GetSceneByName("Gameplay_3"))
-            Save.SetCurrentLevel("Level", "Stage3");
+            Save.SetCurrentLevel("Level",3);
 
         if (scene == SceneManager.GetSceneByName("Gameplay_4"))
-            Save.SetCurrentLevel("Level", "Stage4");
+            Save.SetCurrentLevel("Level",4);
 
         StartCoroutine(PopupMassage("Tersimpan !!", 2));
 
@@ -166,7 +167,7 @@ public class BTN_Controller : MonoBehaviour
     public void BackToMainMenu()
     {
         SceneManager.LoadScene("Main_Menu");
-        Save.SetCurrentLevel("Level", "Stage3");
+        Save.SetCurrentLevel("Level", 3);
     }
 
     public void NextLevel()
@@ -174,24 +175,49 @@ public class BTN_Controller : MonoBehaviour
         Scene scene = SceneManager.GetActiveScene();
 
         if (scene == SceneManager.GetSceneByName("Gameplay_1"))
+        {
+            Save.DelateKey("Stage1");
             SceneManager.LoadScene("Gameplay_2");
+        }
 
         if (scene == SceneManager.GetSceneByName("Gameplay_2"))
+        {
+            Save.DelateKey("Stage2");
             SceneManager.LoadScene("Gameplay_3");
+        }
 
         if (scene == SceneManager.GetSceneByName("Gameplay_3"))
+        {
+            Save.DelateKey("Stage3");
             SceneManager.LoadScene("Gameplay_4");
+        }
 
         if (scene == SceneManager.GetSceneByName("Gameplay_4"))
+        {
+            Save.DelateKey("Stage4");
             SceneManager.LoadScene("MainMenu");
+        }
+
     }
 
     #endregion
 
     private void CheckToCongrats()
     {
-        if (Save.GetCurrentProgres("Stage3") == 4)
-            CongratsGetOpen();
+        switch (Save.GetCurrentLevel("Level"))
+        {
+            case 1:
+                if (Save.GetCurrentProgres("Stage3") == 4)
+                    CongratsGetOpen();
+                break;
+
+            case 2:
+                if (Save.GetCurrentProgres("Stage4") == 4)
+                    CongratsGetOpen();
+                break;
+
+        }
+
     }
     IEnumerator PopupMassage(string massage, int delay)
     {
