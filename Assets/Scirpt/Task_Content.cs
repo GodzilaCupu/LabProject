@@ -61,6 +61,21 @@ public class Task_Content : MonoBehaviour
             CongratsText[2] = "Main Menu";
             CongratsText[3] = "Lanjut";
         }
+
+        if (scene == SceneManager.GetSceneByName("Gameplay_5"))
+        {
+            taskTexts = new string[4];
+            taskTexts[0] = "Panaskan Medium yang telah diolah sebelumnya";
+            taskTexts[1] = "Tambahkan Medium kedalam masing masing Sample sebanyak 10 ML";
+            taskTexts[2] = "Masukkan Tabung Durham";
+            taskTexts[3] = "Masukan Kedalam Inkkubator dan tunggu 24 Jam";
+
+            CongratsText = new string[4];
+            CongratsText[0] = "Selamat !!!";
+            CongratsText[1] = "Selamat Anda telah berhasil \n Menguji Colliform pada \n Sample yang telah disediakan";
+            CongratsText[2] = "Main Menu";
+            CongratsText[3] = "Selesai";
+        }
     }
 
     public void ChangeColor()
