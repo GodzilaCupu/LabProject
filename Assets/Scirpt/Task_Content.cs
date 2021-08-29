@@ -66,7 +66,7 @@ public class Task_Content : MonoBehaviour
     {
         Scene scene = SceneManager.GetActiveScene();
 
-        if (scene == SceneManager.GetSceneByName("Gameplay_3"))
+        if (Save.GetCurrentLevel("Level") == 3)
         {
             switch (Save.GetCurrentProgres("Stage3"))
             {
@@ -94,7 +94,7 @@ public class Task_Content : MonoBehaviour
 
         }
 
-        if (scene == SceneManager.GetSceneByName("Gameplay_4"))
+        if (Save.GetCurrentLevel("Level") == 4)
         {
             switch (Save.GetCurrentProgres("Stage4"))
             {
@@ -108,10 +108,6 @@ public class Task_Content : MonoBehaviour
 
                 case 3:
                     tasks[2].color = Color.grey;
-                    break;
-
-                case 4:
-                    tasks[3].color = Color.grey;
                     break;
 
                 default:

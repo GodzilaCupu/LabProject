@@ -33,15 +33,16 @@ public class BTN_Controller : MonoBehaviour
     private void Update()
     {
         CheckToCongrats();
+        CheckLevelandProgress();
 
         if (countPos <= 0)
             kiriBTN.interactable = false;
-        else if (countPos < 3 && countPos > 0)
+        else if (countPos < 2 && countPos > 0)
         {
             kiriBTN.interactable = true;
             kananBTN.interactable = true;
         }
-        else if (countPos >= 3)
+        else if (countPos == 2)
             kananBTN.interactable = false;
     }
 
@@ -123,8 +124,10 @@ public class BTN_Controller : MonoBehaviour
 
         if (scene == SceneManager.GetSceneByName("Gameplay_4"))
             Save.SetCurrentLevel("Level",4);
+        if (scene == SceneManager.GetSceneByName("Gameplay_5"))
+            Save.SetCurrentLevel("Level", 5);
 
-        StartCoroutine(PopupMassage("Tersimpan !!", 2));
+        StartCoroutine(PopupMassage("Tersimpan !!", 1));
 
     }
     public void SoundToggle()
@@ -195,6 +198,12 @@ public class BTN_Controller : MonoBehaviour
         if (scene == SceneManager.GetSceneByName("Gameplay_4"))
         {
             Save.DelateKey("Stage4");
+            SceneManager.LoadScene("Gameplay_5");
+        }
+
+        if (scene == SceneManager.GetSceneByName("Gameplay_5"))
+        {
+            Save.DelateKey("Stage5");
             SceneManager.LoadScene("MainMenu");
         }
 
@@ -207,18 +216,61 @@ public class BTN_Controller : MonoBehaviour
         switch (Save.GetCurrentLevel("Level"))
         {
             case 1:
-                if (Save.GetCurrentProgres("Stage3") == 4)
+                if (Save.GetCurrentProgres("Stage1") == 4)
                     CongratsGetOpen();
                 break;
 
             case 2:
+                if (Save.GetCurrentProgres("Stage2") == 4)
+                    CongratsGetOpen();
+                break;
+            case 3:
+                if (Save.GetCurrentProgres("Stage3") == 4)
+                    CongratsGetOpen();
+                break;
+            case 4:
                 if (Save.GetCurrentProgres("Stage4") == 4)
                     CongratsGetOpen();
+                break;
+            case 5:
+                if (Save.GetCurrentProgres("Stage5") == 4)
+                    CongratsGetOpen();
+                break;
+            default:
+                Debug.LogWarning("Check Ur Key");
                 break;
 
         }
 
     }
+
+    private void CheckLevelandProgress()
+    {
+        switch (Save.GetCurrentLevel("Level"))
+        {
+            case 1:
+                Debug.Log(Save.GetCurrentProgres("Stage1"));
+                break;
+
+            case 2:
+                Debug.Log(Save.GetCurrentProgres("Stage2"));
+                break;
+            case 3:
+                Debug.Log(Save.GetCurrentProgres("Stage3"));
+                break;
+            case 4:
+                Debug.Log(Save.GetCurrentProgres("Stage4"));
+                break;
+            case 5:
+                Debug.Log(Save.GetCurrentProgres("Stage5"));
+                break;
+            default:
+                Debug.LogWarning("Check Ur Key");
+                break;
+
+        }
+    }
+
     IEnumerator PopupMassage(string massage, int delay)
     {
         popupSave.SetActive(true);

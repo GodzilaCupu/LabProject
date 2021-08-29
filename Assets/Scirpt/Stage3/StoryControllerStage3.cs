@@ -36,10 +36,6 @@ public class StoryControllerStage3 : MonoBehaviour
 
         Save.SetSample("Sample", "SampleA");
         Save.SetCurrentProgres("Stage3", 1);
-
-        Debug.LogWarning(Save.GetSample("Sample"));
-        Debug.LogWarning("Progres" + Save.GetCurrentProgres("Stage3"));
-
     }
 
     public void IfSampleB()
@@ -52,9 +48,6 @@ public class StoryControllerStage3 : MonoBehaviour
 
         Save.SetSample("Sample", "SampleB");
         Save.SetCurrentProgres("Stage3", 1);
-
-        Debug.LogWarning(Save.GetSample("Sample"));
-        Debug.LogWarning("Progres" + Save.GetCurrentProgres("Stage3"));
     }
 
 

@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class TriggerStage4 : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    StoryControllerStage4 story;
+
+    private void Start()
     {
-        
+        GameObject _gameManager = GameObject.Find("GameManager");
+        story = _gameManager.GetComponent<StoryControllerStage4>();
+
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter(Collision collision)
     {
-        
+        if(collision.gameObject.name == "TabungUkurKosong")
+            story.AquadesToTabungUkur();
+
+        if (collision.gameObject.name == "sample3tabungNonAnimKosong")
+            story.TabungUkurToTabungReaksi();
     }
 }

@@ -7,14 +7,12 @@ public class TriggerStage3 : MonoBehaviour
     [SerializeField] private GameObject tabungReaksiKosong, tabungReaksiSample, tabungReaksiCampuran,aquadesAnim,aquades,tabungUkurTrigger_1, tabungUkurTrigger_2, isiTabungUkur;
 
     Task_Content task;
-    BTN_Controller btnSetting;
     StoryControllerStage3 story3;
     private void Start()
     {
         tabungReaksiKosong = GameObject.Find("TabungKosong");
         GameObject _gamemanager = GameObject.Find("GameManager");
 
-        btnSetting = _gamemanager.GetComponent<BTN_Controller>();
         story3 = _gamemanager.GetComponent<StoryControllerStage3>();
         task = _gamemanager.GetComponent<Task_Content>();
 
