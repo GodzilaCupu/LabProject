@@ -22,11 +22,6 @@ public class StoryControllerStage4 : MonoBehaviour
         ResetProgres();
     }
 
-    private void ResetProgres()
-    {
-        Save.DelateKey("Stage4");
-    }
-
     #region Step
 
     //step 1
@@ -56,13 +51,60 @@ public class StoryControllerStage4 : MonoBehaviour
         task.ChangeColor();
     }
 
+    //Step 3
+    public void PipetToSampleSatu()
+    {
+        objectTrigger[5].SetActive(false);
+        objectTrigger[8].SetActive(false);
 
+        objectsAnim[1].SetActive(true);
+        anim[1].SetBool("PipetTabung", true);
+
+        Save.SetCurrentProgres("Stage4", 3);
+        task.ChangeColor();
+
+        StartCoroutine(PipetJeda(4));
+    }
+
+    public void SampleSatuToTigaSample()
+    {
+        objectTrigger[6].SetActive(false);
+        objectTrigger[4].SetActive(false);
+
+        objectsAnim[2].SetActive(true);
+        anim[2].SetBool("3Sample", true);
+        StartCoroutine(TigaSampleJeda(13));
+    }
 
     #endregion
+
+    #region IEnum Class
     IEnumerator AquadesJeda(int sec)
     {
         yield return new WaitForSeconds(sec);
         objectsAnim[0].SetActive(false);
         objectTrigger[2].SetActive(true);
+    }
+
+    IEnumerator PipetJeda(int sec)
+    {
+        yield return new WaitForSeconds(sec);
+        objectsAnim[1].SetActive(false);
+        objectTrigger[6].SetActive(true);
+        objectTrigger[7].SetActive(true);
+    }
+
+    IEnumerator TigaSampleJeda(int sec)
+    {
+        yield return new WaitForSeconds(sec);
+        Save.SetCurrentProgres("Stage4", 4);
+        task.ChangeColor();
+    }
+
+    #endregion
+
+    private void ResetProgres()
+    {
+        Save.DelateKey("Stage4");
     }
 }

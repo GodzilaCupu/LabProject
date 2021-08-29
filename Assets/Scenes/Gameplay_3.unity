@@ -984,6 +984,75 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &265871509
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3406366758931830854}
+    m_Modifications:
+    - target: {fileID: 7989028372229581185, guid: a471c5bcf33d55344b2d20ea657fcd65,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.528
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989028372229581185, guid: a471c5bcf33d55344b2d20ea657fcd65,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.7009
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989028372229581185, guid: a471c5bcf33d55344b2d20ea657fcd65,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989028372229581185, guid: a471c5bcf33d55344b2d20ea657fcd65,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989028372229581185, guid: a471c5bcf33d55344b2d20ea657fcd65,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989028372229581185, guid: a471c5bcf33d55344b2d20ea657fcd65,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989028372229581185, guid: a471c5bcf33d55344b2d20ea657fcd65,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989028372229581185, guid: a471c5bcf33d55344b2d20ea657fcd65,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989028372229581185, guid: a471c5bcf33d55344b2d20ea657fcd65,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989028372229581185, guid: a471c5bcf33d55344b2d20ea657fcd65,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989028372229581185, guid: a471c5bcf33d55344b2d20ea657fcd65,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8841167301427158880, guid: a471c5bcf33d55344b2d20ea657fcd65,
+        type: 3}
+      propertyPath: m_Name
+      value: BingkaiTP
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a471c5bcf33d55344b2d20ea657fcd65, type: 3}
 --- !u!1 &287857826
 GameObject:
   m_ObjectHideFlags: 0
@@ -1119,7 +1188,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 304516391}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.7320515, y: 120.00044, z: 1.9313414}
@@ -1136,14 +1205,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f07a2a7157709f45a03578ebc0d6514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tabungReaksiKosong: {fileID: 5123671475212470228}
-  tabungReaksiSample: {fileID: 396874794}
-  tabungReaksiCampuran: {fileID: 7783423894552338312}
-  aquadesAnim: {fileID: 919132148542004537}
-  aquades: {fileID: 440782468}
-  tabungUkurTrigger_1: {fileID: 304516391}
-  tabungUkurTrigger_2: {fileID: 1044908827}
-  isiTabungUkur: {fileID: 1900562339}
 --- !u!23 &304516396
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1301,7 +1362,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &396874795
 Transform:
   m_ObjectHideFlags: 0
@@ -1860,6 +1921,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3950bc69f24ec94ba5e606de609e895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tabungReaksiKosong: {fileID: 5123671475212470228}
+  tabungReaksiSample: {fileID: 396874794}
+  tabungReaksiCampuran: {fileID: 7783423894552338312}
+  aquadesAnim: {fileID: 919132148542004537}
+  aquades: {fileID: 440782468}
+  tabungUkurTrigger_1: {fileID: 304516391}
+  tabungUkurTrigger_2: {fileID: 1044908827}
   anim: {fileID: 5866666020381482489}
   isSampleA: 0
   isSampleB: 0
@@ -2885,7 +2953,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1044908828
 Transform:
   m_ObjectHideFlags: 0
@@ -2913,14 +2981,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f07a2a7157709f45a03578ebc0d6514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tabungReaksiKosong: {fileID: 5123671475212470228}
-  tabungReaksiSample: {fileID: 396874794}
-  tabungReaksiCampuran: {fileID: 7783423894552338312}
-  aquadesAnim: {fileID: 919132148542004537}
-  aquades: {fileID: 440782468}
-  tabungUkurTrigger_1: {fileID: 304516391}
-  tabungUkurTrigger_2: {fileID: 1044908827}
-  isiTabungUkur: {fileID: 1900562339}
 --- !u!23 &1044908830
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4291,6 +4351,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1552402371}
   m_CullTransparentMesh: 0
+--- !u!4 &1611661712 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7989028372229581185, guid: a471c5bcf33d55344b2d20ea657fcd65,
+    type: 3}
+  m_PrefabInstance: {fileID: 265871509}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1615282915
 GameObject:
   m_ObjectHideFlags: 0
@@ -5321,7 +5387,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &973826578451960531
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5554,14 +5620,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f07a2a7157709f45a03578ebc0d6514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tabungReaksiKosong: {fileID: 5123671475212470228}
-  tabungReaksiSample: {fileID: 396874794}
-  tabungReaksiCampuran: {fileID: 7783423894552338312}
-  aquadesAnim: {fileID: 919132148542004537}
-  aquades: {fileID: 440782468}
-  tabungUkurTrigger_1: {fileID: 304516391}
-  tabungUkurTrigger_2: {fileID: 1044908827}
-  isiTabungUkur: {fileID: 1900562339}
 --- !u!65 &3039338470575689673
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5645,6 +5703,7 @@ Transform:
   m_Children:
   - {fileID: 1181318939526931968}
   - {fileID: 1497699000}
+  - {fileID: 1611661712}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

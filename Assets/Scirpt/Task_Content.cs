@@ -49,10 +49,11 @@ public class Task_Content : MonoBehaviour
 
         if (scene == SceneManager.GetSceneByName("Gameplay_4"))
         {
-            taskTexts = new string[3];
+            taskTexts = new string[4];
             taskTexts[0] = "Tuang Akuades kedalam tabung ukur Sebanyak 27 ML";
             taskTexts[1] = "Tuang Akudaes kedalam masing masing tabung reaksi sebanyak 9 ML";
-            taskTexts[2] = "Ambil Sample yang sudah dipersaipkan menggunakan pipet masing masing sebanyak 1 ML";
+            taskTexts[2] = "Ambil Sample yang sudah di persiapkan sebelumnya menggunakan pipet sebanayk 1 ML";
+            taskTexts[3] = "Ambil Sample yang sudah dipersaipkan menggunakan pipet masing masing sebanyak 1 ML";
 
             CongratsText = new string[4];
             CongratsText[0] = "Selamat !!!";

@@ -95,8 +95,6 @@ public class DragObject : MonoBehaviour
 
             Debug.Log("Touched " + touched + " Dragging " + dragging );
         }
-
-
     }
 
     private void Dragging() 

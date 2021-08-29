@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class StoryControllerStage3 : MonoBehaviour
 {
-    private GameObject sampleA, sampleB;
-    private Task_Content task;
+    [SerializeField] private GameObject tabungReaksiKosong, tabungReaksiSample, tabungReaksiCampuran, aquadesAnim, aquades, tabungUkurTrigger_1, tabungUkurTrigger_2;
+
+    GameObject sampleA, sampleB;
+    Task_Content task;
 
     public Animator anim;
 
@@ -18,13 +20,17 @@ public class StoryControllerStage3 : MonoBehaviour
         sampleB = GameObject.Find("SampleB");
 
         task = _gamemanager.GetComponent<Task_Content>();
-        Save.SetCurrentLevel("Level", 3);
-
         anim.GetComponent<Animator>();
-        Restart();
 
+        Save.SetCurrentLevel("Level",3);
+        if (Save.GetCurrentProgres("Stage3") <= 2)
+            tabungReaksiSample.SetActive(false);
+
+        Restart();
     }
 
+    #region Step
+    //Step 1
     public void IfSampleA()
     {
         isSampleA = true;
@@ -49,6 +55,60 @@ public class StoryControllerStage3 : MonoBehaviour
         Save.SetSample("Sample", "SampleB");
         Save.SetCurrentProgres("Stage3", 1);
     }
+
+    //Step2
+    public void PiringToTabungReaksi()
+    {
+        tabungReaksiKosong.SetActive(false);
+        tabungReaksiSample.SetActive(true);
+
+        GameObject piring = GameObject.Find(Save.GetSample("Sample"));
+        piring.SetActive(false);
+        Save.SetCurrentProgres("Stage3", 2);
+    }
+
+    //Step3
+    public void AquadesToTabungUkur()
+    {
+        aquades.SetActive(false);
+        aquadesAnim.SetActive(true);
+
+        Save.SetCurrentProgres("Stage3", 3);
+        task.ChangeColor();
+
+        anim.SetBool("Squeze", true);
+        StartCoroutine(waitTabungReaksiIsi(3));
+    }
+
+    //Step4
+    public void TabungUkurPenuhToTabungReaksi()
+    {
+        tabungReaksiCampuran.SetActive(true);
+        tabungUkurTrigger_2.SetActive(false);
+
+        StartCoroutine(TabungUkurCampuranJeda(2));
+        task.ChangeColor();
+    }
+    #endregion
+
+
+    #region IEnumClas
+    IEnumerator waitTabungReaksiIsi(int sec)
+    {
+        yield return new WaitForSeconds(sec);
+        tabungUkurTrigger_1.SetActive(false);
+        tabungReaksiSample.SetActive(true);
+        tabungUkurTrigger_2.SetActive(true);
+        aquadesAnim.SetActive(false);
+    }
+
+    IEnumerator TabungUkurCampuranJeda( int sec)
+    {
+        yield return new WaitForSeconds(sec);
+        Save.SetCurrentProgres("Stage3", 4);
+    }
+
+    #endregion
 
 
     private void Restart()
