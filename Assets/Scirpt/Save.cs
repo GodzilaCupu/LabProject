@@ -26,6 +26,15 @@ public class Save
         return PlayerPrefs.GetInt(keyName);
     }
 
+    public static void SetCurrentTutorial(string key, int value)
+    {
+        PlayerPrefs.SetInt(key, value);
+    }
+
+    public static int GetCurrentTutorial(string key)
+    {
+        return PlayerPrefs.GetInt(key);
+    }
 
     public static void SetSample (string Key, string Name)
     {
