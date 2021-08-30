@@ -17,10 +17,18 @@ public class TriggerStage5 : MonoBehaviour
     {
         if (collision.gameObject.name == "kompor")
             if (Save.GetCurrentProgres("Stage5") == 0)
-            {
                 story.ElenmayerToHeater();
-                Debug.Log("Berhasil 2");
-            }
+
+        if (collision.gameObject.name == "ElenmayerMediumNonAnimAfter")
+            if (Save.GetCurrentProgres("Stage5") == 1)
+                story.PipetToElenmayer();
+
+        if (collision.gameObject.name == "RakSampleNonAnimSesudahMedium")
+            if (Save.GetCurrentProgres("Stage5") == 2)
+                story.DurhamToTabung();
+        if (collision.gameObject.name == "Inkubator")
+            if (Save.GetCurrentProgres("Stage5") == 3)
+                story.SampleToIncubator();
 
 
 

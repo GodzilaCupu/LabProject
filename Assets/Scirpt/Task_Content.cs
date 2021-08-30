@@ -67,8 +67,8 @@ public class Task_Content : MonoBehaviour
             taskTexts = new string[4];
             taskTexts[0] = "Panaskan Medium yang telah diolah sebelumnya";
             taskTexts[1] = "Tambahkan Medium kedalam masing masing Sample sebanyak 10 ML";
-            taskTexts[2] = "Masukkan Tabung Durham";
-            taskTexts[3] = "Masukan Kedalam Inkkubator dan tunggu 24 Jam";
+            taskTexts[2] = "Masukkan Tabung Durham kedalam masing masing Sample";
+            taskTexts[3] = "Masukan Sample yang sudah siap Kedalam Inkkubator dan tunggu 24 Jam";
 
             CongratsText = new string[4];
             CongratsText[0] = "Selamat !!!";
@@ -124,6 +124,34 @@ public class Task_Content : MonoBehaviour
 
                 case 3:
                     tasks[2].color = Color.grey;
+                    break;
+
+                default:
+                    Debug.LogWarning("Check Ur Key");
+                    break;
+
+            }
+
+        }
+
+        if (Save.GetCurrentLevel("Level") == 5)
+        {
+            switch (Save.GetCurrentProgres("Stage5"))
+            {
+                case 1:
+                    tasks[0].color = Color.grey;
+                    break;
+
+                case 2:
+                    tasks[1].color = Color.grey;
+                    break;
+
+                case 3:
+                    tasks[2].color = Color.grey;
+                    break;
+
+                case 4:
+                    tasks[3].color = Color.grey;
                     break;
 
                 default:

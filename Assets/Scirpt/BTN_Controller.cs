@@ -6,10 +6,13 @@ using UnityEngine.UI;
 
 public class BTN_Controller : MonoBehaviour
 {
+
     [SerializeField] private Button taskBTN, settingBTN,kiriBTN,kananBTN;
     [SerializeField] private GameObject panelTask, panelSetting,popupSave, panelCongrats;
     [SerializeField] private Text popupSaveText;
     public Toggle toggleSound, toggleMusic;
+
+    [SerializeField] private GameObject BlockerUI;
 
     public Transform cameraTransform;
 
@@ -29,21 +32,12 @@ public class BTN_Controller : MonoBehaviour
         isMute = false;
     }
 
-
     private void Update()
     {
         CheckToCongrats();
         CheckLevelandProgress();
+        CheckPosition();
 
-        if (countPos <= 0)
-            kiriBTN.interactable = false;
-        else if (countPos < 2 && countPos > 0)
-        {
-            kiriBTN.interactable = true;
-            kananBTN.interactable = true;
-        }
-        else if (countPos == 2)
-            kananBTN.interactable = false;
     }
 
     #region Panel Configuration
@@ -170,7 +164,6 @@ public class BTN_Controller : MonoBehaviour
     public void BackToMainMenu()
     {
         SceneManager.LoadScene("Main_Menu");
-        Save.SetCurrentLevel("Level", 3);
     }
 
     public void NextLevel()
@@ -271,6 +264,28 @@ public class BTN_Controller : MonoBehaviour
         }
     }
 
+    public void DisableAllBTN()
+    {
+        BlockerUI.SetActive(true);
+    }
+
+    public void EnebleALLBTN()
+    {
+        BlockerUI.SetActive(false);
+    }
+
+    private void CheckPosition()
+    {
+        if (countPos <= 0)
+            kiriBTN.interactable = false;
+        else if (countPos < 2 && countPos > 0)
+        {
+            kiriBTN.interactable = true;
+            kananBTN.interactable = true;
+        }
+        else if (countPos == 2)
+            kananBTN.interactable = false;
+    }
     IEnumerator PopupMassage(string massage, int delay)
     {
         popupSave.SetActive(true);
