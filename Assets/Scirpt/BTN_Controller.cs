@@ -25,11 +25,16 @@ public class BTN_Controller : MonoBehaviour
     public bool taskPanelIsActive { get; private set; }
     public bool settingPanelIsActive { get; private set; }
 
+    StoryControllerStage1 stage1;
+
     private void Start()
     {
         taskPanelIsActive = false;
         settingPanelIsActive = false;
         isMute = false;
+
+        GameObject _gameManager = GameObject.Find("GameManager");
+        stage1 = _gameManager.GetComponent<StoryControllerStage1>();
     }
 
     private void Update()
@@ -98,7 +103,6 @@ public class BTN_Controller : MonoBehaviour
         kananBTN.interactable = false;
         kananBTN.interactable = false;
         taskBTN.interactable = false;
-
     }
     #endregion
 
@@ -209,8 +213,8 @@ public class BTN_Controller : MonoBehaviour
         switch (Save.GetCurrentLevel("Level"))
         {
             case 1:
-                if (Save.GetCurrentProgres("Stage1") == 4)
-                    CongratsGetOpen();
+                if (Save.GetCurrentProgres("Stage1") == 8)
+                    stage1.CongratsGetOpenStage1();
                 break;
 
             case 2:

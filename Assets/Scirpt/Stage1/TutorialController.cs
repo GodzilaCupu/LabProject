@@ -11,16 +11,11 @@ public class TutorialController : MonoBehaviour
     [SerializeField] private Button[] uiBTN;
     [SerializeField] private GameObject[] tutorial;
 
-    int countTutorial = 0;
+    public int countTutorial { get; private set;}
 
-    BTN_Controller btn;
     // Start is called before the first frame update
     void Start()
     {
-        GameObject _gameManager = GameObject.Find("GameManager");
-
-        btn = _gameManager.GetComponent<BTN_Controller>();
-
         ValueText();
         SetText();
         ResetValue();
@@ -43,7 +38,7 @@ public class TutorialController : MonoBehaviour
             tutorial[1].SetActive(true);
 
         }
-        else if (countTutorial >= 4)
+        else if (countTutorial == 4)
         {
             tutorial[1].SetActive(false);
             tutorial[5].SetActive(true);
@@ -56,10 +51,13 @@ public class TutorialController : MonoBehaviour
             tutorial[0].SetActive(false);
     }
 
+    #region Value Controller
+
     private void ResetValue()
     {
         Save.SetCurrentLevel("Level", 1);
         Save.SetCurrentTutorial("Stage1", 0);
+        countTutorial = 0;
     }
 
     private void ValueText()
@@ -84,7 +82,19 @@ public class TutorialController : MonoBehaviour
 
         contentTXT[0].text = tutorialTexts[0];
     }
+    public void SelesaiTutorial()
+    {
+        countTutorial++;
+        tutorial[1].SetActive(false);
+        tutorial[2].SetActive(false);
+        tutorial[3].SetActive(false);
+        tutorial[5].SetActive(false);
 
+        tutorial[4].SetActive(true);
+    }
+    #endregion
+
+    #region BTN Controller
     public void NextTutorial()
     {
         countTutorial++;
@@ -96,14 +106,5 @@ public class TutorialController : MonoBehaviour
         countTutorial--;
         contentTXT[0].text = tutorialTexts[countTutorial];
     }
-
-    public void SelesaiTutorial()
-    {
-        tutorial[1].SetActive(false);
-        tutorial[2].SetActive(false);
-        tutorial[3].SetActive(false);
-        tutorial[5].SetActive(false);
-
-        tutorial[4].SetActive(true);
-    }
+    #endregion
 }

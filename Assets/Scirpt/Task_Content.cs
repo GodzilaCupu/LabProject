@@ -32,6 +32,15 @@ public class Task_Content : MonoBehaviour
     {
         Scene scene = SceneManager.GetActiveScene();
 
+        if (scene == SceneManager.GetSceneByName("Gameplay_1"))
+        {
+            CongratsText = new string[4];
+            CongratsText[0] = "Selamat !!!";
+            CongratsText[1] = "Selamat Anda telah berhasil \nMengambil Alat dan Bahan yang dibutuhkan \nAlat dan Bahan siap untuk digunakan \nAyo Lanjut ke tahapan selanjutnya";
+            CongratsText[2] = "Main Menu";
+            CongratsText[3] = "Lanjut";
+        }
+
         if (scene == SceneManager.GetSceneByName("Gameplay_3"))
         {
             taskTexts = new string[4];

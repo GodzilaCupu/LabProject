@@ -7,7 +7,8 @@ TagManager:
   - Device
   - Task_text
   - Meja
-  - BahanStage1
+  - BahanStage1Bener
+  - BahanStage1Salah
   layers:
   - Default
   - TransparentFX

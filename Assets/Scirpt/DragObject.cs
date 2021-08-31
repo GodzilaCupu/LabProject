@@ -13,8 +13,10 @@ public class DragObject : MonoBehaviour
     private Vector3 prevPos, thisPos;
     private Camera cam;
 
-    private BTN_Controller btnControl;
-    private StoryControllerStage3 story3;
+    BTN_Controller btnControl;
+    StoryControllerStage1 story1;
+    StoryControllerStage3 story3;
+
 
     private void Awake()
     {
@@ -32,7 +34,12 @@ public class DragObject : MonoBehaviour
         GameObject _gamemanager = GameObject.Find("GameManager");
 
         btnControl = _gamemanager.GetComponent<BTN_Controller>();
-        story3 = _gamemanager.GetComponent<StoryControllerStage3>();
+
+        if(Save.GetCurrentLevel("Level") == 1)
+            story1 = _gamemanager.GetComponent<StoryControllerStage1>();
+        else if (Save.GetCurrentLevel("Level") == 1)
+            story3 = _gamemanager.GetComponent<StoryControllerStage3>();
+
     }
 
     private void FixedUpdate()
@@ -71,10 +78,11 @@ public class DragObject : MonoBehaviour
     #region Actions
 
     private void Touching(Touch touch)
-    {   
+    {
         Vector3 touchPos = touch.position;
         Ray raycastTouch = cam.ScreenPointToRay(touchPos);
         RaycastHit hit;
+
         if (Physics.Raycast(raycastTouch, out hit) && hit.collider.tag == dragTag)
         {
             toDrag = hit.transform;
@@ -93,7 +101,65 @@ public class DragObject : MonoBehaviour
             else if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject.name == "SampleB")
                 story3.IfSampleB();
 
-            Debug.Log("Touched " + touched + " Dragging " + dragging );
+            Debug.Log("Touched " + touched + " Dragging " + dragging);
+        }
+
+        if (Physics.Raycast(raycastTouch, out hit) && hit.collider.tag == "BahanStage1Bener")
+        {
+            //Aquades
+            if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject == story1.objBenar[0])
+                story1.Benar(0);
+
+            //Medium
+            if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject == story1.objBenar[1])
+                story1.Benar(1);
+
+            //Arloji Glass
+            if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject == story1.objBenar[2])
+                story1.Benar(2);
+
+            //Erlenmayer
+            if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject == story1.objBenar[3])
+                story1.Benar(3);
+
+            //Spatula
+            if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject == story1.objBenar[4])
+                story1.Benar(4);
+
+            //PipetUkur
+            if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject == story1.objBenar[5])
+                story1.Benar(5);
+
+            //TabungUkur
+            if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject == story1.objBenar[6])
+                story1.Benar(6);
+
+            //TabungReaksi dan Tabung Durham
+            if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject == story1.objBenar[7])
+                story1.Benar(7);
+        }
+
+        if (Physics.Raycast(raycastTouch, out hit) && hit.collider.tag == "BahanStage1Salah")
+        {
+            //1
+            if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject == story1.objSalah[0])
+                story1.Salah();
+
+            //2
+            if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject == story1.objSalah[1])
+                story1.Salah();
+
+            //3
+            if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject == story1.objSalah[2])
+                story1.Salah();
+
+            //4
+            if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject == story1.objSalah[3])
+                story1.Salah();
+
+            //5
+            if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject == story1.objSalah[4])
+                story1.Salah();
         }
     }
 
