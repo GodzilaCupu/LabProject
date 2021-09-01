@@ -17,9 +17,9 @@ public class StoryControllerStage4 : MonoBehaviour
     {
         GameObject _gameManager = GameObject.Find("GameManager");
         task = _gameManager.GetComponent<Task_Content>();
+        ResetProgres();
 
         Save.SetCurrentLevel("Level", 4);
-        ResetProgres();
     }
 
     #region Step

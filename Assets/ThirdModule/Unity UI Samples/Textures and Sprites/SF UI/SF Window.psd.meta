@@ -153,13 +153,13 @@ TextureImporter:
       name: SF Window
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 481
-        height: 235
+        x: 30
+        y: 19
+        width: 426
+        height: 186
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 170, y: 90, z: 170, w: 100}
+      border: {x: 170, y: 86, z: 170, w: 100}
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -173,7 +173,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 22e0a6c342d8f7e498d235a87d4a51f6
     internalID: 0
     vertices: []
     indices: 

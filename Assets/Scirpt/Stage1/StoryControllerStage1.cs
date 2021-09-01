@@ -33,19 +33,20 @@ public class StoryControllerStage1 : MonoBehaviour
         tutor = _gameManager.GetComponent<TutorialController>();
 
         ResetProgres();
-        CheckTutorSelesai();
         ValueText();
         SetText();
+    }
 
+    private void Update()
+    {
+        CheckTutorSelesai();
     }
 
     #region Value Configuration
     private void CheckTutorSelesai()
     {
-        if (tutor.countTutorial >= 5)
+        if (tutor.countTutorial == 4)
             task[2].SetActive(false);
-        else
-            task[2].SetActive(true);
     }
 
     private void ValueText()
@@ -67,7 +68,6 @@ public class StoryControllerStage1 : MonoBehaviour
     {
         for (int i = 0; i < taskString.Length; i++)
             taskText[i].text = taskString[i];
-
 
         popupText.text = popupString;
     }
@@ -112,7 +112,6 @@ public class StoryControllerStage1 : MonoBehaviour
         yield return new WaitForSeconds(jeda);
         task[0].SetActive(false);
         task[2].SetActive(false);
-
     }
 
 }
