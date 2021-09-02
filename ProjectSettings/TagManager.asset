@@ -9,6 +9,7 @@ TagManager:
   - Meja
   - BahanStage1Bener
   - BahanStage1Salah
+  - MainMenu
   layers:
   - Default
   - TransparentFX
