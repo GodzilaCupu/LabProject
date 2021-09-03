@@ -257,7 +257,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 7affabb313d1f724a82f3125ffb34b2a, type: 3}
-    m_FontSize: 43
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -515,9 +515,7 @@ GameObject:
   - component: {fileID: 128637894}
   - component: {fileID: 128637893}
   - component: {fileID: 128637889}
-  - component: {fileID: 128637891}
   - component: {fileID: 128637890}
-  - component: {fileID: 128637892}
   - component: {fileID: 128637895}
   m_Layer: 0
   m_Name: GameManager
@@ -538,20 +536,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6974e87f3c414174cac0ce062ae8ae38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  taskBTN: {fileID: 986589285}
-  settingBTN: {fileID: 305187192}
-  kiriBTN: {fileID: 2061654907}
-  kananBTN: {fileID: 1706890846}
-  panelTask: {fileID: 791276411}
-  panelSetting: {fileID: 1695065581}
-  popupSave: {fileID: 1679349145}
-  panelCongrats: {fileID: 1235420287}
+  uiBTN: []
+  uiPanel: []
   popupSaveText: {fileID: 1716354683}
-  toggleSound: {fileID: 207741571}
-  toggleMusic: {fileID: 2146262011}
-  BlockerUI: {fileID: 0}
+  settingTXT: []
   cameraTransform: {fileID: 1941156490}
-  audioSetting: {fileID: 207581626}
+  isPanelON: 0
 --- !u!114 &128637890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -580,42 +570,6 @@ MonoBehaviour:
   - {fileID: 67590266}
   - {fileID: 1730514143}
   - {fileID: 472159646}
---- !u!114 &128637891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 128637888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b7ddaa02c973d745b1e7229a24fc3d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textSetting:
-  - {fileID: 492055813}
-  - {fileID: 1863991844}
-  - {fileID: 1010251117}
-  - {fileID: 65378292}
-  - {fileID: 1652629880}
---- !u!114 &128637892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 128637888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c27e5f723d5e7b745b68fc7f0ab3d761, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tasks: []
-  congrats:
-  - {fileID: 1736678909}
-  - {fileID: 1005056034}
-  - {fileID: 942158487}
-  - {fileID: 624230846}
 --- !u!114 &128637893
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,8 +10,17 @@ public class Save
         PlayerPrefs.SetInt(key, value);
     }
 
-
     public static int GetCurrentLevel(string keyName)
+    {
+        return PlayerPrefs.GetInt(keyName);
+    }
+
+    public static void SetSound(string key, int value)
+    {
+        PlayerPrefs.SetInt(key, value);
+    }
+
+    public static int GetSound(string keyName)
     {
         return PlayerPrefs.GetInt(keyName);
     }

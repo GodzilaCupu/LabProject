@@ -62,7 +62,7 @@ public class TutorialController : MonoBehaviour
     private void ValueText()
     {
         tutorialTexts = new string[5];
-        tutorialTexts[0] = "Hi, Selamat datang !!! \nPada Mini Games ini Kamu akan melakukan experimnet \nbagaimana caranya mendeteksi Coilliform pada sebuah Sample. ";
+        tutorialTexts[0] = "Hi, Selamat datang !!! \nPada Mini Games ini Kamu akan melakukan eksperimen \nbagaimana caranya mendeteksi Coliform pada sebuah Sample.";
         tutorialTexts[1] = "Untuk Langkah Pertama, Kamu harus mengambil \nbahan bahan yang di perlukan untuk melakukan Experiment";
         tutorialTexts[2] = "Kamu dapat mengetahui bahan dan alat melalui tombol tutorial ini";
         tutorialTexts[3] = "Setelah mengetahuinya, kamu cukup mengetuk bahan \nyang di perlukan tidak perlu mengambil semua bahan dan alat";

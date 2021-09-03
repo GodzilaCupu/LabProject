@@ -11,12 +11,12 @@ public class StoryControllerStage2 : MonoBehaviour
     [Header("Animator")]
     [SerializeField] private Animator[] anim;
 
-    Task_Content task;
+    Task_Congrats_Content task;
 
     private void Start()
     {
         GameObject _gameManager = GameObject.Find("GameManager");
-        task = _gameManager.GetComponent<Task_Content>();
+        task = _gameManager.GetComponent<Task_Congrats_Content>();
         ResetProgres();
 
         Save.SetCurrentLevel("Level", 2);

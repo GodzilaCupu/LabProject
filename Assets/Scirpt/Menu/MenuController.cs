@@ -24,7 +24,9 @@ public class MenuController : MonoBehaviour
     [SerializeField] private GameObject descPanelLevelMenu;
     [SerializeField] private Text[] textLevelMenu;
     [SerializeField] private GameObject[] btnLevelMenu;
-    private string[] _textLevelMenu;
+    private string[] _textUIDeteksiColiform, _textContentDeteksiColiform, _textTitleDeteksiColiform;
+
+    int countDownInfo;
 
     bool mainMenuisActive, miniGameMenuisActive, levelMenuisActive;
 
@@ -37,12 +39,22 @@ public class MenuController : MonoBehaviour
         ValueTextMiniGameMenu();
         SetTextMiniGameMenu();
         SetButtonMiniGameMenu();
+
+        ValueTextDeteksiColiform();
+        SetTextDeteksiColiform();
+        SetButtonDeteksiColiform();
     }
 
     void Start()
     {
         RestartMenu();
         CheckMenu();
+    }
+
+    private void Update()
+    {
+        CheckInfoContent();
+        CheckStage();
     }
 
     #region General configuration
@@ -78,9 +90,13 @@ public class MenuController : MonoBehaviour
 
     private void RestartMenu()
     {
+        if(Save.GetCurrentLevel("Level") == 0 || Save.GetCurrentLevel("Level") < 1)
+            Save.SetCurrentLevel("Level", 1);
         mainMenuisActive = true;
         miniGameMenuisActive = false;
         levelMenuisActive = false;
+
+        countDownInfo = 0;
     }
 
     private void InfoPanelGetOpen()
@@ -106,8 +122,8 @@ public class MenuController : MonoBehaviour
     private void ValueTextMainMenu()
     {
         _textMainMenu = new string[3];
-        _textMainMenu[0] = "Play" ;
-        _textMainMenu[1] = "Exit" ;
+        _textMainMenu[0] = "Play";
+        _textMainMenu[1] = "Exit";
         _textMainMenu[2] = "Virtual Laboratorium - Kamanan Pangan merupakan sebuah permainan edukasi mengenai keamanan pangan yang bertujuan agar pemain mengetahuikondisi dan upaya yang diperlukan untuk mencegah pangan dari kemungkinan tiga cemaran, yaitu cemaran biologis, kimia, dan benda lain yang dapat mengganggu, merugikan, dan membahayakan kesehatan";
     }
 
@@ -148,7 +164,7 @@ public class MenuController : MonoBehaviour
             }
         }
 
-            
+
     }
 
     private void PlayMainMenu()
@@ -175,7 +191,7 @@ public class MenuController : MonoBehaviour
         _textMiniGame = new string[2];
 
         _textMiniGame[0] = "Deteksi Coliform";
-        _textMiniGame[1] = "Hygene";
+        _textMiniGame[1] = "Hygiene";
     }
 
     private void SetTextMiniGameMenu()
@@ -201,7 +217,7 @@ public class MenuController : MonoBehaviour
                     break;
 
                 case 2:
-                    btnMiniGame[2] = GameObject.Find("Hygene");
+                    btnMiniGame[2] = GameObject.Find("Hygiene");
                     btnMiniGame[2].GetComponent<Button>().onClick.AddListener(PlayHygine);
                     break;
 
@@ -239,7 +255,267 @@ public class MenuController : MonoBehaviour
 
     #region Deteksi Coliform Menu
 
+    private void ValueTextDeteksiColiform()
+    {
+        _textUIDeteksiColiform = new string[8];
+        _textUIDeteksiColiform[0] = "Deteksi ColiForm";
+        _textUIDeteksiColiform[1] = "Stage 1";
+        _textUIDeteksiColiform[2] = "Stage 2";
+        _textUIDeteksiColiform[3] = "Stage 3";
+        _textUIDeteksiColiform[4] = "Stage 4";
+        _textUIDeteksiColiform[5] = "Stage 5";
+        _textUIDeteksiColiform[6] = "Deteksi ColiForm";
+        _textUIDeteksiColiform[7] = "ColiForm merupakan indicator adanya fecal contamination / kontaminasi kotoran. Karenanya deteksinya penting sebagai indicator kebersihan dan higienitas penanganan pangan olahan. Pada beberapa uji keamanan pangan, jika deteksi Coli Form menunjukkan hasil positif maka produk makanan olahan tersebut sudah dinyatakan tidak layak edar.";
 
+        _textTitleDeteksiColiform = new string[5];
+        //Opsi 1
+        _textTitleDeteksiColiform[0] = "Pengambilan Alat dan Bahan";
+        _textTitleDeteksiColiform[1] = "Persiapan Sample";
+        _textTitleDeteksiColiform[2] = "Pembuatan Medium";
+        _textTitleDeteksiColiform[3] = "Pengenceran Sample";
+        _textTitleDeteksiColiform[4] = "Hasil Pengujian";
+
+        ////Opsi 2
+        //_textTitleDeteksiColiform[0] = "Stage 1";
+        //_textTitleDeteksiColiform[1] = "Stage 2";
+        //_textTitleDeteksiColiform[2] = "Stage 3";
+        //_textTitleDeteksiColiform[3] = "Stage 4";
+        //_textTitleDeteksiColiform[4] = "Stage 5";
+
+        _textContentDeteksiColiform = new string[5];
+        _textContentDeteksiColiform[0] = "Setiap alat dalam laboratorium memiliki fungsi spesifik. Pemilihan alat yang tidak tepat, dapat mempengaruhi ketepatan hasil suatu deteksi ataupun pengujian. Demikian juga dengan bahan. Mengenal alat dan bahan yang tepat dalam pengujian ini merupakan langkah penting yang harus dikuasai guna memastikan tercapainya tujuan dari praktikum ini.";
+        _textContentDeteksiColiform[1] = "Sampel pengujian perlu dipersiapkan agar layak untuk diuji di dalam laboratorium. Alat yang digunakan dalam pengujian laboratorium memiliki tingkat sensitifitas dan kapasitas tertentu. Sampel harus dipersiapkan menyesuaikan dengan tingkat sensitifitas dan kapasitas alat agar hasil yang diperoleh akurat dan tepat.";
+        _textContentDeteksiColiform[2] = "Medium tumbuh merupakan substrat yang menyediakan nutrisi bagi pertumbuhan mikrobia tertentu. Kontaminasi mikrobia diluar mikrobia yang akan kita deteksi dapat mengganggu hasil suatu pengujian. Pembuatan medium yang baik dan steril wajib dikuasai agar hasil suatu pengujian mikrobia dapat tepat dan akurat.";
+        _textContentDeteksiColiform[3] = "Ketika diambil dari lapangan, jumlah mikrobia di dalam sampel bisa jadi sangat banyak. Akibatnya, mikrobia akan sangat sulit dianalisis terutama ketika kita akan melakukan uji kuantitatif. Karenanya, pengenceran sampel sangat penting dalam pengujian mikrobia.";
+        _textContentDeteksiColiform[4] = "Uji pathogen pada sampel makanan biasanya mahal dan rumit. Untuk mempermudah pengujian, biasanya diambil suatu mikrobia indicator untuk menunjukkan tingkat keamanan suatu produk makanan. Coliform menunjukkan kelompok mikrobia yang secara persisten ditemui dalam jalur pencernaan binatang dan manusia.";
+    }
+
+    private void SetTextDeteksiColiform()
+    {
+        for (int i = 0; i < textLevelMenu.Length; i++)
+            textLevelMenu[i].text = _textUIDeteksiColiform[i];
+    }
+
+    private void SetTextInfoDeteksiColiform()
+    {
+        switch (countDownInfo)
+        {
+            case 0:
+                textLevelMenu[6].text = _textUIDeteksiColiform[6];
+                textLevelMenu[7].text = _textUIDeteksiColiform[7];
+                break;
+
+            case 1:
+                textLevelMenu[6].text = _textTitleDeteksiColiform[0];
+                textLevelMenu[7].text = _textContentDeteksiColiform[0];
+                break;
+
+            case 2:
+                textLevelMenu[6].text = _textTitleDeteksiColiform[1];
+                textLevelMenu[7].text = _textContentDeteksiColiform[1];
+                break;
+
+            case 3:
+                textLevelMenu[6].text = _textTitleDeteksiColiform[2];
+                textLevelMenu[7].text = _textContentDeteksiColiform[2];
+                break;
+
+            case 4:
+                textLevelMenu[6].text = _textTitleDeteksiColiform[3];
+                textLevelMenu[7].text = _textContentDeteksiColiform[3];
+                break;
+
+            case 5:
+                textLevelMenu[6].text = _textTitleDeteksiColiform[4];
+                textLevelMenu[7].text = _textContentDeteksiColiform[4];
+                break;
+
+            default:
+                Debug.LogWarning("Check ur key");
+                break;
+        }
+    }
+
+    private void SetButtonDeteksiColiform()
+    {
+        for (int i = 0; i < btnLevelMenu.Length; i++)
+        {
+            switch (i)
+            {
+                case 0:
+                    btnLevelMenu[0] = GameObject.Find("BTN_BackDeteksiColiform");
+                    btnLevelMenu[0].GetComponent<Button>().onClick.AddListener(BackToMiniGameMenu);
+                    break;
+
+                case 1:
+                    btnLevelMenu[1] = GameObject.Find("PengambilanAlatdanBahan");
+                    btnLevelMenu[1].GetComponent<Button>().onClick.AddListener(PindahStage);
+                    break;
+
+                case 2:
+                    btnLevelMenu[2] = GameObject.Find("PersiapanSample");
+                    btnLevelMenu[2].GetComponent<Button>().onClick.AddListener(PindahStage);
+                    break;
+
+                case 3:
+                    btnLevelMenu[3] = GameObject.Find("PembuatanMedium");
+                    btnLevelMenu[3].GetComponent<Button>().onClick.AddListener(PindahStage);
+                    break;
+
+                case 4:
+                    btnLevelMenu[4] = GameObject.Find("PengenceranSample");
+                    btnLevelMenu[4].GetComponent<Button>().onClick.AddListener(PindahStage);
+                    break;
+
+                case 5:
+                    btnLevelMenu[5] = GameObject.Find("DeteksiColiformStage");
+                    btnLevelMenu[5].GetComponent<Button>().onClick.AddListener(PindahStage);
+                    break;
+
+                case 6:
+                    btnLevelMenu[6] = GameObject.Find("BTN_InfoStage");
+                    btnLevelMenu[6].GetComponent<Button>().onClick.AddListener(InfoPanelGetOpen);
+                    break;
+
+                case 7:
+                    btnLevelMenu[7] = GameObject.Find("BTN_Left");
+                    btnLevelMenu[7].GetComponent<Button>().onClick.AddListener(GeserKiriInfo);
+                    break;
+
+                case 8:
+                    btnLevelMenu[8] = GameObject.Find("BTN_Right");
+                    btnLevelMenu[8].GetComponent<Button>().onClick.AddListener(GeserKananInfo);
+                    break;
+
+                case 9:
+                    btnLevelMenu[9] = GameObject.Find("BTN_CLoseDeteksiColiform");
+                    btnLevelMenu[9].GetComponent<Button>().onClick.AddListener(InfoPanelGetClose);
+                    break;
+
+                default:
+                    Debug.LogWarning("Check ur Key");
+                    break;
+
+
+            }
+        }
+    }
+
+    private void CheckInfoContent()
+    {
+        if (countDownInfo <= 0)
+            btnLevelMenu[7].GetComponent<Button>().interactable = false;
+        else if (countDownInfo < 5 && countDownInfo > 0)
+        {
+            btnLevelMenu[7].GetComponent<Button>().interactable = true;
+            btnLevelMenu[8].GetComponent<Button>().interactable = true;
+        }
+        else if (countDownInfo == 5)
+            btnLevelMenu[8].GetComponent<Button>().interactable = false;
+    }
+
+    private void GeserKiriInfo()
+    {
+        countDownInfo--;
+        SetTextInfoDeteksiColiform();
+    }
+
+    private void GeserKananInfo()
+    {
+        countDownInfo++;
+        SetTextInfoDeteksiColiform();
+    }
+
+    private void BackToMiniGameMenu()
+    {
+        mainMenuisActive = false;
+        miniGameMenuisActive = true;
+        levelMenuisActive = false;
+
+        CheckMenu();
+    }
+
+    private void CheckStage()
+    {
+        switch (Save.GetCurrentLevel("Level"))
+        {
+            case 1:
+                btnLevelMenu[1].GetComponent<Button>().interactable = true;
+                btnLevelMenu[2].GetComponent<Button>().interactable = false;
+                btnLevelMenu[3].GetComponent<Button>().interactable = false;
+                btnLevelMenu[4].GetComponent<Button>().interactable = false;
+                btnLevelMenu[5].GetComponent<Button>().interactable = false;
+                break;
+
+            case 2:
+                btnLevelMenu[1].GetComponent<Button>().interactable = true;
+                btnLevelMenu[2].GetComponent<Button>().interactable = true;
+                btnLevelMenu[3].GetComponent<Button>().interactable = false;
+                btnLevelMenu[4].GetComponent<Button>().interactable = false;
+                btnLevelMenu[5].GetComponent<Button>().interactable = false;
+                break;
+
+            case 3:
+                btnLevelMenu[1].GetComponent<Button>().interactable = true;
+                btnLevelMenu[2].GetComponent<Button>().interactable = true;
+                btnLevelMenu[3].GetComponent<Button>().interactable = true;
+                btnLevelMenu[4].GetComponent<Button>().interactable = false;
+                btnLevelMenu[5].GetComponent<Button>().interactable = false;
+                break;
+
+            case 4:
+                btnLevelMenu[1].GetComponent<Button>().interactable = true;
+                btnLevelMenu[2].GetComponent<Button>().interactable = true;
+                btnLevelMenu[3].GetComponent<Button>().interactable = true;
+                btnLevelMenu[4].GetComponent<Button>().interactable = true;
+                btnLevelMenu[5].GetComponent<Button>().interactable = false;
+                break;
+
+            case 5:
+                btnLevelMenu[1].GetComponent<Button>().interactable = true;
+                btnLevelMenu[2].GetComponent<Button>().interactable = true;
+                btnLevelMenu[3].GetComponent<Button>().interactable = true;
+                btnLevelMenu[4].GetComponent<Button>().interactable = true;
+                btnLevelMenu[5].GetComponent<Button>().interactable = true;
+                break;
+
+            default:
+                Debug.LogWarning("Check ur Key");
+                break;
+
+        }
+
+    }
+
+    private void PindahStage()
+    {
+        switch (Save.GetCurrentLevel("Level"))
+        {
+            case 1:
+                SceneManager.LoadScene("Gameplay_1");
+                break;
+
+            case 2:
+                SceneManager.LoadScene("Gameplay_2");
+                break;
+
+            case 3:
+                SceneManager.LoadScene("Gameplay_3");
+                break;
+
+            case 4:
+                SceneManager.LoadScene("Gameplay_4");
+                break;
+
+            case 5:
+                SceneManager.LoadScene("Gameplay_5");
+                break;
+
+            default:
+                Debug.LogWarning("Check ur Key");
+                break;
+        }
+    }
     #endregion
 
     IEnumerator LevelErorJeda(int sec)

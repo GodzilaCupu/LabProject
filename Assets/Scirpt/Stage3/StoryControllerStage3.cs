@@ -7,7 +7,7 @@ public class StoryControllerStage3 : MonoBehaviour
     [SerializeField] private GameObject tabungReaksiKosong, tabungReaksiSample, tabungReaksiCampuran, aquadesAnim, aquades, tabungUkurTrigger_1, tabungUkurTrigger_2;
 
     GameObject sampleA, sampleB;
-    Task_Content task;
+    Task_Congrats_Content task;
 
     public Animator anim;
 
@@ -19,7 +19,7 @@ public class StoryControllerStage3 : MonoBehaviour
         sampleA = GameObject.Find("SampleA");
         sampleB = GameObject.Find("SampleB");
 
-        task = _gamemanager.GetComponent<Task_Content>();
+        task = _gamemanager.GetComponent<Task_Congrats_Content>();
         anim.GetComponent<Animator>();
 
         Save.SetCurrentLevel("Level",3);

@@ -32,6 +32,7 @@ public class StoryControllerStage1 : MonoBehaviour
         btn= _gameManager.GetComponent<BTN_Controller>();
         tutor = _gameManager.GetComponent<TutorialController>();
 
+        Save.SetCurrentLevel("Level", 1);
         ResetProgres();
         ValueText();
         SetText();

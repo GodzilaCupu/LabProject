@@ -660,7 +660,7 @@ GameObject:
   - component: {fileID: 170867004}
   - component: {fileID: 170867003}
   m_Layer: 5
-  m_Name: Level
+  m_Name: PersiapanSample
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1061,7 +1061,7 @@ GameObject:
   - component: {fileID: 455862144}
   - component: {fileID: 455862143}
   m_Layer: 5
-  m_Name: BTN_Back
+  m_Name: BTN_BackDeteksiColiform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1180,7 +1180,7 @@ GameObject:
   - component: {fileID: 475326218}
   - component: {fileID: 475326217}
   m_Layer: 5
-  m_Name: Level
+  m_Name: DeteksiColiformStage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1287,6 +1287,84 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 475326215}
   m_CullTransparentMesh: 0
+--- !u!1 &546142817
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 546142818}
+  - component: {fileID: 546142819}
+  - component: {fileID: 546142820}
+  m_Layer: 5
+  m_Name: Title
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &546142818
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546142817}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1396391198}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.9}
+  m_AnchorMax: {x: 1, y: 0.97}
+  m_AnchoredPosition: {x: 0, y: -15}
+  m_SizeDelta: {x: 0, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &546142819
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546142817}
+  m_CullTransparentMesh: 0
+--- !u!114 &546142820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546142817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 1babec8b442b7724ca54c2df32702923, type: 3}
+    m_FontSize: 35
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 45
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Test
 --- !u!1 &546596671
 GameObject:
   m_ObjectHideFlags: 0
@@ -1300,7 +1378,7 @@ GameObject:
   - component: {fileID: 546596674}
   - component: {fileID: 546596673}
   m_Layer: 5
-  m_Name: Level
+  m_Name: PembuatanMedium
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1736,7 +1814,7 @@ GameObject:
   - component: {fileID: 687940387}
   - component: {fileID: 687940386}
   m_Layer: 5
-  m_Name: Level
+  m_Name: PengenceranSample
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3008,7 +3086,7 @@ GameObject:
   - component: {fileID: 1261959554}
   - component: {fileID: 1261959553}
   m_Layer: 5
-  m_Name: BTN_CLose
+  m_Name: BTN_CLoseDeteksiColiform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3026,7 +3104,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1396391198}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -3126,7 +3204,7 @@ GameObject:
   - component: {fileID: 1340591916}
   - component: {fileID: 1340591915}
   m_Layer: 5
-  m_Name: Hygene
+  m_Name: Hygiene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3246,7 +3324,7 @@ GameObject:
   - component: {fileID: 1393003537}
   - component: {fileID: 1393003536}
   m_Layer: 5
-  m_Name: Level
+  m_Name: PengambilanAlatdanBahan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3385,6 +3463,7 @@ RectTransform:
   - {fileID: 1615476193}
   - {fileID: 1440690278}
   - {fileID: 1701113889}
+  - {fileID: 546142818}
   - {fileID: 1261959552}
   m_Father: {fileID: 703260170}
   m_RootOrder: 0
@@ -3583,8 +3662,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.02, y: 0.18}
   m_AnchorMax: {x: 0.98, y: 0.83}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -5.1001}
+  m_SizeDelta: {x: 0, y: 36.999756}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1615476194
 MonoBehaviour:
@@ -3607,7 +3686,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 1babec8b442b7724ca54c2df32702923, type: 3}
-    m_FontSize: 35
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
@@ -3618,7 +3697,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 'Test
+
+'
 --- !u!222 &1615476195
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4535,6 +4616,7 @@ MonoBehaviour:
   - {fileID: 650742210}
   - {fileID: 148189448}
   - {fileID: 2082468801}
+  - {fileID: 546142820}
   - {fileID: 1615476194}
   btnLevelMenu:
   - {fileID: 455862141}

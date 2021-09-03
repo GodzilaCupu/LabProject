@@ -6,33 +6,52 @@ using UnityEngine.UI;
 
 public class BTN_Controller : MonoBehaviour
 {
+    [Header("Button")]
+    // 0 = taskBTN ; 1 = settingBTN ; 2 = GeseerCameraKiri ; 3 = GeserCameraKanan ; 4 = closeTaskBTN
+    // 5 = ToggleSound ; 6 = ToggleMusic ; 7 = SavedBTN ; 8 = CloseSettingBTN ; 9 = BackToMainMenuBTN  
+    // 10 = NextLevelBTN;
+    [SerializeField] private GameObject[] uiBTN;
 
-    [SerializeField] private Button taskBTN, settingBTN,kiriBTN,kananBTN;
-    [SerializeField] private GameObject panelTask, panelSetting,popupSave, panelCongrats;
+    [Header("Panel")]
+    // 0 = PANEL_Task ; 1 = PANEL_Setting ; 2 = PANEL_PopUpSaved ; 3 = PANEL_Congrats ;
+    [SerializeField] private GameObject[] uiPanel;
     [SerializeField] private Text popupSaveText;
-    public Toggle toggleSound, toggleMusic;
 
-    [SerializeField] private GameObject BlockerUI;
+    [Header("Setting Configuration")]
+    // 0 = Pengaturan ( Title ); 1 = Sound ; 2 = Musik ; 3 = Save ; 4 = Tutup;
+    [SerializeField] private Text[] settingTXT;
+    private string[] _settingTXT;
 
+    [Header("Movement Configuration")]
     public Transform cameraTransform;
 
-    private int countPos = 0;
+    public bool isPanelON = false;
 
     public bool isMute { get; private set; }
-
-    [SerializeField] private AudioManager audioSetting;
-
     public bool taskPanelIsActive { get; private set; }
     public bool settingPanelIsActive { get; private set; }
 
+
+    int countPos = 0;
     StoryControllerStage1 stage1;
+
+    private void Awake()
+    {
+        SetPanelUI();
+        SetButtonUI();
+
+        ValueTextSetting();
+        SetTextSetting();
+    }
 
     private void Start()
     {
+        
         taskPanelIsActive = false;
         settingPanelIsActive = false;
         isMute = false;
 
+        ResetUI();
         GameObject _gameManager = GameObject.Find("GameManager");
         stage1 = _gameManager.GetComponent<StoryControllerStage1>();
     }
@@ -43,66 +62,64 @@ public class BTN_Controller : MonoBehaviour
         CheckLevelandProgress();
         CheckPosition();
 
+        //CheckMusicToggle();
+        //CheckSoundToggle();
     }
 
     #region Panel Configuration
     public void TaskGetOpen()
     {
-        panelTask.SetActive(true);
-        taskBTN.interactable = false;
+        uiPanel[0].SetActive(true);
         taskPanelIsActive = true;
-
-        kananBTN.interactable = false;
-        kananBTN.interactable = false;
-        settingBTN.interactable = false;
+        ButtonUIActive();
         Debug.Log(taskPanelIsActive + "Task Pannel");
     }
 
     public void TaskGetClosed()
     {
+        uiPanel[0].SetActive(false);
         taskPanelIsActive = false;
-        panelTask.SetActive(false);
-        taskBTN.interactable = true;
-
-        kananBTN.interactable = true;
-        kananBTN.interactable = true;
-        settingBTN.interactable = true;
-
+        ButtonUINonActive();
     }
 
     public void SettingGetOpen()
     {
-        panelSetting.SetActive(true);
-        settingBTN.interactable = false;
+        uiPanel[1].SetActive(true);
         settingPanelIsActive = true;
-
-        kananBTN.interactable = false;
-        kananBTN.interactable = false;
-        taskBTN.interactable = false;
+        ButtonUIActive();
         Debug.Log(settingPanelIsActive + "Setting Pannel");
     }
 
     public void SettingGetClosed()
     {
+        uiPanel[1].SetActive(false);
         settingPanelIsActive = false;
-        panelSetting.SetActive(false);
-        settingBTN.interactable = true;
-
-        kananBTN.interactable = true;
-        kananBTN.interactable = true;
-        taskBTN.interactable = true;
-
+        ButtonUINonActive();
     }
 
     public void CongratsGetOpen()
     {
-        panelCongrats.SetActive(true);
-        settingBTN.interactable = false;
+        uiPanel[3].SetActive(true);
         settingPanelIsActive = false;
+        ButtonUIActive();
+    }
 
-        kananBTN.interactable = false;
-        kananBTN.interactable = false;
-        taskBTN.interactable = false;
+    public void ButtonUIActive()
+    {
+        isPanelON = true;
+        uiBTN[0].GetComponent<Button>().interactable = false;
+        uiBTN[1].GetComponent<Button>().interactable = false;
+        uiBTN[2].GetComponent<Button>().interactable = false;
+        uiBTN[3].GetComponent<Button>().interactable = false;
+    }
+
+    public void ButtonUINonActive()
+    {
+        isPanelON = false;
+        uiBTN[0].GetComponent<Button>().interactable = true;
+        uiBTN[1].GetComponent<Button>().interactable = true;
+        uiBTN[2].GetComponent<Button>().interactable = true;
+        uiBTN[3].GetComponent<Button>().interactable = true;
     }
     #endregion
 
@@ -122,35 +139,45 @@ public class BTN_Controller : MonoBehaviour
 
         if (scene == SceneManager.GetSceneByName("Gameplay_4"))
             Save.SetCurrentLevel("Level",4);
+
         if (scene == SceneManager.GetSceneByName("Gameplay_5"))
             Save.SetCurrentLevel("Level", 5);
 
         StartCoroutine(PopupMassage("Tersimpan !!", 1));
 
     }
-    public void SoundToggle()
+
+    private void SetTextSetting()
     {
-        if (toggleSound.isOn) 
-        { 
-            PlayerPrefs.SetInt("Sound", 1);
-            audioSetting.PlaySound("Sound"); // jika ada asset sfx lainnya, di tuliskan lagi
-            isMute = false;
-
-            Debug.Log(isMute);
-        }
-        else
+        for (int i = 0; i < settingTXT.Length; i++)
         {
-            PlayerPrefs.SetInt("Sound", 0);
-            audioSetting.MuteSound("Sound"); // jika ada asset sfx lainnya, di tuliskan lagi
-            isMute = true;
-           
-            Debug.Log(isMute);
-
+            settingTXT[i].text = _settingTXT[i];
         }
+    }
+
+    private void ValueTextSetting()
+    {
+        _settingTXT = new string[5];
+        _settingTXT[0] = "Pengaturan";
+        _settingTXT[1] = "Sound";
+        _settingTXT[2] = "Musik";
+        _settingTXT[3] = "Save";
+        _settingTXT[4] = "Tutup";
+    }
+
+    //ditaro di method update
+    private void CheckSoundToggle()
+    {
+        
+    }
+
+    private void CheckMusicToggle()
+    {
+
     }
     #endregion
 
-    #region UI BTN
+    #region Movement Configuration
     public void GeserKanan()
     {
         countPos++;
@@ -165,12 +192,12 @@ public class BTN_Controller : MonoBehaviour
     #endregion
 
     #region Congrats BTN
-    public void BackToMainMenu()
+    private void BackToMainMenu()
     {
-        SceneManager.LoadScene("Main_Menu");
+        SceneManager.LoadScene("Menu");
     }
 
-    public void NextLevel()
+    private void NextLevel()
     {
         Scene scene = SceneManager.GetActiveScene();
 
@@ -203,10 +230,11 @@ public class BTN_Controller : MonoBehaviour
             Save.DelateKey("Stage5");
             SceneManager.LoadScene("MainMenu");
         }
-
     }
 
     #endregion
+
+    #region General Configuration 
 
     private void CheckToCongrats()
     {
@@ -230,15 +258,13 @@ public class BTN_Controller : MonoBehaviour
                     CongratsGetOpen();
                 break;
             case 5:
-                if (Save.GetCurrentProgres("Stage5") == 4)
+                if (Save.GetCurrentProgres("Stage5") == 6)
                     CongratsGetOpen();
                 break;
             default:
                 Debug.LogWarning("Check Ur Key");
                 break;
-
         }
-
     }
 
     private void CheckLevelandProgress()
@@ -268,35 +294,143 @@ public class BTN_Controller : MonoBehaviour
         }
     }
 
-    public void DisableAllBTN()
-    {
-        BlockerUI.SetActive(true);
-    }
-
-    public void EnebleALLBTN()
-    {
-        BlockerUI.SetActive(false);
-    }
-
     private void CheckPosition()
     {
         if (countPos <= 0)
-            kiriBTN.interactable = false;
-        else if (countPos < 2 && countPos > 0)
+            uiBTN[2].GetComponent<Button>().interactable = false;
+        else if (countPos < 2 && countPos > 0 && isPanelON == false)
         {
-            kiriBTN.interactable = true;
-            kananBTN.interactable = true;
+            uiBTN[2].GetComponent<Button>().interactable = true;
+            uiBTN[3].GetComponent<Button>().interactable = true;
         }
         else if (countPos == 2)
-            kananBTN.interactable = false;
+            uiBTN[3].GetComponent<Button>().interactable = false;
     }
+
+    private void SetButtonUI()
+    {
+        for (int i = 0; i < uiBTN.Length; i++)
+        {
+            switch (i)
+            {
+                #region Gameplay BTN
+                // 0 = taskBTN ; 1 = settingBTN ; 2 = GeseerCameraKiri ; 3 = GeserCameraKanan
+                case 0:
+                    uiBTN[0] = GameObject.Find("BTN_Task");
+                    uiBTN[0].GetComponent<Button>().onClick.AddListener(TaskGetOpen);
+                    break;
+                case 1:
+                    uiBTN[1] = GameObject.Find("BTN_Setting");
+                    uiBTN[1].GetComponent<Button>().onClick.AddListener(SettingGetOpen);
+                    break;
+
+                case 2:
+                    uiBTN[2] = GameObject.Find("BTN_GeserKiri");
+                    uiBTN[2].GetComponent<Button>().onClick.AddListener(GeserKiri); 
+                    break;
+
+                case 3:
+                    uiBTN[3] = GameObject.Find("BTN_GeserKanan");
+                    uiBTN[3].GetComponent<Button>().onClick.AddListener(GeserKanan);
+                    break;
+                #endregion
+
+                #region Panel Task BTN
+                // 4 = closeTaskBTN
+                case 4:
+                    uiBTN[4] = GameObject.Find("BTN_Close");
+                    uiBTN[4].GetComponent<Button>().onClick.AddListener(TaskGetClosed);
+                    break;
+                #endregion
+
+                #region Panel Setting BTN
+                // 5 = ToggleSound  ; 6 = ToggleMusic ; 7 = SavedBTN ; 8 = CloseSettingBTN;
+                case 5:
+                    uiBTN[5] = GameObject.Find("Sound_Toggle");
+                    uiBTN[5].GetComponent<Toggle>();
+                    break;
+
+                case 6:
+                    uiBTN[6] = GameObject.Find("Music_Toggle");
+                    //uiBTN[6].GetComponent<Toggle>();
+                    break;
+
+                case 7:
+                    uiBTN[7] = GameObject.Find("BTN_Save");
+                    uiBTN[7].GetComponent<Button>().onClick.AddListener(SaveLevel);
+                    break;
+
+                case 8:
+                    uiBTN[8] = GameObject.Find("BTN_CloseSetting");
+                    uiBTN[8].GetComponent<Button>().onClick.AddListener(SettingGetClosed);
+                    break;
+                #endregion
+
+                #region Panel Congrats BTN
+                // 9 = BackToMainMenuBTN; 10 = NextLevelBTN;
+                case 9:
+                    uiBTN[9] = GameObject.Find("BTN_BackToMainMenu");
+                    uiBTN[9].GetComponent<Button>().onClick.AddListener(BackToMainMenu);
+                    break;
+
+                case 10:
+                    uiBTN[10] = GameObject.Find("BTN_NextLevel");
+                    uiBTN[10].GetComponent<Button>().onClick.AddListener(NextLevel);
+                    break;
+                #endregion
+
+                default:
+                    Debug.LogWarning("Check Ur Key");
+                    break;
+            }
+        }
+    }
+
+    private void SetPanelUI()
+    {
+        for(int i = 0; i<uiPanel.Length; i++)
+        {
+            switch (i)
+            {
+                case 0:
+                    uiPanel[0] = GameObject.Find("PANEL_Task");
+                    break;
+
+                case 1:
+                    uiPanel[1] = GameObject.Find("PANEL_Setting");
+                    break;
+
+                case 2:
+                    uiPanel[2] = GameObject.Find("PANEL_PopUpSaved");
+                    break;
+
+                case 3:
+                    uiPanel[3] = GameObject.Find("PANEL_Congrats");
+                    break;
+
+                default:
+                    Debug.LogWarning("Check ur Key");
+                    break;
+
+            }
+        }
+    }
+
+    private void ResetUI()
+    {
+        uiPanel[0].SetActive(false);
+        uiPanel[1].SetActive(false);
+        uiPanel[2].SetActive(false);
+        uiPanel[3].SetActive(false);
+        isPanelON = false;
+    }
+
+    #endregion
     IEnumerator PopupMassage(string massage, int delay)
     {
-        popupSave.SetActive(true);
+        uiPanel[2].SetActive(true);
         popupSaveText.text = massage;
         yield return new WaitForSeconds(delay);
-        popupSave.SetActive(false);
-
-
+        uiPanel[2].SetActive(false);
     }
 }
