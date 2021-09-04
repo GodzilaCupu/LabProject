@@ -18,7 +18,7 @@ public class StoryControllerStage1 : MonoBehaviour
     [SerializeField] private GameObject[] task;
 
     [Header("Content Pop Up Menang")]
-    [SerializeField] private string popupString;
+    private string popupString;
     private string[] taskString;
 
     int progress;
@@ -37,19 +37,7 @@ public class StoryControllerStage1 : MonoBehaviour
         ValueText();
         SetText();
     }
-
-    private void Update()
-    {
-        CheckTutorSelesai();
-    }
-
     #region Value Configuration
-    private void CheckTutorSelesai()
-    {
-        if (tutor.countTutorial == 4)
-            task[2].SetActive(false);
-    }
-
     private void ValueText()
     {
         taskString = new string[8];
@@ -98,7 +86,7 @@ public class StoryControllerStage1 : MonoBehaviour
     public void Salah()
     {
         task[0].SetActive(true);
-        task[2].SetActive(true);
+        btn.PanelUIActive();
         StartCoroutine(SalahJeda(2));
     }
 
@@ -112,7 +100,7 @@ public class StoryControllerStage1 : MonoBehaviour
     {
         yield return new WaitForSeconds(jeda);
         task[0].SetActive(false);
-        task[2].SetActive(false);
+        btn.PanelUINonActive();
     }
 
 }

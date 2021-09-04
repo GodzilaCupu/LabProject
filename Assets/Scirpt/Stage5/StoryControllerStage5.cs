@@ -50,7 +50,7 @@ public class StoryControllerStage5 : MonoBehaviour
         objectTrigger[2].SetActive(false);
         objectsAnim[0].SetActive(true);
         anim[0].SetBool("Panasin", true);
-        btn.ButtonUIActive();
+        btn.PanelUIActive();
 
         StartCoroutine(ElenmayerJeda(3));
         Save.SetCurrentProgres("Stage5", 1);
@@ -70,7 +70,7 @@ public class StoryControllerStage5 : MonoBehaviour
 
         objectsAnim[1].SetActive(true);
         anim[1].SetBool("MediumtoSample", true);
-        btn.ButtonUIActive();
+        btn.PanelUIActive();
         btn.isPanelON = true;
 
         StartCoroutine(PipetToElenmayerJeda(13));
@@ -92,7 +92,7 @@ public class StoryControllerStage5 : MonoBehaviour
         objectTrigger[8].SetActive(false);
         objectTrigger[4].SetActive(false);
         objectsAnim[2].SetActive(true);
-        btn.ButtonUIActive();
+        btn.PanelUIActive();
 
         StartCoroutine(IncobatorJeda(7));
     }
@@ -103,7 +103,7 @@ public class StoryControllerStage5 : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         anim[0].SetBool("Panasin", false);
-        btn.ButtonUIActive();
+        btn.PanelUIActive();
         Debug.Log("1");
 
         yield return new WaitForSeconds(sec);
@@ -112,7 +112,7 @@ public class StoryControllerStage5 : MonoBehaviour
 
         objectsAnim[0].SetActive(false);
 
-        btn.ButtonUINonActive();
+        btn.PanelUINonActive();
         Debug.Log("2");
     }
 
@@ -124,7 +124,7 @@ public class StoryControllerStage5 : MonoBehaviour
         objectTrigger[5].SetActive(false);
 
         objectsAnim[1].SetActive(false);
-        btn.ButtonUINonActive();
+        btn.PanelUINonActive();
     }
 
     IEnumerator IncobatorJeda(int sec)
@@ -143,7 +143,7 @@ public class StoryControllerStage5 : MonoBehaviour
 
         yield return new WaitForSeconds(sec);
         objectTrigger[7].SetActive(true);
-        btn.ButtonUINonActive();
+        btn.PanelUINonActive();
         Debug.Log("3- C");
 
         Save.SetCurrentProgres("Stage5", 4);

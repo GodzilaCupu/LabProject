@@ -71,7 +71,7 @@ public class BTN_Controller : MonoBehaviour
     {
         uiPanel[0].SetActive(true);
         taskPanelIsActive = true;
-        ButtonUIActive();
+        PanelUIActive();
         Debug.Log(taskPanelIsActive + "Task Pannel");
     }
 
@@ -79,14 +79,14 @@ public class BTN_Controller : MonoBehaviour
     {
         uiPanel[0].SetActive(false);
         taskPanelIsActive = false;
-        ButtonUINonActive();
+        PanelUINonActive();
     }
 
     public void SettingGetOpen()
     {
         uiPanel[1].SetActive(true);
         settingPanelIsActive = true;
-        ButtonUIActive();
+        PanelUIActive();
         Debug.Log(settingPanelIsActive + "Setting Pannel");
     }
 
@@ -94,17 +94,17 @@ public class BTN_Controller : MonoBehaviour
     {
         uiPanel[1].SetActive(false);
         settingPanelIsActive = false;
-        ButtonUINonActive();
+        PanelUINonActive();
     }
 
     public void CongratsGetOpen()
     {
         uiPanel[3].SetActive(true);
         settingPanelIsActive = false;
-        ButtonUIActive();
+        PanelUIActive();
     }
 
-    public void ButtonUIActive()
+    public void PanelUIActive()
     {
         isPanelON = true;
         uiBTN[0].GetComponent<Button>().interactable = false;
@@ -113,7 +113,7 @@ public class BTN_Controller : MonoBehaviour
         uiBTN[3].GetComponent<Button>().interactable = false;
     }
 
-    public void ButtonUINonActive()
+    public void PanelUINonActive()
     {
         isPanelON = false;
         uiBTN[0].GetComponent<Button>().interactable = true;
@@ -296,15 +296,23 @@ public class BTN_Controller : MonoBehaviour
 
     private void CheckPosition()
     {
-        if (countPos <= 0)
-            uiBTN[2].GetComponent<Button>().interactable = false;
-        else if (countPos < 2 && countPos > 0 && isPanelON == false)
+        if(Save.GetCurrentLevel("Level") > 1)
         {
-            uiBTN[2].GetComponent<Button>().interactable = true;
-            uiBTN[3].GetComponent<Button>().interactable = true;
+            if (countPos <= 0)
+                uiBTN[2].GetComponent<Button>().interactable = false;
+            else if (countPos < 2 && countPos > 0 && isPanelON == false)
+            {
+                uiBTN[2].GetComponent<Button>().interactable = true;
+                uiBTN[3].GetComponent<Button>().interactable = true;
+            }
+            else if (countPos == 2)
+                uiBTN[3].GetComponent<Button>().interactable = false;
+        } else if (Save.GetCurrentLevel("Level") == 1)
+        {
+            uiBTN[2].SetActive(false);
+            uiBTN[3].SetActive(false);
+            uiBTN[0].SetActive(false);
         }
-        else if (countPos == 2)
-            uiBTN[3].GetComponent<Button>().interactable = false;
     }
 
     private void SetButtonUI()

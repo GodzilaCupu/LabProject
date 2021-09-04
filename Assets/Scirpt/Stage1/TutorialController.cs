@@ -1,57 +1,46 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 using UnityEngine.UI;
 
 public class TutorialController : MonoBehaviour
 {
     private string[] tutorialTexts,uiTexts;
 
-    [SerializeField] private Text[] contentTXT, uiTXT;
-    [SerializeField] private Button[] uiBTN;
+    [SerializeField] private Text[] uiTXT;
     [SerializeField] private GameObject[] tutorial;
+    [SerializeField] private VideoPlayer tutorialVideo;
+    [SerializeField] private Animator panahAnim;
 
     public int countTutorial { get; private set;}
+
+    BTN_Controller btn;
+
+    private void Awake()
+    {
+        ValueText();
+        SetText();
+        SetButton();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        ValueText();
-        SetText();
+        btn = gameObject.GetComponent<BTN_Controller>();
+
+        ResetPanel();
         ResetValue();
     }
 
     private void Update()
     {
-        if (countTutorial <= 0)
-        {
-            tutorial[5].SetActive(false);
-            tutorial[1].SetActive(true);
-            uiBTN[1].interactable = false;
-
-        }
-        else if (countTutorial > 0 && countTutorial < 4)
-        {
-            uiBTN[0].interactable = true;
-            uiBTN[1].interactable = true;
-            tutorial[5].SetActive(false);
-            tutorial[1].SetActive(true);
-
-        }
-        else if (countTutorial == 4)
-        {
-            tutorial[1].SetActive(false);
-            tutorial[5].SetActive(true);
-        }
-
-        if ( countTutorial == 2)
-            tutorial[0].SetActive(true);
-        else
-            tutorial[0].SetActive(false);
+        CheckValue();
+        PlayAnimPanah();
+        Debug.Log(countTutorial + "count ");
     }
 
     #region Value Controller
-
     private void ResetValue()
     {
         Save.SetCurrentLevel("Level", 1);
@@ -59,14 +48,68 @@ public class TutorialController : MonoBehaviour
         countTutorial = 0;
     }
 
+    private void CheckValue()
+    {
+        if (countTutorial <= 0)
+        {
+
+            tutorial[1].GetComponent<Button>().interactable = false;
+            tutorial[5].GetComponent<Button>().interactable = false;
+
+            tutorial[1].SetActive(true);
+            tutorial[2].SetActive(true);
+
+            tutorial[3].SetActive(false);
+            tutorial[7].SetActive(false);
+            btn.PanelUIActive();
+        }
+        else if (countTutorial > 0 && countTutorial < 4)
+        {
+            tutorial[1].GetComponent<Button>().interactable = true;
+            tutorial[2].GetComponent<Button>().interactable = true;
+            btn.PanelUIActive();
+        }
+        else if (countTutorial == 4)
+        {
+            tutorial[2].SetActive(false);   
+            tutorial[3].SetActive(true);
+            btn.PanelUIActive();
+        }
+        else if (countTutorial > 4)
+        {
+            tutorial[1].SetActive(false);
+            tutorial[2].SetActive(false);
+            tutorial[3].SetActive(false);
+
+            tutorial[5].GetComponent<Button>().interactable = true;
+            tutorial[7].SetActive(true);
+            btn.PanelUINonActive();
+
+        }
+    }
+
+    private void PlayAnimPanah()
+    {
+        if (countTutorial == 2)
+        {
+            tutorial[0].SetActive(true);
+            panahAnim.SetBool("Play", true);
+        }
+        else if ( countTutorial < 2 || countTutorial > 2)
+        {
+            tutorial[0].SetActive(false);
+            panahAnim.SetBool("Play", false);
+        }
+    }
+
     private void ValueText()
     {
         tutorialTexts = new string[5];
         tutorialTexts[0] = "Hi, Selamat datang !!! \nPada Mini Games ini Kamu akan melakukan eksperimen \nbagaimana caranya mendeteksi Coliform pada sebuah Sample.";
-        tutorialTexts[1] = "Untuk Langkah Pertama, Kamu harus mengambil \nbahan bahan yang di perlukan untuk melakukan Experiment";
-        tutorialTexts[2] = "Kamu dapat mengetahui bahan dan alat melalui tombol tutorial ini";
-        tutorialTexts[3] = "Setelah mengetahuinya, kamu cukup mengetuk bahan \nyang di perlukan tidak perlu mengambil semua bahan dan alat";
-        tutorialTexts[4] = "Selamat melakukan Experiment Kawan :)";
+        tutorialTexts[1] = "Untuk Langkah Pertama, Kamu harus mengambil \nbahan bahan yang di perlukan untuk melakukan eksperimen";
+        tutorialTexts[2] = "Kamu dapat mengetahui bahan dan alat melalui tombol(?) tutorial ini";
+        tutorialTexts[3] = "Setelah mengetahuinya, kamu cukup memilih bahan \nyang di perlukan tidak perlu mengambil semua bahan dan alat";
+        tutorialTexts[4] = "Selamat melakukan eksperimen Kawan :)";
 
         uiTexts = new string[3];
         uiTexts[0] = "Selanjutnya";
@@ -76,34 +119,128 @@ public class TutorialController : MonoBehaviour
 
     private void SetText()
     {
-        for(int i = 0; i < uiTXT.Length; i++)
+        for(int i = 0; i < uiTexts.Length; i++)
             uiTXT[i].text = uiTexts[i];
 
-        contentTXT[0].text = tutorialTexts[0];
+        tutorial[4].GetComponent<Text>().text = tutorialTexts[0];
     }
+
     public void SelesaiTutorial()
     {
         countTutorial++;
         tutorial[1].SetActive(false);
         tutorial[2].SetActive(false);
         tutorial[3].SetActive(false);
-        tutorial[5].SetActive(false);
+        tutorial[4].SetActive(false);
 
-        tutorial[4].SetActive(true);
+        tutorial[7].SetActive(true);
     }
     #endregion
 
     #region BTN Controller
-    public void NextTutorial()
+
+    private void SetButton()
     {
-        countTutorial++;
-        contentTXT[0].text = tutorialTexts[countTutorial];
+        for(int i = 0; i <= 7; i++)
+        {
+            switch (i)
+            {
+                case 0:
+                    tutorial[2] = GameObject.Find("BTN_Next");
+                    tutorial[2].GetComponent<Button>().onClick.AddListener(NextTutorial);
+                    break;
+
+                case 1:
+                    tutorial[1] = GameObject.Find("BTN_Prev");
+                    tutorial[1].GetComponent<Button>().onClick.AddListener(PrevTutorial);
+                    break;
+
+                case 2:
+                    tutorial[3] = GameObject.Find("BTN_Selesai");
+                    tutorial[3].GetComponent<Button>().onClick.AddListener(SelesaiTutorial);
+                    break;
+
+                case 3:
+                    tutorial[5] = GameObject.Find("BTN_Ask");
+                    tutorial[5].GetComponent<Button>().onClick.AddListener(AskPanelGetOpen);
+                    break;
+
+                case 4:
+                    tutorial[6] = GameObject.Find("BTN_CloseAskPanel");
+                    tutorial[6].GetComponent<Button>().onClick.AddListener(AskPanelGetClose);
+                    break;
+
+                case 5:
+                    tutorial[8] = GameObject.Find("BTN_Play");
+                    tutorial[8].GetComponent<Button>().onClick.AddListener(PlayVideo);
+                    break;
+
+                case 6:
+                    tutorial[9] = GameObject.Find("BTN_Pause");
+                    tutorial[9].GetComponent<Button>().onClick.AddListener(PauseVideo);
+                    break;
+
+                case 7:
+                    tutorial[10] = GameObject.Find("BTN_Rewind");
+                    tutorial[10].GetComponent<Button>().onClick.AddListener(RewindVideo);
+                    break;
+            }
+        }
     }
 
-    public void PrevTutorial()
+    private void NextTutorial()
+    {
+        countTutorial++;
+        tutorial[4].GetComponent<Text>().text = tutorialTexts[countTutorial];
+    }
+
+    private void PrevTutorial()
     {
         countTutorial--;
-        contentTXT[0].text = tutorialTexts[countTutorial];
+        tutorial[4].GetComponent<Text>().text = tutorialTexts[countTutorial];
+    }
+
+    private void AskPanelGetOpen()
+    {
+        tutorial[8].GetComponent<Button>().interactable = true;
+        tutorial[9].GetComponent<Button>().interactable = true;
+        tutorial[8].GetComponent<Button>().interactable = true;
+        tutorial[9].SetActive(true);
+    }
+
+    private void AskPanelGetClose()
+    {
+        tutorialVideo.Stop();
+        tutorial[9].SetActive(false);
+    }
+
+    private void PlayVideo()
+    {
+        tutorialVideo.Play();
+        tutorial[8].GetComponent<Button>().interactable = false;
+        tutorial[9].GetComponent<Button>().interactable = true;
+    }
+
+    private void PauseVideo()
+    {
+        tutorialVideo.Pause();
+        tutorial[8].GetComponent<Button>().interactable = true;
+        tutorial[9].GetComponent<Button>().interactable = false;
+    }
+
+    private void RewindVideo()
+    {
+        tutorial[8].GetComponent<Button>().interactable = true;
+        tutorial[9].GetComponent<Button>().interactable = true;
+
+        tutorialVideo.Stop();
+        tutorialVideo.Play();
+    }
+
+    private void ResetPanel()
+    {
+        tutorial[11].SetActive(false);
+        tutorial[3].SetActive(false);
     }
     #endregion
 }
