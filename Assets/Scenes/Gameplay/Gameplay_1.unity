@@ -643,6 +643,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dragTag: Device
+  story1: {fileID: 128637895}
+  story3: {fileID: 0}
 --- !u!4 &128637894
 Transform:
   m_ObjectHideFlags: 0

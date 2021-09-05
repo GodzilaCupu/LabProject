@@ -266,7 +266,7 @@ public class BTN_Controller : MonoBehaviour
                 break;
 
             case 2:
-                if (Save.GetCurrentProgres("Stage2") == 4)
+                if (Save.GetCurrentProgres("Stage2") == 5)
                     CongratsGetOpen();
                 break;
             case 3:

@@ -14,8 +14,8 @@ public class DragObject : MonoBehaviour
     private Camera cam;
 
     BTN_Controller btnControl;
-    StoryControllerStage1 story1;
-    StoryControllerStage3 story3;
+    [SerializeField] private StoryControllerStage1 story1;
+    [SerializeField] private StoryControllerStage3 story3;
 
 
     private void Awake()
@@ -34,12 +34,6 @@ public class DragObject : MonoBehaviour
         GameObject _gamemanager = GameObject.Find("GameManager");
 
         btnControl = _gamemanager.GetComponent<BTN_Controller>();
-
-        if(Save.GetCurrentLevel("Level") == 1)
-            story1 = _gamemanager.GetComponent<StoryControllerStage1>();
-        else if (Save.GetCurrentLevel("Level") == 3)
-            story3 = _gamemanager.GetComponent<StoryControllerStage3>();
-
     }
 
     private void FixedUpdate()
@@ -95,14 +89,40 @@ public class DragObject : MonoBehaviour
 
             SetDraggingPorperties(toDragRB);
             touched = true;
+        }
 
-            if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject.name == "SampleA")
+        if (Save.GetCurrentLevel("Level") == 3)
+        {
+            if (Physics.Raycast(raycastTouch, out hit) && hit.collider.tag == "A")
+            {
                 story3.IfSampleA();
-            else if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject.name == "SampleB")
+                toDrag = hit.transform;
+                prevPos = toDrag.position;
+
+                toDragRB = toDrag.GetComponent<Rigidbody>();
+                thisPos = cam.WorldToScreenPoint(prevPos);
+                posX = Input.GetTouch(0).position.x - thisPos.x;
+                posY = Input.GetTouch(0).position.y - thisPos.y;
+
+                SetDraggingPorperties(toDragRB);
+                touched = true;
+            }
+            else if (Physics.Raycast(raycastTouch, out hit) && hit.collider.tag == "B")
+            {
                 story3.IfSampleB();
+                toDrag = hit.transform;
+                prevPos = toDrag.position;
+
+                toDragRB = toDrag.GetComponent<Rigidbody>();
+                thisPos = cam.WorldToScreenPoint(prevPos);
+                posX = Input.GetTouch(0).position.x - thisPos.x;
+                posY = Input.GetTouch(0).position.y - thisPos.y;
+
+                SetDraggingPorperties(toDragRB);
+                touched = true;
+            }
 
             Debug.Log("Touched " + touched + " Dragging " + dragging);
-
         }
 
         if (btnControl.isPanelON == false)

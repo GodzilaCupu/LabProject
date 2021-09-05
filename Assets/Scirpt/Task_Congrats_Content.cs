@@ -110,8 +110,6 @@ public class Task_Congrats_Content : MonoBehaviour
 
     public void ChangeColor() 
     {
-        Scene scene = SceneManager.GetActiveScene();
-
         if (Save.GetCurrentLevel("Level") == 2)
         {
             switch (Save.GetCurrentProgres("Stage2"))

@@ -928,6 +928,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dragTag: Device
+  story1: {fileID: 0}
+  story3: {fileID: 595813906}
 --- !u!114 &595813903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2524,6 +2526,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SampleA
       objectReference: {fileID: 0}
+    - target: {fileID: 1494413713067132039, guid: 90e9216a99b480c4cbad915e3365688e,
+        type: 3}
+      propertyPath: m_TagString
+      value: A
+      objectReference: {fileID: 0}
     - target: {fileID: 1668493749768027832, guid: 90e9216a99b480c4cbad915e3365688e,
         type: 3}
       propertyPath: m_Name
@@ -2598,6 +2605,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SampleB
+      objectReference: {fileID: 0}
+    - target: {fileID: 5329335456119326358, guid: 90e9216a99b480c4cbad915e3365688e,
+        type: 3}
+      propertyPath: m_TagString
+      value: B
       objectReference: {fileID: 0}
     - target: {fileID: 6139397100799443920, guid: 90e9216a99b480c4cbad915e3365688e,
         type: 3}
