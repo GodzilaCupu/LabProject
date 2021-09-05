@@ -41,6 +41,24 @@ public class Task_Congrats_Content : MonoBehaviour
             CongratsText[3] = "Lanjut";
         }
 
+        if (scene == SceneManager.GetSceneByName("Gameplay_2"))
+        {
+            taskTexts = new string[6];
+            taskTexts[0] = "1. Masukan 3 gram medium lactose broth kedalam erlenmayer";
+            taskTexts[1] = "2. Tuang  50 ml Aquades di dalam tabung ukur, kemudian campurkan bersama medium lactose broth di dalam erlenmayer";
+            taskTexts[2] = "3. Gunakan Spatula untuk mengaduk lactose broth dengan aquades supaya homogen";
+            taskTexts[3] = "3. Masukan medium yang sudah homogen kedalam autoclave untuk di sterilisasi selama 45 menit";
+            taskTexts[4] = "4. simpan medium kedalam kulkas, untuk digunakan pada tahapan selanjutnya";
+            taskTexts[5] = "Petunjuk";
+
+
+            CongratsText = new string[4];
+            CongratsText[0] = "Selamat !!!";
+            CongratsText[1] = "Selamat Anda telah berhasil \nMengambil Alat dan Bahan yang dibutuhkan \nAlat dan Bahan siap untuk digunakan \nAyo Lanjut ke tahapan selanjutnya";
+            CongratsText[2] = "Main Menu";
+            CongratsText[3] = "Lanjut";
+        }
+
         if (scene == SceneManager.GetSceneByName("Gameplay_3"))
         {
             taskTexts = new string[5];
@@ -90,9 +108,40 @@ public class Task_Congrats_Content : MonoBehaviour
         }
     }
 
-    public void ChangeColor()
+    public void ChangeColor() 
     {
         Scene scene = SceneManager.GetActiveScene();
+
+        if (Save.GetCurrentLevel("Level") == 2)
+        {
+            switch (Save.GetCurrentProgres("Stage2"))
+            {
+                case 1:
+                    tasks[0].color = Color.grey;
+                    break;
+
+                case 2:
+                    tasks[1].color = Color.grey;
+                    break;
+
+                case 3:
+                    tasks[2].color = Color.grey;
+                    break;
+
+                case 4:
+                    tasks[3].color = Color.grey;
+                    break;
+
+                case 5:
+                    tasks[4].color = Color.grey;
+                    break;
+
+                default:
+                    Debug.LogWarning("Check Ur Key");
+                    break;
+
+            }
+        }
 
         if (Save.GetCurrentLevel("Level") == 3)
         {

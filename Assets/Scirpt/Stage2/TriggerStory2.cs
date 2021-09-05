@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class TriggerStory2 : MonoBehaviour
 {
+    StoryControllerStage2 story;
     // Start is called before the first frame update
     void Start()
     {
-        
+        GameObject _gamemanager = GameObject.Find("GameManager");
+        story = _gamemanager.GetComponent<StoryControllerStage2>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter(Collision collision)
     {
-        
+        if (collision.gameObject.name == "Lactobrote")
+            story.SpatulaToMedium();
+
     }
 }
