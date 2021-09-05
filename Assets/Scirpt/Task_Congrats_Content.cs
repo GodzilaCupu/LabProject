@@ -119,7 +119,6 @@ public class Task_Congrats_Content : MonoBehaviour
                     break;
 
             }
-
         }
 
         if (Save.GetCurrentLevel("Level") == 4)

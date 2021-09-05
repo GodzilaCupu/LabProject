@@ -37,7 +37,7 @@ public class DragObject : MonoBehaviour
 
         if(Save.GetCurrentLevel("Level") == 1)
             story1 = _gamemanager.GetComponent<StoryControllerStage1>();
-        else if (Save.GetCurrentLevel("Level") == 1)
+        else if (Save.GetCurrentLevel("Level") == 3)
             story3 = _gamemanager.GetComponent<StoryControllerStage3>();
 
     }
@@ -58,7 +58,7 @@ public class DragObject : MonoBehaviour
 
         Touch touch = Input.touches[0];
 
-        if ( btnControl.taskPanelIsActive == false && btnControl.settingPanelIsActive == false)
+        if (btnControl.taskPanelIsActive == false && btnControl.settingPanelIsActive == false)
         {
             //touched        
             if (touch.phase == TouchPhase.Began)
@@ -102,64 +102,69 @@ public class DragObject : MonoBehaviour
                 story3.IfSampleB();
 
             Debug.Log("Touched " + touched + " Dragging " + dragging);
-        }
 
-        if (Physics.Raycast(raycastTouch, out hit) && hit.collider.tag == "BahanStage1Bener")
-        {
-            //Aquades
-            if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject == story1.objBenar[0])
-                story1.Benar(0);
+            if (btnControl.isPanelON == false)
+            {
+                if (Physics.Raycast(raycastTouch, out hit) && hit.collider.tag == "BahanStage1Bener")
+                {
 
-            //Medium
-            if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject == story1.objBenar[1])
-                story1.Benar(1);
+                    //Aquades
+                    if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject == story1.objBenar[0])
+                        story1.Benar(0);
 
-            //Arloji Glass
-            if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject == story1.objBenar[2])
-                story1.Benar(2);
+                    //Medium
+                    if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject == story1.objBenar[1])
+                        story1.Benar(1);
 
-            //Erlenmayer
-            if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject == story1.objBenar[3])
-                story1.Benar(3);
+                    //Arloji Glass
+                    if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject == story1.objBenar[2])
+                        story1.Benar(2);
 
-            //Spatula
-            if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject == story1.objBenar[4])
-                story1.Benar(4);
+                    //Erlenmayer
+                    if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject == story1.objBenar[3])
+                        story1.Benar(3);
 
-            //PipetUkur
-            if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject == story1.objBenar[5])
-                story1.Benar(5);
+                    //Spatula
+                    if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject == story1.objBenar[4])
+                        story1.Benar(4);
 
-            //TabungUkur
-            if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject == story1.objBenar[6])
-                story1.Benar(6);
+                    //PipetUkur
+                    if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject == story1.objBenar[5])
+                        story1.Benar(5);
 
-            //TabungReaksi dan Tabung Durham
-            if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject == story1.objBenar[7])
-                story1.Benar(7);
-        }
+                    //TabungUkur
+                    if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject == story1.objBenar[6])
+                        story1.Benar(6);
 
-        if (Physics.Raycast(raycastTouch, out hit) && hit.collider.tag == "BahanStage1Salah")
-        {
-            //1
-            if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject == story1.objSalah[0])
-                story1.Salah();
+                    //TabungReaksi dan Tabung Durham
+                    if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject == story1.objBenar[7])
+                        story1.Benar(7);
+                }
 
-            //2
-            if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject == story1.objSalah[1])
-                story1.Salah();
+                if (Physics.Raycast(raycastTouch, out hit) && hit.collider.tag == "BahanStage1Salah")
+                {
+                    //1
+                    if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject == story1.objSalah[0])
+                        story1.Salah();
 
-            //3
-            if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject == story1.objSalah[2])
-                story1.Salah();
+                    //2
+                    if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject == story1.objSalah[1])
+                        story1.Salah();
 
-            //4
-            if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject == story1.objSalah[3])
-                story1.Salah();
+                    //3
+                    if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject == story1.objSalah[2])
+                        story1.Salah();
 
-            //5
-            if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject == story1.objSalah[4])
-                story1.Salah();
+                    //4
+                    if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject == story1.objSalah[3])
+                        story1.Salah();
+
+                    //5
+                    if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject == story1.objSalah[4])
+                        story1.Salah();
+                }
+
+            }
         }
     }
 

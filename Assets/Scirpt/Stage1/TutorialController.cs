@@ -14,6 +14,7 @@ public class TutorialController : MonoBehaviour
     [SerializeField] private Animator panahAnim;
 
     public int countTutorial { get; private set;}
+    bool isAskOpen = false;
 
     BTN_Controller btn;
 
@@ -84,7 +85,6 @@ public class TutorialController : MonoBehaviour
             tutorial[5].GetComponent<Button>().interactable = true;
             tutorial[7].SetActive(true);
             btn.PanelUINonActive();
-
         }
     }
 
@@ -162,12 +162,10 @@ public class TutorialController : MonoBehaviour
 
                 case 3:
                     tutorial[5] = GameObject.Find("BTN_Ask");
-                    tutorial[5].GetComponent<Button>().onClick.AddListener(AskPanelGetOpen);
                     break;
 
                 case 4:
                     tutorial[6] = GameObject.Find("BTN_CloseAskPanel");
-                    tutorial[6].GetComponent<Button>().onClick.AddListener(AskPanelGetClose);
                     break;
 
                 case 5:
@@ -200,18 +198,19 @@ public class TutorialController : MonoBehaviour
         tutorial[4].GetComponent<Text>().text = tutorialTexts[countTutorial];
     }
 
-    private void AskPanelGetOpen()
+    public void AskPanelGetOpen()
     {
         tutorial[8].GetComponent<Button>().interactable = true;
         tutorial[9].GetComponent<Button>().interactable = true;
-        tutorial[8].GetComponent<Button>().interactable = true;
-        tutorial[9].SetActive(true);
+        tutorial[10].GetComponent<Button>().interactable = true;
+        tutorial[11].SetActive(true);
     }
 
-    private void AskPanelGetClose()
+    public void AskPanelGetClose()
     {
+        isAskOpen = false;
         tutorialVideo.Stop();
-        tutorial[9].SetActive(false);
+        tutorial[11].SetActive(false);
     }
 
     private void PlayVideo()

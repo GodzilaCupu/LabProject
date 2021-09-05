@@ -6,7 +6,7 @@ public class StoryControllerStage3 : MonoBehaviour
 {
     [SerializeField] private GameObject tabungReaksiKosong, tabungReaksiSample, tabungReaksiCampuran, aquadesAnim, aquades, tabungUkurTrigger_1, tabungUkurTrigger_2;
 
-    GameObject sampleA, sampleB;
+    [SerializeField] private GameObject sampleA, sampleB;
     Task_Congrats_Content task;
 
     public Animator anim;
@@ -42,6 +42,9 @@ public class StoryControllerStage3 : MonoBehaviour
 
         Save.SetSample("Sample", "SampleA");
         Save.SetCurrentProgres("Stage3", 1);
+
+        Debug.Log(Save.GetCurrentLevel("Level") + "LEVEL");
+
     }
 
     public void IfSampleB()
@@ -54,6 +57,9 @@ public class StoryControllerStage3 : MonoBehaviour
 
         Save.SetSample("Sample", "SampleB");
         Save.SetCurrentProgres("Stage3", 1);
+
+        Debug.Log(Save.GetCurrentLevel("Level") + "LEVEL");
+
     }
 
     //Step2
@@ -65,19 +71,22 @@ public class StoryControllerStage3 : MonoBehaviour
         GameObject piring = GameObject.Find(Save.GetSample("Sample"));
         piring.SetActive(false);
         Save.SetCurrentProgres("Stage3", 2);
+        task.ChangeColor();
+
     }
 
     //Step3
     public void AquadesToTabungUkur()
     {
         aquades.SetActive(false);
+        tabungUkurTrigger_1.SetActive(false);
         aquadesAnim.SetActive(true);
 
         Save.SetCurrentProgres("Stage3", 3);
         task.ChangeColor();
 
         anim.SetBool("Squeze", true);
-        StartCoroutine(waitTabungReaksiIsi(3));
+        StartCoroutine(waitTabungReaksiIsi(4));
     }
 
     //Step4
@@ -86,7 +95,7 @@ public class StoryControllerStage3 : MonoBehaviour
         tabungReaksiCampuran.SetActive(true);
         tabungUkurTrigger_2.SetActive(false);
 
-        StartCoroutine(TabungUkurCampuranJeda(2));
+        Save.SetCurrentProgres("Stage3", 4);
         task.ChangeColor();
     }
     #endregion
@@ -96,17 +105,16 @@ public class StoryControllerStage3 : MonoBehaviour
     IEnumerator waitTabungReaksiIsi(int sec)
     {
         yield return new WaitForSeconds(sec);
-        tabungUkurTrigger_1.SetActive(false);
         tabungReaksiSample.SetActive(true);
         tabungUkurTrigger_2.SetActive(true);
         aquadesAnim.SetActive(false);
     }
 
-    IEnumerator TabungUkurCampuranJeda( int sec)
-    {
-        yield return new WaitForSeconds(sec);
-        Save.SetCurrentProgres("Stage3", 4);
-    }
+    //IEnumerator TabungUkurCampuranJeda( int sec)
+    //{
+    //    yield return new WaitForSeconds(sec);
+    //    Save.SetCurrentProgres("Stage3", 4);
+    //}
 
     #endregion
 
@@ -117,8 +125,8 @@ public class StoryControllerStage3 : MonoBehaviour
         sampleA.SetActive(true);
         sampleB.SetActive(true);
 
-        isSampleA = true;
-        isSampleB = true;
+        isSampleA = false;
+        isSampleB = false;
     }
 
 }

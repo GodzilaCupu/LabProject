@@ -33,6 +33,7 @@ public class BTN_Controller : MonoBehaviour
 
 
     int countPos = 0;
+    TutorialController tutor;
     StoryControllerStage1 stage1;
 
     private void Awake()
@@ -53,6 +54,7 @@ public class BTN_Controller : MonoBehaviour
 
         ResetUI();
         GameObject _gameManager = GameObject.Find("GameManager");
+        tutor = _gameManager.GetComponent<TutorialController>();
         stage1 = _gameManager.GetComponent<StoryControllerStage1>();
     }
 
@@ -72,6 +74,15 @@ public class BTN_Controller : MonoBehaviour
         uiPanel[0].SetActive(true);
         taskPanelIsActive = true;
         PanelUIActive();
+
+        if (Save.GetCurrentLevel("Level") == 1)
+        {
+            tutor.AskPanelGetOpen();
+            taskPanelIsActive = true;
+            PanelUIActive();
+            uiPanel[0].SetActive(false);
+        }
+
         Debug.Log(taskPanelIsActive + "Task Pannel");
     }
 
@@ -80,6 +91,13 @@ public class BTN_Controller : MonoBehaviour
         uiPanel[0].SetActive(false);
         taskPanelIsActive = false;
         PanelUINonActive();
+
+        if (Save.GetCurrentLevel("Level") == 1)
+        {
+            tutor.AskPanelGetClose();
+            taskPanelIsActive = false;
+            PanelUINonActive();
+        }
     }
 
     public void SettingGetOpen()
@@ -99,6 +117,8 @@ public class BTN_Controller : MonoBehaviour
 
     public void CongratsGetOpen()
     {
+        uiPanel[0].SetActive(false);
+        uiPanel[1].SetActive(false);
         uiPanel[3].SetActive(true);
         settingPanelIsActive = false;
         PanelUIActive();
