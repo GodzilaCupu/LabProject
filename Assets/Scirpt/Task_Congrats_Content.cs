@@ -47,8 +47,8 @@ public class Task_Congrats_Content : MonoBehaviour
             taskTexts[0] = "1. Masukan 3 gram medium lactose broth kedalam erlenmayer";
             taskTexts[1] = "2. Tuang  50 ml Aquades di dalam tabung ukur, kemudian campurkan bersama medium lactose broth di dalam erlenmayer";
             taskTexts[2] = "3. Gunakan Spatula untuk mengaduk lactose broth dengan aquades supaya homogen";
-            taskTexts[3] = "3. Masukan medium yang sudah homogen kedalam autoclave untuk di sterilisasi selama 45 menit";
-            taskTexts[4] = "4. simpan medium kedalam kulkas, untuk digunakan pada tahapan selanjutnya";
+            taskTexts[3] = "4. Masukan medium yang sudah homogen kedalam autoclave untuk di sterilisasi selama 45 menit";
+            taskTexts[4] = "5. simpan medium kedalam kulkas, untuk digunakan pada tahapan selanjutnya";
             taskTexts[5] = "Petunjuk";
 
 
@@ -65,7 +65,7 @@ public class Task_Congrats_Content : MonoBehaviour
             taskTexts[0] = "1. Pilih Lah Sample yang akan di uji ";
             taskTexts[1] = "2. Masukan sample yang telah di uji ke dalam tabung ukur";
             taskTexts[2] = "3. Ukurlah Aquades menggunakan Tabung Ukur sebanyak 9 ml ";
-            taskTexts[3] = "4. Masukan Aquades yang telah di ukur, kedalam tabungUkurTrigger reaksi";
+            taskTexts[3] = "4. Masukan Aquades yang telah di ukur, kedalam tabung reaksi";
             taskTexts[4] = "Petunjuk";
 
             CongratsText = new string[4];

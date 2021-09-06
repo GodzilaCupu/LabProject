@@ -544,7 +544,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1 &98237476
 GameObject:
@@ -1069,7 +1069,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1 &472848285
 GameObject:
@@ -1347,7 +1347,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!224 &605107647 stripped
 RectTransform:
@@ -2023,7 +2023,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!23 &1130494055
 MeshRenderer:
@@ -2196,6 +2196,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2545127951249073405, guid: 4444c7fa02f0c4f4f9252cf1272c3108,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 3636459158935049171, guid: 4444c7fa02f0c4f4f9252cf1272c3108,
         type: 3}
       propertyPath: m_CellSize.x
@@ -2266,6 +2271,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: '"2. Tuang  50 ml Aquades di dalam tabung ukur, kemudian campurkan bersama
         medium lactose broth di dalam erlenmayer, dan kemudian aduk hingga homogen"'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8681471247683156016, guid: 4444c7fa02f0c4f4f9252cf1272c3108,
+        type: 3}
+      propertyPath: m_Text
+      value: Persiapan Sample
       objectReference: {fileID: 0}
     - target: {fileID: 8940637404230787565, guid: 4444c7fa02f0c4f4f9252cf1272c3108,
         type: 3}
@@ -2464,7 +2474,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1194825968 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1619087348302136890, guid: 4444c7fa02f0c4f4f9252cf1272c3108,
+  m_CorrespondingSourceObject: {fileID: 7961716698092751654, guid: 4444c7fa02f0c4f4f9252cf1272c3108,
     type: 3}
   m_PrefabInstance: {fileID: 1194825961}
   m_PrefabAsset: {fileID: 0}
@@ -2476,7 +2486,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!1 &1194825969 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 8497970786430980868, guid: 4444c7fa02f0c4f4f9252cf1272c3108,
+  m_CorrespondingSourceObject: {fileID: 2668633240652782354, guid: 4444c7fa02f0c4f4f9252cf1272c3108,
     type: 3}
   m_PrefabInstance: {fileID: 1194825961}
   m_PrefabAsset: {fileID: 0}
@@ -3541,7 +3551,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &1624537516
 MonoBehaviour:
@@ -3665,7 +3675,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &1629924388
 BoxCollider:
@@ -4068,7 +4078,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &1767298530
 BoxCollider:
@@ -4459,7 +4469,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &1900421673
 BoxCollider:
@@ -4984,7 +4994,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &1421013914237242529
 BoxCollider:
@@ -5167,7 +5177,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!23 &2687317829768824227
 MeshRenderer:
@@ -5690,7 +5700,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1 &6155181195871541109
 GameObject:

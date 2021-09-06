@@ -182,7 +182,7 @@ public class BTN_Controller : MonoBehaviour
         _settingTXT = new string[5];
         _settingTXT[0] = "Pengaturan";
         _settingTXT[1] = "Sound";
-        _settingTXT[2] = "Musik";
+        _settingTXT[2] = "Menu Utama";
         _settingTXT[3] = "Save";
         _settingTXT[4] = "Tutup";
     }
@@ -380,8 +380,8 @@ public class BTN_Controller : MonoBehaviour
                     break;
 
                 case 6:
-                    uiBTN[6] = GameObject.Find("Music_Toggle");
-                    //uiBTN[6].GetComponent<Toggle>();
+                    uiBTN[6] = GameObject.Find("BTN_BacktoMainMenu");
+                    uiBTN[6].GetComponent<Button>().onClick.AddListener(BackToMainMenu);
                     break;
 
                 case 7:

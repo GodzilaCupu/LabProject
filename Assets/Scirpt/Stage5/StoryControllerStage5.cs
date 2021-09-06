@@ -164,8 +164,8 @@ public class StoryControllerStage5 : MonoBehaviour
         _kesimpulanTexts = new string[4];
         _kesimpulanTexts[0] = "Hasil Pecobaan";
         _kesimpulanTexts[1] = "Selanjutnya";
-        _kesimpulanTexts[2] = "Dari Hasil Percobaan Yang telah dilakukan, Tidak terdapat Gelembung pada tabung Durham yang menandakan Sample yang terpilih tidak terdapat Tidak Zat Coliform di dalamnya.";
-        _kesimpulanTexts[3] = "Dari Hasil Percobaan yang telah dilakukan, Terdapat Gelembung pada tabung Durham yang menandakan Sample yang terpilih terdapat Zat Coliform didalamnya";
+        _kesimpulanTexts[2] = "Dari Hasil Percobaan Yang telah dilakukan, Tidak terdapat Gelembung pada tabung Durham yang menandakan Sample yang terpilih tidak terdapat Tidak Bakteri Coliform di dalamnya.";
+        _kesimpulanTexts[3] = "Dari Hasil Percobaan yang telah dilakukan, Terdapat Gelembung pada tabung Durham yang menandakan Sample yang terpilih terdapat bakteri Coliform didalamnya";
     }
 
     private void SetGambar()

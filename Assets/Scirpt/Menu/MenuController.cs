@@ -49,10 +49,6 @@ public class MenuController : MonoBehaviour
     {
         RestartMenu();
         CheckMenu();
-        if (Save.GetCurrentLevel("Level") < 0 && Save.GetCurrentLevel("Level") == 5)
-            Save.SetCurrentLevel("Level", 0);
-        else if (Save.GetCurrentLevel("Level") > 0 && Save.GetCurrentLevel("Level") < 5)
-            Save.GetCurrentLevel("Level");
     }
 
     private void Update()
@@ -94,29 +90,11 @@ public class MenuController : MonoBehaviour
 
     private void RestartMenu()
     { 
-        if(Save.GetCurrentLevel("Level") == 0 || Save.GetCurrentLevel("Level") < 1)
-            Save.SetCurrentLevel("Level", 1);
         mainMenuisActive = true;
         miniGameMenuisActive = false;
         levelMenuisActive = false;
 
         countDownInfo = 0;
-    }
-
-    private void InfoPanelGetOpen()
-    {
-        if (mainMenuisActive == true && levelMenuisActive == false)
-            descPanelMainMenu.SetActive(true);
-        else if (mainMenuisActive == false && levelMenuisActive == true)
-            descPanelLevelMenu.SetActive(true);
-    }
-
-    private void InfoPanelGetClose()
-    {
-        if (mainMenuisActive == true && levelMenuisActive == false)
-            descPanelMainMenu.SetActive(false);
-        else if (mainMenuisActive == false && levelMenuisActive == true)
-            descPanelLevelMenu.SetActive(false);
     }
 
     #endregion
@@ -125,10 +103,11 @@ public class MenuController : MonoBehaviour
 
     private void ValueTextMainMenu()
     {
-        _textMainMenu = new string[3];
+        _textMainMenu = new string[4];
         _textMainMenu[0] = "Play";
         _textMainMenu[1] = "Exit";
         _textMainMenu[2] = "Virtual Laboratorium - Kamanan Pangan merupakan sebuah permainan edukasi mengenai keamanan pangan yang bertujuan agar pemain mengetahuikondisi dan upaya yang diperlukan untuk mencegah pangan dari kemungkinan tiga cemaran, yaitu cemaran biologis, kimia, dan benda lain yang dapat mengganggu, merugikan, dan membahayakan kesehatan";
+        _textMainMenu[3] = "Continue";
     }
 
     private void SetTextMainMenu()
@@ -162,13 +141,32 @@ public class MenuController : MonoBehaviour
                     btnMainMenu[3].GetComponent<Button>().onClick.AddListener(InfoPanelGetClose);
                     break;
 
+                case 4:
+                    btnMainMenu[4] = GameObject.Find("BTN_Continue");
+                    btnMainMenu[4].GetComponent<Button>().onClick.AddListener(ContinueMainMenu);
+                    break;
+
                 default:
                     Debug.LogWarning("Check Ur Key");
                     break;
             }
         }
+    }
 
+    private void InfoPanelGetOpen()
+    {
+        if (mainMenuisActive == true && levelMenuisActive == false)
+            descPanelMainMenu.SetActive(true);
+        else if (mainMenuisActive == false && levelMenuisActive == true)
+            descPanelLevelMenu.SetActive(true);
+    }
 
+    private void InfoPanelGetClose()
+    {
+        if (mainMenuisActive == true && levelMenuisActive == false)
+            descPanelMainMenu.SetActive(false);
+        else if (mainMenuisActive == false && levelMenuisActive == true)
+            descPanelLevelMenu.SetActive(false);
     }
 
     private void PlayMainMenu()
@@ -178,6 +176,17 @@ public class MenuController : MonoBehaviour
         levelMenuisActive = false;
 
         CheckMenu();
+        Save.SetCurrentLevel("Level", 0);
+    }
+
+    private void ContinueMainMenu()
+    {
+        miniGameMenuisActive = true;
+        mainMenuisActive = false;
+        levelMenuisActive = false;
+
+        CheckMenu();
+        Save.SetCurrentLevel("Level", Save.GetCurrentLevel("Level"));
     }
 
     private void ExitGame()
