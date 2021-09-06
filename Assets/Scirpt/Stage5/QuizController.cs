@@ -22,14 +22,23 @@ public class QuizController : MonoBehaviour
     private void Start()
     {
         ResetPertanyaan();
-        Save.SetCurrentLevel("Level", 0);
+        Save.SetCurrentLevel("Level", 5);
         countQuiz = 0;
     }
     private void Update()
     {
+        UpdateScore();
         Debug.Log("Level" + Save.GetCurrentLevel("Level"));
         Debug.Log("Soal" + countQuiz);
         Debug.Log("Score" + Save.GetCurrentProgres("Quiz"));
+    }
+
+    private void UpdateScore()
+    {
+        if (Save.GetCurrentLevel("Level") == 1)
+            quizTXT[8].text = "Score : " + Save.GetCurrentProgres("Quiz1");
+        if (Save.GetCurrentLevel("Level") == 5)
+            quizTXT[8].text = "Score : " + Save.GetCurrentProgres("Quiz5");
     }
     #region Button Configuration
 
@@ -261,7 +270,6 @@ public class QuizController : MonoBehaviour
         Save.SetCurrentProgres("Quiz5", 0);
 
         quizBTN[5].GetComponent<Button>().onClick.AddListener(PertanyaanPertama);
-
     }
 
     private void CheckedSoal()

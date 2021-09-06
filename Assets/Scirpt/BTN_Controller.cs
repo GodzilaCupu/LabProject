@@ -250,7 +250,7 @@ public class BTN_Controller : MonoBehaviour
         if (scene == SceneManager.GetSceneByName("Gameplay_5"))
         {
             Save.DelateKey("Stage5");
-            SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene("Quiz");
         }
     }
 

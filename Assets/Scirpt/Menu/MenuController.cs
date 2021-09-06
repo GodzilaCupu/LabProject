@@ -49,6 +49,10 @@ public class MenuController : MonoBehaviour
     {
         RestartMenu();
         CheckMenu();
+        if (Save.GetCurrentLevel("Level") < 0 && Save.GetCurrentLevel("Level") == 5)
+            Save.SetCurrentLevel("Level", 0);
+        else if (Save.GetCurrentLevel("Level") > 0 && Save.GetCurrentLevel("Level") < 5)
+            Save.GetCurrentLevel("Level");
     }
 
     private void Update()
@@ -89,7 +93,7 @@ public class MenuController : MonoBehaviour
     }
 
     private void RestartMenu()
-    {
+    { 
         if(Save.GetCurrentLevel("Level") == 0 || Save.GetCurrentLevel("Level") < 1)
             Save.SetCurrentLevel("Level", 1);
         mainMenuisActive = true;
@@ -144,7 +148,7 @@ public class MenuController : MonoBehaviour
                     btnMainMenu[0].GetComponent<Button>().onClick.AddListener(InfoPanelGetOpen);
                     break;
                 case 1:
-                    btnMainMenu[1] = GameObject.Find("BTN_MiniGameMenu");
+                    btnMainMenu[1] = GameObject.Find("BTN_NewGame");
                     btnMainMenu[1].GetComponent<Button>().onClick.AddListener(PlayMainMenu);
                     break;
 
@@ -439,6 +443,14 @@ public class MenuController : MonoBehaviour
     {
         switch (Save.GetCurrentLevel("Level"))
         {
+            case 0:
+                btnLevelMenu[1].GetComponent<Button>().interactable = true;
+                btnLevelMenu[2].GetComponent<Button>().interactable = false;
+                btnLevelMenu[3].GetComponent<Button>().interactable = false;
+                btnLevelMenu[4].GetComponent<Button>().interactable = false;
+                btnLevelMenu[5].GetComponent<Button>().interactable = false;
+                break;
+
             case 1:
                 btnLevelMenu[1].GetComponent<Button>().interactable = true;
                 btnLevelMenu[2].GetComponent<Button>().interactable = false;
@@ -490,7 +502,7 @@ public class MenuController : MonoBehaviour
     #region Stage
     private void Stage1()
     {
-        SceneManager.LoadScene("Gameplay_1");
+        SceneManager.LoadScene("Quiz");
     }
     private void Stage2()
     {
