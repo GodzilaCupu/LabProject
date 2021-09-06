@@ -64,6 +64,8 @@ public class BTN_Controller : MonoBehaviour
         CheckLevelandProgress();
         CheckPosition();
 
+        Debug.Log(Save.GetCurrentProgres("Stage5") + " = Level");
+
         //CheckMusicToggle();
         //CheckSoundToggle();
     }
@@ -248,7 +250,7 @@ public class BTN_Controller : MonoBehaviour
         if (scene == SceneManager.GetSceneByName("Gameplay_5"))
         {
             Save.DelateKey("Stage5");
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene("Menu");
         }
     }
 
@@ -278,7 +280,7 @@ public class BTN_Controller : MonoBehaviour
                     CongratsGetOpen();
                 break;
             case 5:
-                if (Save.GetCurrentProgres("Stage5") == 6)
+                if (Save.GetCurrentProgres("Stage5") == 5)
                     CongratsGetOpen();
                 break;
             default:
@@ -310,7 +312,6 @@ public class BTN_Controller : MonoBehaviour
             default:
                 Debug.LogWarning("Check Ur Key");
                 break;
-
         }
     }
 

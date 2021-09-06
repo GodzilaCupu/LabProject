@@ -31,6 +31,11 @@ public class StoryControllerStage2 : MonoBehaviour
         Save.SetCurrentLevel("Level", 2);
     }
 
+    private void Update()
+    {
+        Debug.Log("Progress " + Save.GetCurrentProgres("Stage2"));
+    }
+
     #region Step
 
     //Step1

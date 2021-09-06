@@ -34,7 +34,7 @@ public class TriggerStage2 : MonoBehaviour
                 story.MasukAutoClave();
 
         if (collision.gameObject.name == "Kulkas")
-            if (Save.GetCurrentProgres("Stage3") == 4)
+            if (Save.GetCurrentProgres("Stage2") == 4)
                 story.MasukKulkas();
     }
 }

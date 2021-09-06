@@ -28,6 +28,7 @@ public class StoryControllerStage5 : MonoBehaviour
     {
         ValueContentKesimpulan();
         SetText();
+        SetButton();
         SetGambar();
     }
 
@@ -41,7 +42,6 @@ public class StoryControllerStage5 : MonoBehaviour
         ResetLevel();
     }
 
-    
     #region Step
     //Step1
     public void ElenmayerToHeater()
@@ -95,6 +95,12 @@ public class StoryControllerStage5 : MonoBehaviour
         btn.PanelUIActive();
 
         StartCoroutine(IncobatorJeda(7));
+    }
+
+    private void Congrats()
+    {
+        objectTrigger[7].SetActive(false);
+        Save.SetCurrentProgres("Stage5", 5);
     }
     #endregion
 
@@ -166,6 +172,12 @@ public class StoryControllerStage5 : MonoBehaviour
     {
         GameObject _gambar = GameObject.Find("IMG");
         gambar = _gambar.GetComponent<Image>();
+    }
+
+    private void SetButton()
+    {
+        objectTrigger[9] = GameObject.Find("BTN_ToQuiz");
+        objectTrigger[9].GetComponent<Button>().onClick.AddListener(Congrats);
     }
 
     private void SetText()

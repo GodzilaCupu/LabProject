@@ -349,27 +349,27 @@ public class MenuController : MonoBehaviour
 
                 case 1:
                     btnLevelMenu[1] = GameObject.Find("PengambilanAlatdanBahan");
-                    btnLevelMenu[1].GetComponent<Button>().onClick.AddListener(PindahStage);
+                    btnLevelMenu[1].GetComponent<Button>().onClick.AddListener(Stage1);
                     break;
 
                 case 2:
                     btnLevelMenu[2] = GameObject.Find("PersiapanSample");
-                    btnLevelMenu[2].GetComponent<Button>().onClick.AddListener(PindahStage);
+                    btnLevelMenu[2].GetComponent<Button>().onClick.AddListener(Stage2);
                     break;
 
                 case 3:
                     btnLevelMenu[3] = GameObject.Find("PembuatanMedium");
-                    btnLevelMenu[3].GetComponent<Button>().onClick.AddListener(PindahStage);
+                    btnLevelMenu[3].GetComponent<Button>().onClick.AddListener(Stage3);
                     break;
 
                 case 4:
                     btnLevelMenu[4] = GameObject.Find("PengenceranSample");
-                    btnLevelMenu[4].GetComponent<Button>().onClick.AddListener(PindahStage);
+                    btnLevelMenu[4].GetComponent<Button>().onClick.AddListener(Stage4);
                     break;
 
                 case 5:
                     btnLevelMenu[5] = GameObject.Find("DeteksiColiformStage");
-                    btnLevelMenu[5].GetComponent<Button>().onClick.AddListener(PindahStage);
+                    btnLevelMenu[5].GetComponent<Button>().onClick.AddListener(Stage5);
                     break;
 
                 case 6:
@@ -484,38 +484,32 @@ public class MenuController : MonoBehaviour
                 break;
 
         }
-
     }
+    #endregion
 
-    private void PindahStage()
+    #region Stage
+    private void Stage1()
     {
-        switch (Save.GetCurrentLevel("Level"))
-        {
-            case 1:
-                SceneManager.LoadScene("Gameplay_1");
-                break;
-
-            case 2:
-                SceneManager.LoadScene("Gameplay_2");
-                break;
-
-            case 3:
-                SceneManager.LoadScene("Gameplay_3");
-                break;
-
-            case 4:
-                SceneManager.LoadScene("Gameplay_4");
-                break;
-
-            case 5:
-                SceneManager.LoadScene("Gameplay_5");
-                break;
-
-            default:
-                Debug.LogWarning("Check ur Key");
-                break;
-        }
+        SceneManager.LoadScene("Gameplay_1");
     }
+    private void Stage2()
+    {
+        SceneManager.LoadScene("Gameplay_2");
+    }
+    private void Stage3()
+    {
+        SceneManager.LoadScene("Gameplay_3");
+    }
+
+    private void Stage4()
+    {
+        SceneManager.LoadScene("Gameplay_4");
+    }
+    private void Stage5()
+    {
+        SceneManager.LoadScene("Gameplay_5");
+    }
+
     #endregion
 
     IEnumerator LevelErorJeda(int sec)

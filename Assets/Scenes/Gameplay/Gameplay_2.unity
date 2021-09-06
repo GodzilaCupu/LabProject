@@ -451,7 +451,7 @@ GameObject:
   - component: {fileID: 82919458}
   m_Layer: 0
   m_Name: ErlenmayerKosong
-  m_TagString: Device
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -974,7 +974,7 @@ GameObject:
   - component: {fileID: 342936150}
   m_Layer: 0
   m_Name: Lactobrote
-  m_TagString: Device
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1253,7 +1253,7 @@ GameObject:
   - component: {fileID: 572589883}
   m_Layer: 0
   m_Name: ErlenmayerWithLatobrote
-  m_TagString: Device
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1736,7 +1736,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &796756710
 BoxCollider:
@@ -1891,6 +1891,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dragTag: Device
+  story1: {fileID: 0}
+  story3: {fileID: 0}
 --- !u!4 &874273076
 Transform:
   m_ObjectHideFlags: 0
@@ -1952,7 +1954,7 @@ GameObject:
   - component: {fileID: 907241196}
   m_Layer: 0
   m_Name: POS_SpatulaAwal
-  m_TagString: Device
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3358,7 +3360,6 @@ GameObject:
   - component: {fileID: 1624537515}
   - component: {fileID: 1624537517}
   - component: {fileID: 1624537516}
-  - component: {fileID: 1624537518}
   m_Layer: 0
   m_Name: Aquades
   m_TagString: Device
@@ -3470,18 +3471,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.9999999, y: 2.8632514, z: 1.9999999}
   m_Center: {x: -0.0000076293945, y: 0.43162572, z: 0}
---- !u!114 &1624537518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1624537511}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41bb6d7f50d3a16489360638708c8f1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1629924383
 GameObject:
   m_ObjectHideFlags: 0
@@ -4879,7 +4868,7 @@ GameObject:
   - component: {fileID: 1421013914237242529}
   m_Layer: 0
   m_Name: Elenmayer_Medium_AquadesBeforeAduk
-  m_TagString: Device
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5049,7 +5038,7 @@ GameObject:
   - component: {fileID: 2643642604006459832}
   m_Layer: 0
   m_Name: Autoclave
-  m_TagString: Device
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5572,7 +5561,7 @@ GameObject:
   - component: {fileID: 5885965130288494949}
   m_Layer: 0
   m_Name: timbangan
-  m_TagString: Device
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

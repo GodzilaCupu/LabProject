@@ -2187,6 +2187,7 @@ MonoBehaviour:
   - {fileID: 333892130}
   - {fileID: 197364559}
   - {fileID: 945426702}
+  - {fileID: 277432958}
   anim:
   - {fileID: 919132148588593521}
   - {fileID: 919132148477110780}
@@ -2290,6 +2291,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dragTag: Device
+  story1: {fileID: 0}
+  story3: {fileID: 0}
 --- !u!4 &770573747
 Transform:
   m_ObjectHideFlags: 0
