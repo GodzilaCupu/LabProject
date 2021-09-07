@@ -12,6 +12,8 @@ public class QuizController : MonoBehaviour
     [SerializeField] private GameObject[] quiz;
     private string[] _kunciJawabanTexts, _soalTexts, _contentText;
 
+    AudioSource sound;
+
     private void Awake()
     {
         ValueQuizText();
@@ -21,11 +23,13 @@ public class QuizController : MonoBehaviour
     private void Start()
     {
         ResetPertanyaan();
+
+        GameObject _gameManageer = GameObject.Find("GameManager");
+        sound = _gameManageer.GetComponent<AudioSource>();
     }
     private void Update()
     {
         UpdateScore();
-
     }
 
     #region Text Configuration
@@ -110,7 +114,7 @@ public class QuizController : MonoBehaviour
                     break;
 
                 case 4:
-                    if(Save.GetCurrentLevel("Level") == 0)
+                    if(Save.GetCurrentLevel("Level") <= 1)
                         quizTXT[4].text = _contentText[1];
                     else
                     if(Save.GetCurrentLevel("Level") == 5)
@@ -252,7 +256,7 @@ public class QuizController : MonoBehaviour
 
                     //backto mainmenu
                 case 36:
-                    if (Save.GetCurrentLevel("Level") == 0)
+                    if (Save.GetCurrentLevel("Level") <= 1)
                         quizTXT[36].text = _contentText[3];
                     else if (Save.GetCurrentLevel("Level") == 5)
                         quizTXT[36].text = _contentText[5];
@@ -264,7 +268,7 @@ public class QuizController : MonoBehaviour
 
     private void UpdateScore()
     {
-        if (Save.GetCurrentLevel("Level") < 1 || Save.GetCurrentLevel("Level") == 0)
+        if (Save.GetCurrentLevel("Level") <= 1 || Save.GetCurrentLevel("Level") == 0)
             quizTXT[5].text = "Score : " + Save.GetCurrentProgres("Quiz");
         else
         if (Save.GetCurrentLevel("Level") == 5 || Save.GetCurrentLevel("Level") > 0)
@@ -274,7 +278,7 @@ public class QuizController : MonoBehaviour
 
     public void Benar()
     {
-        if (Save.GetCurrentLevel("Level")== 0)
+        if (Save.GetCurrentLevel("Level") <= 1)
         {
             int benar = Save.GetCurrentProgres("Quiz") + 20;
             Save.SetCurrentProgres("Quiz", benar);
@@ -289,7 +293,7 @@ public class QuizController : MonoBehaviour
 
     public void Salah()
     {
-        if (Save.GetCurrentLevel("Level") == 0)
+        if (Save.GetCurrentLevel("Level") <= 1)
         {
             int benar = Save.GetCurrentProgres("Quiz") + 0;
             Save.SetCurrentProgres("Quiz", benar);
@@ -373,12 +377,18 @@ public class QuizController : MonoBehaviour
 
         Save.SetCurrentProgres("Quiz", 0);
         Save.SetCurrentProgres("Quiz5", 0);
+        Save.SetSound("BGM", 1);
+
+        if (Save.GetSound("BGM") == 0)
+            sound.mute = true;
+        else if (Save.GetSound("BGM") == 1)
+            sound.mute = false;
 
     }
 
     public void NextGame()
     {
-        if (Save.GetCurrentLevel("Level") == 0)
+        if (Save.GetCurrentLevel("Level") <= 1)
         {
             SceneManager.LoadScene("Gameplay_1");
         }

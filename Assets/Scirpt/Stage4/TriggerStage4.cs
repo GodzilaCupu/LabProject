@@ -14,19 +14,19 @@ public class TriggerStage4 : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.name == "TabungUkurKosong")
+        if(this.gameObject.name == "Akuades" && collision.gameObject.name == "TabungUkurKosong")
             if(Save.GetCurrentProgres("Stage4") == 0)
                 story.AquadesToTabungUkur();
 
-        if (collision.gameObject.name == "sample3tabungNonAnimKosong")
+        if (this.gameObject.name == "Tabung ukur Penuh" && collision.gameObject.name == "sample3tabungNonAnimKosong")
             if (Save.GetCurrentProgres("Stage4") == 1)
                 story.TabungUkurToTabungReaksi();
 
-        if (collision.gameObject.name == "TabungReaksiAwal")
+        if (this.gameObject.name == "PipetKosong" && collision.gameObject.name == "TabungReaksiAwal")
             if (Save.GetCurrentProgres("Stage4") == 2)
                 story.PipetToSampleSatu();
 
-        if (collision.gameObject.name == "sample3tabungNonAnimPenuh")
+        if (this.gameObject.name == "PipetPenuh" && collision.gameObject.name == "sample3tabungNonAnimPenuh")
             if (Save.GetCurrentProgres("Stage4") == 3)
                 story.SampleSatuToTigaSample();
     }

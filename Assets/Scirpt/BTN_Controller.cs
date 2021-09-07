@@ -35,6 +35,7 @@ public class BTN_Controller : MonoBehaviour
     int countPos = 0;
     TutorialController tutor;
     StoryControllerStage1 stage1;
+    AudioSource sound;
 
     private void Awake()
     {
@@ -53,9 +54,11 @@ public class BTN_Controller : MonoBehaviour
         isMute = false;
 
         ResetUI();
+        SetValueSound();
         GameObject _gameManager = GameObject.Find("GameManager");
         tutor = _gameManager.GetComponent<TutorialController>();
         stage1 = _gameManager.GetComponent<StoryControllerStage1>();
+        sound = _gameManager.GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -63,11 +66,9 @@ public class BTN_Controller : MonoBehaviour
         CheckToCongrats();
         CheckLevelandProgress();
         CheckPosition();
+        CheckSoundToggle();
 
         Debug.Log(Save.GetCurrentProgres("Stage5") + " = Level");
-
-        //CheckMusicToggle();
-        //CheckSoundToggle();
     }
 
     #region Panel Configuration
@@ -190,13 +191,28 @@ public class BTN_Controller : MonoBehaviour
     //ditaro di method update
     private void CheckSoundToggle()
     {
-        
+        if (uiBTN[5].GetComponent<Toggle>().isOn == false)
+        {
+            sound.mute = false;
+            Save.SetSound("BGM", 0);
+        }
+        else if (uiBTN[5].GetComponent<Toggle>().isOn == true)
+        {
+            sound.mute = true;
+            Save.SetSound("BGM", 1);
+        }
     }
 
-    private void CheckMusicToggle()
+    private void SetValueSound()
     {
+        int _sound = Save.GetSound("BGM");
 
+        if (_sound == 0)
+            uiBTN[5].GetComponent<Toggle>().isOn = true;
+        else if (_sound == 1)
+            uiBTN[5].GetComponent<Toggle>().isOn = false;
     }
+
     #endregion
 
     #region Movement Configuration
@@ -376,7 +392,6 @@ public class BTN_Controller : MonoBehaviour
                 // 5 = ToggleSound  ; 6 = ToggleMusic ; 7 = SavedBTN ; 8 = CloseSettingBTN;
                 case 5:
                     uiBTN[5] = GameObject.Find("Sound_Toggle");
-                    uiBTN[5].GetComponent<Toggle>();
                     break;
 
                 case 6:

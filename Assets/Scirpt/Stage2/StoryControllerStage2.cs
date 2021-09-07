@@ -212,5 +212,6 @@ public class StoryControllerStage2 : MonoBehaviour
     private void ResetProgres()
     {
         Save.DelateKey("Stage2");
+        Save.SetCurrentProgres("Stage2", 0);
     }
 }

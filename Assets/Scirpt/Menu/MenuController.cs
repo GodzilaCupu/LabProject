@@ -30,6 +30,8 @@ public class MenuController : MonoBehaviour
 
     bool mainMenuisActive, miniGameMenuisActive, levelMenuisActive;
 
+    AudioSource sound;
+
     private void Awake()
     {
         ValueTextMainMenu();
@@ -49,6 +51,9 @@ public class MenuController : MonoBehaviour
     {
         RestartMenu();
         CheckMenu();
+
+        GameObject _gameManageer = GameObject.Find("GameManager");
+        sound = _gameManageer.GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -93,6 +98,8 @@ public class MenuController : MonoBehaviour
         mainMenuisActive = true;
         miniGameMenuisActive = false;
         levelMenuisActive = false;
+
+        Save.SetSound("BGM",1);
 
         countDownInfo = 0;
     }
