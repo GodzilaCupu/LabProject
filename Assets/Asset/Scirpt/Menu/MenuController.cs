@@ -30,8 +30,6 @@ public class MenuController : MonoBehaviour
 
     bool mainMenuisActive, miniGameMenuisActive, levelMenuisActive;
 
-    AudioSource sound;
-
     private void Awake()
     {
         ValueTextMainMenu();
@@ -53,7 +51,6 @@ public class MenuController : MonoBehaviour
         CheckMenu();
 
         GameObject _gameManageer = GameObject.Find("GameManager");
-        sound = _gameManageer.GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -212,10 +209,10 @@ public class MenuController : MonoBehaviour
 
         _textMiniGame[0] = "Deteksi Coliform";
         _textMiniGame[1] = "Hygiene";
-        _textMiniGame[2] = "5 Kunci Keamanan Pangan";
-        _textMiniGame[3] = "Uji Migrasi Kemasan Pangan";
+        _textMiniGame[2] = "5 Kunci Keamanan\nPangan";
+        _textMiniGame[3] = "Uji Migrasi Kemasan\nPangan";
         _textMiniGame[4] = "Food Handling";
-        _textMiniGame[5] = "Dokuen Keamanan Pangan";
+        _textMiniGame[5] = "Dokuen Keamanan\nPangan";
     }
 
     private void SetTextMiniGameMenu()
@@ -303,7 +300,7 @@ public class MenuController : MonoBehaviour
         _textUIDeteksiColiform = new string[8];
         _textUIDeteksiColiform[0] = "Deteksi ColiForm";
         //Opsi 1
-        _textUIDeteksiColiform[1] = "Pengambilan Alat dan Bahan";
+        _textUIDeteksiColiform[1] = "Pengambilan Alat\ndan Bahan";
         _textUIDeteksiColiform[2] = "Persiapan Sample";
         _textUIDeteksiColiform[3] = "Pembuatan Medium";
         _textUIDeteksiColiform[4] = "Pengenceran Sample";

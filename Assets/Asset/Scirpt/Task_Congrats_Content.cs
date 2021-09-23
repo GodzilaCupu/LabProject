@@ -7,10 +7,12 @@ using UnityEngine.UI;
 public class Task_Congrats_Content : MonoBehaviour
 {
 
-    [SerializeField] private Text[] tasks, congrats;
+    [SerializeField] private Text[] tasks, congrats, infoStage;
 
     public string[] taskTexts { get; private set; }
     public string[] CongratsText { get; private set; }
+
+    private string[] infoStageText;
 
     private void Start()
     {
@@ -32,13 +34,30 @@ public class Task_Congrats_Content : MonoBehaviour
     {
         Scene scene = SceneManager.GetActiveScene();
 
+        infoStageText = new string[10];
+        //title
+        infoStageText[0] = "Pengambilan Alat dan Bahan";
+        infoStageText[1] = "Persiapan Sample";
+        infoStageText[2] = "Pembuatan Medium";
+        infoStageText[3] = "Pengenceran Sample";
+        infoStageText[4] = "Hasil Pengujian";
+
+        //content
+        infoStageText[5] = "Setiap alat dalam laboratorium memiliki fungsi spesifik. Pemilihan alat yang tidak tepat, dapat mempengaruhi ketepatan hasil suatu deteksi ataupun pengujian. Demikian juga dengan bahan. Mengenal alat dan bahan yang tepat dalam pengujian ini merupakan langkah penting yang harus dikuasai guna memastikan tercapainya tujuan dari praktikum ini.";
+        infoStageText[6] = "Sampel pengujian perlu dipersiapkan agar layak untuk diuji di dalam laboratorium. Alat yang digunakan dalam pengujian laboratorium memiliki tingkat sensitifitas dan kapasitas tertentu. Sampel harus dipersiapkan menyesuaikan dengan tingkat sensitifitas dan kapasitas alat agar hasil yang diperoleh akurat dan tepat.";
+        infoStageText[7] = "Medium tumbuh merupakan substrat yang menyediakan nutrisi bagi pertumbuhan mikrobia tertentu. Kontaminasi mikrobia diluar mikrobia yang akan kita deteksi dapat mengganggu hasil suatu pengujian. Pembuatan medium yang baik dan steril wajib dikuasai agar hasil suatu pengujian mikrobia dapat tepat dan akurat.";
+        infoStageText[8] = "Ketika diambil dari lapangan, jumlah mikrobia di dalam sampel bisa jadi sangat banyak. Akibatnya, mikrobia akan sangat sulit dianalisis terutama ketika kita akan melakukan uji kuantitatif. Karenanya, pengenceran sampel sangat penting dalam pengujian mikrobia.";
+        infoStageText[9] = "Uji pathogen pada sampel makanan biasanya mahal dan rumit. Untuk mempermudah pengujian, biasanya diambil suatu mikrobia indicator untuk menunjukkan tingkat keamanan suatu produk makanan. Coliform menunjukkan kelompok mikrobia yang secara persisten ditemui dalam jalur pencernaan binatang dan manusia.";
+
+
         if (scene == SceneManager.GetSceneByName("Gameplay_1"))
         {
-            CongratsText = new string[4];
+            CongratsText = new string[2];
             CongratsText[0] = "Selamat !!!";
             CongratsText[1] = "Selamat Anda telah berhasil \nMengambil Alat dan Bahan yang dibutuhkan \nAlat dan Bahan siap untuk digunakan \nAyo Lanjut ke tahapan selanjutnya";
-            CongratsText[2] = "Main Menu";
-            CongratsText[3] = "Lanjut";
+
+            infoStage[0].text = infoStageText[0];
+            infoStage[1].text = infoStageText[5];
         }
 
         if (scene == SceneManager.GetSceneByName("Gameplay_2"))
@@ -52,11 +71,12 @@ public class Task_Congrats_Content : MonoBehaviour
             taskTexts[5] = "Petunjuk";
 
 
-            CongratsText = new string[4];
+            CongratsText = new string[2];
             CongratsText[0] = "Selamat !!!";
             CongratsText[1] = "Selamat Anda telah berhasil \nMengambil Alat dan Bahan yang dibutuhkan \nAlat dan Bahan siap untuk digunakan \nAyo Lanjut ke tahapan selanjutnya";
-            CongratsText[2] = "Main Menu";
-            CongratsText[3] = "Lanjut";
+
+            infoStage[0].text = infoStageText[1];
+            infoStage[1].text = infoStageText[6];
         }
 
         if (scene == SceneManager.GetSceneByName("Gameplay_3"))
@@ -68,11 +88,12 @@ public class Task_Congrats_Content : MonoBehaviour
             taskTexts[3] = "4. Masukan Aquades yang telah di ukur, kedalam tabung reaksi";
             taskTexts[4] = "Petunjuk";
 
-            CongratsText = new string[4];
+            CongratsText = new string[2];
             CongratsText[0] = "Selamat !!!";
             CongratsText[1] = "Selamat Anda telah berhasil \n menyelesaikan tahapan persiapan sample \n Sample telah siap untuk digunakan \n Ayo Lanjut ke tahapan selanjutnya";
-            CongratsText[2] = "Main Menu";
-            CongratsText[3] = "Lanjut";
+
+            infoStage[0].text = infoStageText[2];
+            infoStage[1].text = infoStageText[7];
         }
 
         if (scene == SceneManager.GetSceneByName("Gameplay_4"))
@@ -84,11 +105,12 @@ public class Task_Congrats_Content : MonoBehaviour
             taskTexts[3] = "4. Ambil Sample yang sudah dipersaipkan menggunakan pipet masing masing sebanyak 1 ML";
             taskTexts[4] = "Petunjuk";
 
-            CongratsText = new string[4];
+            CongratsText = new string[2];
             CongratsText[0] = "Selamat !!!";
             CongratsText[1] = "Selamat Anda telah berhasil \n menyelesaikan tahapan pengenceran sample \n Sample telah siap untuk digunakan \n Ayo Lanjut ke tahapan selanjutnya";
-            CongratsText[2] = "Main Menu";
-            CongratsText[3] = "Lanjut";
+
+            infoStage[0].text = infoStageText[3];
+            infoStage[1].text = infoStageText[8];
         }
 
         if (scene == SceneManager.GetSceneByName("Gameplay_5"))
@@ -100,11 +122,12 @@ public class Task_Congrats_Content : MonoBehaviour
             taskTexts[3] = "4. Masukan Sample yang sudah siap Kedalam Inkkubator dan tunggu 24 Jam";
             taskTexts[4] = "Petunjuk";
 
-            CongratsText = new string[4];
+            CongratsText = new string[2];
             CongratsText[0] = "Selamat !!!";
             CongratsText[1] = "Selamat Anda telah berhasil \n Menguji Colliform pada \n Sample yang telah disediakan";
-            CongratsText[2] = "Main Menu";
-            CongratsText[3] = "Selesai";
+
+            infoStage[0].text = infoStageText[6];
+            infoStage[1].text = infoStageText[7];
         }
     }
 

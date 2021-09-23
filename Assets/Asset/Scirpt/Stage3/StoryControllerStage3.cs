@@ -37,12 +37,10 @@ public class StoryControllerStage3 : MonoBehaviour
         isSampleB = false;
 
         sampleB.SetActive(false);
-        task.ChangeColor();
-
-
         Save.SetSample("Sample", "SampleA");
         Save.SetCurrentProgres("Stage3", 1);
 
+        task.ChangeColor();
         Debug.Log(Save.GetCurrentLevel("Level") + "LEVEL");
 
     }
@@ -53,13 +51,11 @@ public class StoryControllerStage3 : MonoBehaviour
         isSampleB = true;
 
         sampleA.SetActive(false);
-        task.ChangeColor();
-
         Save.SetSample("Sample", "SampleB");
         Save.SetCurrentProgres("Stage3", 1);
-
+        
+        task.ChangeColor();
         Debug.Log(Save.GetCurrentLevel("Level") + "LEVEL");
-
     }
 
     //Step2

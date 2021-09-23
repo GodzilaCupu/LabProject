@@ -44,7 +44,7 @@ public class QuizController : MonoBehaviour
         _contentText[5] = "Main Menu";
 
         _soalTexts = new string[5];
-        _soalTexts[0] = "Manakah dari alat berikut yang berfungsi mensetralisasi alat dan bahan ?";
+        _soalTexts[0] = "Manakah dari alat berikut yang berfungsi mensterilisasi alat dan bahan ?";
         _soalTexts[1] = "Indikator dari apakah keberadaan Coliform dalam produk makanan ?";
         _soalTexts[2] = "Apakah Fungsi Pengenceran dalam Deteksi Coliform ?";
         _soalTexts[3] = "Apakah Fungsi Dari Tabung Durham dalam deteksi Coliform ?";

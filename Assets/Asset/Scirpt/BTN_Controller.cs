@@ -33,7 +33,7 @@ public class BTN_Controller : MonoBehaviour
 
 
     int countPos = 0;
-    TutorialController tutor;
+    TutorialControlerStage1 tutor;
     StoryControllerStage1 stage1;
     AudioSource sound;
 
@@ -54,9 +54,9 @@ public class BTN_Controller : MonoBehaviour
         isMute = false;
 
         ResetUI();
-        SetValueSound();
+        //SetValueSound();
         GameObject _gameManager = GameObject.Find("GameManager");
-        tutor = _gameManager.GetComponent<TutorialController>();
+        tutor = _gameManager.GetComponent<TutorialControlerStage1>();
         stage1 = _gameManager.GetComponent<StoryControllerStage1>();
         sound = _gameManager.GetComponent<AudioSource>();
     }
@@ -108,7 +108,6 @@ public class BTN_Controller : MonoBehaviour
         uiPanel[1].SetActive(true);
         settingPanelIsActive = true;
         PanelUIActive();
-        Debug.Log(settingPanelIsActive + "Setting Pannel");
     }
 
     public void SettingGetClosed()
@@ -180,12 +179,9 @@ public class BTN_Controller : MonoBehaviour
 
     private void ValueTextSetting()
     {
-        _settingTXT = new string[5];
+        _settingTXT = new string[2];
         _settingTXT[0] = "Pengaturan";
         _settingTXT[1] = "Sound";
-        _settingTXT[2] = "Menu Utama";
-        _settingTXT[3] = "Save";
-        _settingTXT[4] = "Tutup";
     }
 
     //ditaro di method update
@@ -203,15 +199,16 @@ public class BTN_Controller : MonoBehaviour
         }
     }
 
-    private void SetValueSound()
-    {
-        int _sound = Save.GetSound("BGM");
+    //private void SetValueSound()
+    //{
+    //    int _sound = Save.GetSound("BGM");
 
-        if (_sound == 0)
-            uiBTN[5].GetComponent<Toggle>().isOn = true;
-        else if (_sound == 1)
-            uiBTN[5].GetComponent<Toggle>().isOn = false;
-    }
+    //    if (_sound == 0)
+    //        uiBTN[5].GetComponent<Toggle>().isOn = true;
+        
+    //    if (_sound == 1)
+    //        uiBTN[5].GetComponent<Toggle>().isOn = false;
+    //}
 
     #endregion
 
@@ -361,7 +358,9 @@ public class BTN_Controller : MonoBehaviour
                 #region Gameplay BTN
                 // 0 = taskBTN ; 1 = settingBTN ; 2 = GeseerCameraKiri ; 3 = GeserCameraKanan
                 case 0:
-                    uiBTN[0] = GameObject.Find("BTN_Task");
+                    if(Save.GetCurrentLevel("Level") >= 2 )
+                        uiBTN[0] = GameObject.Find("BTN_Task");
+                    else if (Save.GetCurrentLevel("Level") == 1)
                     uiBTN[0].GetComponent<Button>().onClick.AddListener(TaskGetOpen);
                     break;
                 case 1:

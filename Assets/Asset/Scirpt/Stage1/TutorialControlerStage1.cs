@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.UI;
 
-public class TutorialController : MonoBehaviour
+public class TutorialControlerStage1 : MonoBehaviour
 {
     private string[] tutorialTexts,uiTexts;
 

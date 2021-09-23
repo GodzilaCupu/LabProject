@@ -14,15 +14,14 @@ public class StoryControllerStage1 : MonoBehaviour
     [Header("UI")]
     [SerializeField] private Toggle[] taskToggle;
     [SerializeField] private Text[] taskText;
-    [SerializeField] private Text popupText;
+    [SerializeField] private Text popupText,titleAskText;
     [SerializeField] private GameObject[] task;
 
     [Header("Content Pop Up Menang")]
-    private string popupString;
+    private string popupString, titleAskString;
     private string[] taskString;
 
     int progress;
-    TutorialController tutor;
     BTN_Controller btn;
 
     private void Start()
@@ -30,8 +29,6 @@ public class StoryControllerStage1 : MonoBehaviour
         GameObject _gameManager = GameObject.Find("GameManager");
 
         btn= _gameManager.GetComponent<BTN_Controller>();
-        tutor = _gameManager.GetComponent<TutorialController>();
-
         Save.SetCurrentLevel("Level", 1);
         ResetProgres();
         ValueText();
@@ -50,6 +47,7 @@ public class StoryControllerStage1 : MonoBehaviour
         taskString[6] = "Tabung Ukur 50";
         taskString[7] = "12 Tabung Reaksi dan Tabung Durham";
 
+        titleAskString = "Petunjuk bahan dan alat";
         popupString = "Oh tidak, kamu mengambil barang yang salah";
     }
 
@@ -59,6 +57,7 @@ public class StoryControllerStage1 : MonoBehaviour
             taskText[i].text = taskString[i];
 
         popupText.text = popupString;
+        titleAskText.text = titleAskString;
     }
 
     private void ResetProgres()

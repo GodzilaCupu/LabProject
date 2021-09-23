@@ -185,9 +185,7 @@ public class DragObject : MonoBehaviour
                 if (Physics.Raycast(raycastTouch, out hit) && hit.collider.gameObject == story1.objSalah[4])
                     story1.Salah();
             }
-
         }
-
     }
 
     private void Dragging() 
@@ -222,14 +220,12 @@ public class DragObject : MonoBehaviour
     {
         rb.useGravity = false;
         rb.drag = 8;
-
     }
 
     private void SetNotDragingPorperties(Rigidbody rb)
     {
         rb.useGravity = true;
         rb.drag = 5;
-
     }
     #endregion
 

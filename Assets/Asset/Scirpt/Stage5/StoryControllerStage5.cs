@@ -161,11 +161,10 @@ public class StoryControllerStage5 : MonoBehaviour
     #region Content Akhir 
     private void ValueContentKesimpulan()
     {
-        _kesimpulanTexts = new string[4];
+        _kesimpulanTexts = new string[3];
         _kesimpulanTexts[0] = "Hasil Pecobaan";
-        _kesimpulanTexts[1] = "Selanjutnya";
-        _kesimpulanTexts[2] = "Dari Hasil Percobaan Yang telah dilakukan, Tidak terdapat Gelembung pada tabung Durham yang menandakan Sample yang terpilih tidak terdapat Tidak Bakteri Coliform di dalamnya.";
-        _kesimpulanTexts[3] = "Dari Hasil Percobaan yang telah dilakukan, Terdapat Gelembung pada tabung Durham yang menandakan Sample yang terpilih terdapat bakteri Coliform didalamnya";
+        _kesimpulanTexts[1] = "Dari Hasil Percobaan Yang telah dilakukan, Tidak terdapat Gelembung pada tabung Durham yang menandakan Sample yang terpilih tidak terdapat Tidak Bakteri Coliform di dalamnya.";
+        _kesimpulanTexts[2] = "Dari Hasil Percobaan yang telah dilakukan, Terdapat Gelembung pada tabung Durham yang menandakan Sample yang terpilih terdapat bakteri Coliform didalamnya";
     }
 
     private void SetGambar()
@@ -183,16 +182,15 @@ public class StoryControllerStage5 : MonoBehaviour
     private void SetText()
     {
         kesimpulan[0].text = _kesimpulanTexts[0];
-        kesimpulan[1].text = _kesimpulanTexts[1];
 
         if (Save.GetSample("Sample") == "SampleA")
         {
-            kesimpulan[2].text = _kesimpulanTexts[2];
+            kesimpulan[1].text = _kesimpulanTexts[1];
             gambar.sprite = gambarKesimpulan[0];
         }
         else if (Save.GetSample("Sample") == "SampleB")
         {
-            kesimpulan[2].text = _kesimpulanTexts[3];
+            kesimpulan[1].text = _kesimpulanTexts[2];
             gambar.sprite = gambarKesimpulan[1];
         }
     }
