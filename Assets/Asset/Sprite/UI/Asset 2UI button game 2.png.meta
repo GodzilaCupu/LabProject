@@ -1,0 +1,671 @@
+fileFormatVersion: 2
+guid: ae7a05672ae2c1f4d97413497d63fce1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -9024883333129349903
+    second: BTN_Home2
+  - first:
+      213: 8766498281078104578
+    second: BTN_SFX2
+  - first:
+      213: -8079883860864747492
+    second: BTN_PlainRound2
+  - first:
+      213: 7277359541237122273
+    second: BTN_Setting2
+  - first:
+      213: 4696336780010894508
+    second: BTN_Repeat2
+  - first:
+      213: 7700716978386043094
+    second: BTN_ArrowLeft2
+  - first:
+      213: -1512591285716192937
+    second: BTN_ArrowRight2
+  - first:
+      213: -2214638908871353033
+    second: BTN_Pause2
+  - first:
+      213: -1186860635178358622
+    second: BTN_Sound2
+  - first:
+      213: -632695359045959625
+    second: BTN_Music2
+  - first:
+      213: -5161908260625162199
+    second: BTN_Play2
+  - first:
+      213: 1638235008846097372
+    second: BTN_Close2
+  - first:
+      213: -1102856667295704130
+    second: BTN_Keluar2
+  - first:
+      213: -5098030422301986865
+    second: BTN_Simpan2
+  - first:
+      213: -286719263252010361
+    second: BTN_Tutup2
+  - first:
+      213: -1611935109272742581
+    second: BTN_Lanjutkan2
+  - first:
+      213: 7778463355687168437
+    second: BTN_Mulai2
+  - first:
+      213: -4908992952983641566
+    second: BTN_MainMenu2
+  - first:
+      213: 3729803723617311335
+    second: BTN_Sebelumnya2
+  - first:
+      213: -7039849446509093161
+    second: BTN_Selanjutnya2
+  - first:
+      213: -1199232562782098302
+    second: BTN_Selesai2
+  - first:
+      213: 2254189003862893573
+    second: BTN_PlainRetacle2
+  - first:
+      213: -4916926900642207192
+    second: Asset 2UI button game 2_22
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BTN_Home2
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 529
+        width: 132
+        height: 133
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f45b75ac6c21c280800000000000000
+      internalID: -9024883333129349903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTN_SFX2
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 530
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 202abbf5dbbd8a970800000000000000
+      internalID: 8766498281078104578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTN_PlainRound2
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 542
+        width: 133
+        height: 131
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c18beb6007c7edf80800000000000000
+      internalID: -8079883860864747492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTN_Setting2
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 360
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e40d3612ff5ef460800000000000000
+      internalID: 7277359541237122273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTN_Repeat2
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 190
+        width: 132
+        height: 131
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca4b62e4b6dbc2140800000000000000
+      internalID: 4696336780010894508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTN_ArrowLeft2
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 22
+        width: 129
+        height: 131
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d0058caa417eda60800000000000000
+      internalID: 7700716978386043094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTN_ArrowRight2
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 21
+        width: 130
+        height: 133
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 751f88c5d32320be0800000000000000
+      internalID: -1512591285716192937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTN_Pause2
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 185
+        width: 132
+        height: 131
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73dd6f265a50441e0800000000000000
+      internalID: -2214638908871353033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTN_Sound2
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 358
+        width: 131
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a8ac426a8c678fe0800000000000000
+      internalID: -1186860635178358622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTN_Music2
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 357
+        width: 129
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73007015ce63837f0800000000000000
+      internalID: -632695359045959625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTN_Play2
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 186
+        width: 129
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 920684239c73d58b0800000000000000
+      internalID: -5161908260625162199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTN_Close2
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 30
+        width: 129
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdb61e09f0e2cb610800000000000000
+      internalID: 1638235008846097372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTN_Keluar2
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 130
+        width: 232
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebb1bab44bdd1b0f0800000000000000
+      internalID: -1102856667295704130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTN_Simpan2
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 129
+        width: 233
+        height: 89
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcf2e8867582049b0800000000000000
+      internalID: -5098030422301986865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTN_Tutup2
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 240
+        width: 231
+        height: 86
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78a2a93695e550cf0800000000000000
+      internalID: -286719263252010361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTN_Lanjutkan2
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 233
+        width: 231
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4551dafe8141a9e0800000000000000
+      internalID: -1611935109272742581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTN_Mulai2
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 335
+        width: 233
+        height: 86
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b9602eb537a2fb60800000000000000
+      internalID: 7778463355687168437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTN_MainMenu2
+      rect:
+        serializedVersion: 2
+        x: 821
+        y: 336
+        width: 231
+        height: 86
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 222a3801be0cfdbb0800000000000000
+      internalID: -4908992952983641566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTN_Sebelumnya2
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 340
+        width: 228
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76a932ca9bce2c330800000000000000
+      internalID: 3729803723617311335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTN_Selanjutnya2
+      rect:
+        serializedVersion: 2
+        x: 1083
+        y: 238
+        width: 230
+        height: 87
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7de58942a3e6d4e90800000000000000
+      internalID: -7039849446509093161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTN_Selesai2
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 128
+        width: 232
+        height: 87
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28caa4486587b5fe0800000000000000
+      internalID: -1199232562782098302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTN_PlainRetacle2
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 476
+        width: 231
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 504e6dfa4fc784f10800000000000000
+      internalID: 2254189003862893573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: c45bdff7d9461b243a2e765f58a5a3c4
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

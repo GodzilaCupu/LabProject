@@ -26,6 +26,7 @@ public class MenuController : MonoBehaviour
     [SerializeField] private GameObject[] btnLevelMenu;
     private string[] _textUIDeteksiColiform, _textContentDeteksiColiform, _textTitleDeteksiColiform;
 
+    [SerializeField] private QuizController Quiz;
     int countDownInfo;
 
     bool mainMenuisActive, miniGameMenuisActive, levelMenuisActive;
@@ -33,24 +34,23 @@ public class MenuController : MonoBehaviour
     private void Awake()
     {
         ValueTextMainMenu();
-        SetTextMainMenu();
-        SetButtonMainMenu();
-
         ValueTextMiniGameMenu();
-        SetTextMiniGameMenu();
-        SetButtonMiniGameMenu();
-
         ValueTextDeteksiColiform();
-        SetTextDeteksiColiform();
-        SetButtonDeteksiColiform();
     }
 
     void Start()
     {
+        SetTextMainMenu();
+        SetButtonMainMenu();
+
+        SetTextMiniGameMenu();
+        SetButtonMiniGameMenu();
+      
+        SetTextDeteksiColiform();
+        SetButtonDeteksiColiform();
         RestartMenu();
         CheckMenu();
 
-        GameObject _gameManageer = GameObject.Find("GameManager");
     }
 
     private void Update()
@@ -109,9 +109,8 @@ public class MenuController : MonoBehaviour
     {
         _textMainMenu = new string[4];
         _textMainMenu[0] = "Play";
-        _textMainMenu[1] = "Exit";
-        _textMainMenu[2] = "Virtual Laboratorium - Kamanan Pangan merupakan sebuah permainan edukasi mengenai keamanan pangan yang bertujuan agar pemain mengetahuikondisi dan upaya yang diperlukan untuk mencegah pangan dari kemungkinan tiga cemaran, yaitu cemaran biologis, kimia, dan benda lain yang dapat mengganggu, merugikan, dan membahayakan kesehatan";
-        _textMainMenu[3] = "Continue";
+        _textMainMenu[1] = "Virtual Laboratorium - Kamanan Pangan merupakan sebuah permainan edukasi mengenai keamanan pangan yang bertujuan agar pemain mengetahuikondisi dan upaya yang diperlukan untuk mencegah pangan dari kemungkinan tiga cemaran, yaitu cemaran biologis, kimia, dan benda lain yang dapat mengganggu, merugikan, dan membahayakan kesehatan";
+        _textMainMenu[2] = "Continue";
     }
 
     private void SetTextMainMenu()
@@ -181,6 +180,7 @@ public class MenuController : MonoBehaviour
 
         CheckMenu();
         Save.SetCurrentLevel("Level", 0);
+        Save.SetCurrentLevel("Quiz", 0);
     }
 
     private void ContinueMainMenu()
@@ -244,22 +244,22 @@ public class MenuController : MonoBehaviour
 
                 case 3:
                     btnMiniGame[2] = GameObject.Find("5_Kunci_Keamanan_Pangan");
-                    btnMiniGame[2].GetComponent<Button>().onClick.AddListener(PlayHygine);
+                    btnMiniGame[2].GetComponent<Button>().onClick.AddListener(PlayEmpty);
                     break;
 
                 case 4:
                     btnMiniGame[2] = GameObject.Find("Uji_Migrasi_Kemasan_Pangan");
-                    btnMiniGame[2].GetComponent<Button>().onClick.AddListener(PlayHygine);
+                    btnMiniGame[2].GetComponent<Button>().onClick.AddListener(PlayEmpty);
                     break;
 
                 case 5:
                     btnMiniGame[2] = GameObject.Find("Food_Handling");
-                    btnMiniGame[2].GetComponent<Button>().onClick.AddListener(PlayHygine);
+                    btnMiniGame[2].GetComponent<Button>().onClick.AddListener(PlayEmpty);
                     break;
 
                 case 6:
                     btnMiniGame[2] = GameObject.Find("Dokumen_Keamanan_Pangan");
-                    btnMiniGame[2].GetComponent<Button>().onClick.AddListener(PlayHygine);
+                    btnMiniGame[2].GetComponent<Button>().onClick.AddListener(PlayEmpty);
                     break;
 
                 default:
@@ -279,6 +279,11 @@ public class MenuController : MonoBehaviour
     }
 
     private void PlayHygine()
+    {
+        SceneManager.LoadScene("Gamplay_Hygine");
+    }
+
+    private void PlayEmpty()
     {
         StartCoroutine(LevelErorJeda(2));
     }
@@ -547,7 +552,10 @@ public class MenuController : MonoBehaviour
     #region Stage
     private void Stage1()
     {
-        SceneManager.LoadScene("Quiz");
+        if (Save.GetCurrentLevel("Quiz") == 0)
+            SceneManager.LoadScene("Quiz");
+        else
+            SceneManager.LoadScene("Gameplay_1");
     }
     private void Stage2()
     {

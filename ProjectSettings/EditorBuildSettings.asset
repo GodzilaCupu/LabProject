@@ -24,6 +24,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Gameplay/Gameplay_5.unity
     guid: 84ec6a2ebd7f10344b95e1439908df95
   - enabled: 1
+    path: Assets/Scenes/Gameplay/Gamplay_Hygine.unity
+    guid: 337fc296bd213c04db92d0ee5416f719
+  - enabled: 1
     path: Assets/Scenes/Quiz/Quiz.unity
     guid: 67d3f1132a37075489d404e833aeaade
   m_configObjects: {}

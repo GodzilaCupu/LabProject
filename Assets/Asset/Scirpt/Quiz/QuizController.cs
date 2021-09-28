@@ -12,6 +12,7 @@ public class QuizController : MonoBehaviour
     [SerializeField] private GameObject[] quiz;
     private string[] _kunciJawabanTexts, _soalTexts, _contentText;
 
+    public bool isQuizTime;
     AudioSource sound;
 
     private void Awake()
@@ -24,6 +25,7 @@ public class QuizController : MonoBehaviour
     {
         ResetPertanyaan();
 
+        isQuizTime = true;
         GameObject _gameManageer = GameObject.Find("GameManager");
         sound = _gameManageer.GetComponent<AudioSource>();
     }
@@ -295,14 +297,14 @@ public class QuizController : MonoBehaviour
     {
         if (Save.GetCurrentLevel("Level") <= 1)
         {
-            int benar = Save.GetCurrentProgres("Quiz") + 0;
-            Save.SetCurrentProgres("Quiz", benar);
+            int salah = Save.GetCurrentProgres("Quiz") + 0;
+            Save.SetCurrentProgres("Quiz", salah);
         }
         else
         if (Save.GetCurrentLevel("Level") == 5)
         {
-            int benar = Save.GetCurrentProgres("Quiz5") + 0;
-            Save.SetCurrentProgres("Quiz5", benar);
+            int salah = Save.GetCurrentProgres("Quiz5") + 0;
+            Save.SetCurrentProgres("Quiz5", salah);
         }
 
     }
@@ -377,13 +379,11 @@ public class QuizController : MonoBehaviour
 
         Save.SetCurrentProgres("Quiz", 0);
         Save.SetCurrentProgres("Quiz5", 0);
-        Save.SetSound("BGM", 1);
 
         if (Save.GetSound("BGM") == 0)
             sound.mute = true;
         else if (Save.GetSound("BGM") == 1)
             sound.mute = false;
-
     }
 
     public void NextGame()
@@ -391,6 +391,7 @@ public class QuizController : MonoBehaviour
         if (Save.GetCurrentLevel("Level") <= 1)
         {
             SceneManager.LoadScene("Gameplay_1");
+            isQuizTime = false;
         }
         else 
         if (Save.GetCurrentLevel("Level") == 5)
