@@ -57,9 +57,9 @@ public class Task_Congrats_Content : MonoBehaviour
         if (scene == SceneManager.GetSceneByName("Gameplay_3"))
         {
             taskTexts = new string[5];
-            taskTexts[0] = "1. Pilih Lah Sample yang akan di uji ";
-            taskTexts[1] = "2. Masukan sample yang telah di uji ke dalam tabung ukur";
-            taskTexts[2] = "3. Ukurlah Aquades menggunakan Tabung Ukur sebanyak 9 ml ";
+            taskTexts[0] = "1. Pilih Lah Sample A atau B untuk di uji ";
+            taskTexts[1] = "2. Masukan sample yang telah pilih ke dalam tabung ukur";
+            taskTexts[2] = "3. Ukurlah Aquades kedalam Tabung Ukur sebanyak 9 ml ";
             taskTexts[3] = "4. Masukan Aquades yang telah di ukur, kedalam tabung reaksi";
             taskTexts[4] = "Petunjuk";
 
@@ -72,9 +72,9 @@ public class Task_Congrats_Content : MonoBehaviour
         {
             taskTexts = new string[5];
             taskTexts[0] = "1. Tuang Akuades kedalam tabung ukur Sebanyak 27 ML";
-            taskTexts[1] = "2. Tuang Akudaes kedalam masing masing tabung reaksi sebanyak 9 ML";
+            taskTexts[1] = "2. Tuang Akudaes yang ada di tabung ukur kedalam masing masing tabung reaksi sebanyak 9 ML";
             taskTexts[2] = "3. Ambil Sample yang sudah di persiapkan sebelumnya menggunakan pipet sebanayk 1 ML";
-            taskTexts[3] = "4. Ambil Sample yang sudah dipersaipkan menggunakan pipet masing masing sebanyak 1 ML";
+            taskTexts[3] = "4. Ambil Sample yang sudah dipersaipkan menggunakan pipet masing masing sebanyak 1 ML, taruh kedalam masing masing tabung ukur";
             taskTexts[4] = "Petunjuk";
 
             CongratsText = new string[2];
@@ -85,8 +85,8 @@ public class Task_Congrats_Content : MonoBehaviour
         if (scene == SceneManager.GetSceneByName("Gameplay_5"))
         {
             taskTexts = new string[5];
-            taskTexts[0] = "1. Panaskan Medium yang telah diolah sebelumnya";
-            taskTexts[1] = "2. Tambahkan Medium kedalam masing masing Sample sebanyak 10 ML";
+            taskTexts[0] = "1. Panaskan Medium yang telah diolah sebelumnya menggunakan kompor";
+            taskTexts[1] = "2. Tambahkan Medium kedalam masing masing Sample sebanyak 10 ML menggunakan pipet";
             taskTexts[2] = "3. Masukkan Tabung Durham kedalam masing masing Sample";
             taskTexts[3] = "4. Masukan Sample yang sudah siap Kedalam Inkkubator dan tunggu 24 Jam";
             taskTexts[4] = "Petunjuk";

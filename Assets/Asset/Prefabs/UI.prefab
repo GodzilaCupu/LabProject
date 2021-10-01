@@ -1649,7 +1649,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6501548731468897641
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4827,7 +4827,7 @@ PrefabInstance:
     - target: {fileID: 3968807059920148771, guid: 8cff191bc8cf0a94eae2fc26b7271ab3,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 26
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 3968807059920148771, guid: 8cff191bc8cf0a94eae2fc26b7271ab3,
         type: 3}
@@ -4848,6 +4848,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3968807059920148771, guid: 8cff191bc8cf0a94eae2fc26b7271ab3,
+        type: 3}
+      propertyPath: m_Text
+      value: Test
       objectReference: {fileID: 0}
     - target: {fileID: 5323799563632614126, guid: 8cff191bc8cf0a94eae2fc26b7271ab3,
         type: 3}
@@ -4977,15 +4982,12 @@ PrefabInstance:
     - target: {fileID: 3968807059920148771, guid: 8cff191bc8cf0a94eae2fc26b7271ab3,
         type: 3}
       propertyPath: m_Text
-      value: 'Lorem ipsum donor iet iang dulu adaalah seorang laki yang merupakan
-        sebuah jantan
-
-'
+      value: Test
       objectReference: {fileID: 0}
     - target: {fileID: 3968807059920148771, guid: 8cff191bc8cf0a94eae2fc26b7271ab3,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 26
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 3968807059920148771, guid: 8cff191bc8cf0a94eae2fc26b7271ab3,
         type: 3}
@@ -5135,7 +5137,7 @@ PrefabInstance:
     - target: {fileID: 3968807059920148771, guid: 8cff191bc8cf0a94eae2fc26b7271ab3,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 26
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 3968807059920148771, guid: 8cff191bc8cf0a94eae2fc26b7271ab3,
         type: 3}
@@ -5156,6 +5158,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3968807059920148771, guid: 8cff191bc8cf0a94eae2fc26b7271ab3,
+        type: 3}
+      propertyPath: m_Text
+      value: Test
       objectReference: {fileID: 0}
     - target: {fileID: 5323799563632614126, guid: 8cff191bc8cf0a94eae2fc26b7271ab3,
         type: 3}
@@ -5285,7 +5292,7 @@ PrefabInstance:
     - target: {fileID: 3968807059920148771, guid: 8cff191bc8cf0a94eae2fc26b7271ab3,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 26
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 3968807059920148771, guid: 8cff191bc8cf0a94eae2fc26b7271ab3,
         type: 3}
@@ -5306,6 +5313,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3968807059920148771, guid: 8cff191bc8cf0a94eae2fc26b7271ab3,
+        type: 3}
+      propertyPath: m_Text
+      value: Test
       objectReference: {fileID: 0}
     - target: {fileID: 5323799563632614126, guid: 8cff191bc8cf0a94eae2fc26b7271ab3,
         type: 3}
