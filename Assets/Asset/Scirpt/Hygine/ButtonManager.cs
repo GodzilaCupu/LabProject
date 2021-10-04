@@ -25,8 +25,6 @@ public class ButtonManager : MonoBehaviour
         txt = this.gameObject.GetComponent<TextManager>();
         SetSoundValue();
         SetText();
-        SetButtons();
-
     }
 
     #region General Function
@@ -75,7 +73,7 @@ public class ButtonManager : MonoBehaviour
             btnAnswer.btn4[i].GetComponent<Button>().interactable = true;
 
         for (int i = 0; i <= 2; i++)
-            btnAnswer.btn3[i].GetComponent<Button>().interactable = false;
+            btnAnswer.btn3[i].GetComponent<Button>().interactable = true;
 
         for (int i = 0; i <= 5; i++)
         {
@@ -142,7 +140,10 @@ public class ButtonManager : MonoBehaviour
             {
                 case 0:
                     if (Save.GetCurrentLevel("Termin") == 1)
+                    {
+                        btnUI[0].onClick.RemoveAllListeners();
                         btnUI[0].onClick.AddListener(controller.Termin1Progres);
+                    }
                     else if (Save.GetCurrentLevel("Termin") == 6)
                     {
                         btnUI[0].onClick.RemoveAllListeners();

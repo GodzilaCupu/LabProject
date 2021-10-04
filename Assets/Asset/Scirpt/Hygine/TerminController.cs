@@ -56,7 +56,13 @@ public class TerminController : MonoBehaviour
     {
         CheckVO();
         Debug.Log(Save.GetCurrentLevel("Termin"));
-        Debug.Log(Save.GetCurrentProgres("Termin1"));
+        Debug.Log(Save.GetCurrentProgres("Termin1") + ": T1");
+        Debug.Log(Save.GetCurrentProgres("Termin2") + ": T2");
+        Debug.Log(Save.GetCurrentProgres("Termin3") + ": T3");
+        Debug.Log(Save.GetCurrentProgres("Termin4") + ": T4");
+        Debug.Log(Save.GetCurrentProgres("Termin5") + ": T5");
+        Debug.Log(Save.GetCurrentProgres("Termin6") + ": T6");
+        Debug.Log(Save.GetCurrentProgres("Termin7") + ": T7");
     }
 
     #region Setting Configuration
@@ -133,6 +139,17 @@ public class TerminController : MonoBehaviour
         panel[5].SetActive(false);
     }
 
+    private void ResetData()
+    {
+        Save.SetCurrentProgres("Termin1", 0);
+        Save.SetCurrentProgres("Termin2", 0);
+        Save.SetCurrentProgres("Termin3", 0);
+        Save.SetCurrentProgres("Termin4", 0);
+        Save.SetCurrentProgres("Termin5", 0);
+        Save.SetCurrentProgres("Termin6", 0);
+        Save.SetCurrentProgres("Termin7", 0);
+    }
+
     #endregion
 
     #region Termin Configuration
@@ -140,16 +157,17 @@ public class TerminController : MonoBehaviour
     public void SetTermin1()
     {
         Save.SetCurrentLevel("Termin", 1);
-        Save.SetCurrentProgres("Termin1", 0);
+        ResetData();
 
+        btn.GetValueButton(0).interactable = false;
         btn.GetValueButton(0).gameObject.SetActive(true);
         background.sprite = _background[0];
         ResetButtonContainer();
         btn.SetButtons();
         SetSprite(0);
 
-        StartCoroutine(DelayTyping(2f, 0));
-        StartCoroutine(DelayVO(2f, 0));
+        StartCoroutine(DelayTyping(0.5f, 3));
+        StartCoroutine(DelayVO(0.5f, 0));
     }
 
     public void Termin1Progres()
@@ -185,7 +203,7 @@ public class TerminController : MonoBehaviour
     public void SetTermin2()
     {
         Save.SetCurrentLevel("Termin", 2);
-        Save.SetCurrentProgres("Termin2", 0);
+        ResetData();
 
         ResetButtonContainer();
         btnContainer[0].SetActive(true);
@@ -235,8 +253,7 @@ public class TerminController : MonoBehaviour
 
     public void Termin2Gagal()
     {
-        SetVO(23);
-        StartCoroutine(PopupMassage(txt._notificationText[0], 1));
+        StartCoroutine(PopupMassage(txt._notificationText[0],0));
         SetTermin1();
         Debug.Log("Gagal Termin 2");
     }
@@ -244,7 +261,7 @@ public class TerminController : MonoBehaviour
     public void SetTermin3()
     {
         Save.SetCurrentLevel("Termin", 3);
-        Save.SetCurrentProgres("Termin3", 0);
+        ResetData();
 
         ResetButtonContainer();
         btnContainer[0].SetActive(true);
@@ -289,7 +306,7 @@ public class TerminController : MonoBehaviour
     public void SetTermin4()
     {
         Save.SetCurrentLevel("Termin", 4);
-        Save.SetCurrentProgres("Termin4", 0);
+        ResetData();
 
         ResetPanel();
         ResetButtonContainer();
@@ -339,7 +356,7 @@ public class TerminController : MonoBehaviour
     public void SetTermin5()
     {
         Save.SetCurrentLevel("Termin", 5);
-        Save.SetCurrentProgres("Termin5", 0);
+        ResetData();
 
         ResetButtonContainer();
         btnContainer[0].SetActive(true);
@@ -443,7 +460,7 @@ public class TerminController : MonoBehaviour
     public void SetTermin6()
     {
         Save.SetCurrentLevel("Termin", 6);
-        Save.SetCurrentProgres("Termin6", 0);
+        ResetData();
 
         ResetButtonContainer();
         btn.SetButtons();
@@ -502,7 +519,7 @@ public class TerminController : MonoBehaviour
     public void SetTermin7()
     {
         Save.SetCurrentLevel("Termin", 7);
-        Save.SetCurrentProgres("Termin7", 0);
+        ResetData();
 
         ResetButtonContainer();
         background.sprite = _background[2];
@@ -559,7 +576,6 @@ public class TerminController : MonoBehaviour
         panel[5].SetActive(true);
     }
     #endregion
-
 
     #region IEnumerator configuration
     IEnumerator Typing(string Questions)

@@ -41,7 +41,7 @@ public class Task_Congrats_Content : MonoBehaviour
         if (scene == SceneManager.GetSceneByName("Gameplay_2"))
         {
             taskTexts = new string[6];
-            taskTexts[0] = "1. Masukan 3 gram medium lactose broth kedalam erlenmayer, menggunakan pipet";
+            taskTexts[0] = "1. Masukan 3 gram medium lactose broth kedalam erlenmayer, menggunakan spatula";
             taskTexts[1] = "2. Tuang  50 ml Aquades di dalam tabung ukur, kemudian campurkan bersama medium lactose broth di dalam erlenmayer";
             taskTexts[2] = "3. Gunakan Spatula untuk mengaduk lactose broth dengan aquades supaya homogen";
             taskTexts[3] = "4. Masukan medium yang sudah homogen kedalam autoclave untuk di sterilisasi selama 45 menit";
