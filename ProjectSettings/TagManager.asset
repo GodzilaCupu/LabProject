@@ -12,6 +12,7 @@ TagManager:
   - MainMenu
   - A
   - B
+  - BTN
   layers:
   - Default
   - TransparentFX

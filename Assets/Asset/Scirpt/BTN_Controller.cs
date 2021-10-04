@@ -66,9 +66,6 @@ public class BTN_Controller : MonoBehaviour
         CheckToCongrats();
         CheckLevelandProgress();
         CheckPosition();
-
-        Debug.Log(Save.GetCurrentProgres("Stage5") + " = Level");
-        Debug.Log(Save.GetSound("BGM") + "BGM");
     }
 
     #region Panel Configuration

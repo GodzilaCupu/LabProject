@@ -249,10 +249,10 @@ TextureImporter:
       name: Topi
       rect:
         serializedVersion: 2
-        x: 509
-        y: 477
-        width: 444
-        height: 361
+        x: 492
+        y: 456
+        width: 478
+        height: 391
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

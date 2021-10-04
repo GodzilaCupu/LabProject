@@ -45,12 +45,11 @@ public class MenuController : MonoBehaviour
 
         SetTextMiniGameMenu();
         SetButtonMiniGameMenu();
-      
+
         SetTextDeteksiColiform();
         SetButtonDeteksiColiform();
         RestartMenu();
         CheckMenu();
-
     }
 
     private void Update()
