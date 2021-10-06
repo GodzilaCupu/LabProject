@@ -178,6 +178,7 @@ public class MenuController : MonoBehaviour
         levelMenuisActive = false;
 
         CheckMenu();
+        Save.SetCurrentLevel("Termin", 0);
         Save.SetCurrentLevel("Level", 0);
         Save.SetCurrentLevel("Quiz", 0);
     }

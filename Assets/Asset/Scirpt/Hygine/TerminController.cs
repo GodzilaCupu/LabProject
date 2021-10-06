@@ -49,7 +49,8 @@ public class TerminController : MonoBehaviour
 
     private void Start()
     {
-        SetTermin1();
+        CheckTermin();
+        //SetTermin1();
     }
 
     private void Update()
@@ -150,6 +151,44 @@ public class TerminController : MonoBehaviour
         Save.SetCurrentProgres("Termin7", 0);
     }
 
+    private void CheckTermin()
+    {
+        switch (Save.GetCurrentProgres("Termin"))
+        {
+            case 0:
+                SetTermin1();
+                break;
+
+            case 1:
+                SetTermin1();
+                break;
+
+            case 2:
+                SetTermin2();
+                break;
+
+            case 3:
+                SetTermin3();
+                break;
+
+            case 4:
+                SetTermin4();
+                break;
+
+            case 5:
+                SetTermin5();
+                break;
+
+            case 6:
+                SetTermin6();
+                break;
+
+            case 7:
+                SetTermin7();
+                break;
+        }
+    }
+
     #endregion
 
     #region Termin Configuration
@@ -166,8 +205,8 @@ public class TerminController : MonoBehaviour
         btn.SetButtons();
         SetSprite(0);
 
-        StartCoroutine(DelayTyping(0.5f, 3));
-        StartCoroutine(DelayVO(0.5f, 0));
+        StartCoroutine(DelayTyping(2f, 0));
+        StartCoroutine(DelayVO(2f, 0));
     }
 
     public void Termin1Progres()
@@ -253,7 +292,7 @@ public class TerminController : MonoBehaviour
 
     public void Termin2Gagal()
     {
-        StartCoroutine(PopupMassage(txt._notificationText[0],0));
+        StartCoroutine(PopupMassage(txt._notificationText[0],1));
         SetTermin1();
         Debug.Log("Gagal Termin 2");
     }
@@ -298,7 +337,7 @@ public class TerminController : MonoBehaviour
     public void Termin3Gagal()
     {
         SetVO(23);
-        StartCoroutine(PopupMassage(txt._notificationText[0], 1));
+        StartCoroutine(PopupMassage(txt._notificationText[0], 2));
         SetTermin2();
         Debug.Log("Back To Termin 2");
     }
@@ -347,7 +386,7 @@ public class TerminController : MonoBehaviour
     public void Termin4Gagal()
     {
         SetVO(23);
-        StartCoroutine(PopupMassage(txt._notificationText[0], 1));
+        StartCoroutine(PopupMassage(txt._notificationText[0], 2));
 
         SetTermin3();
         Debug.Log("Back To Termin 2");
@@ -446,13 +485,13 @@ public class TerminController : MonoBehaviour
         {
             case 0:
                 SetVO(23);
-                StartCoroutine(PopupMassage(txt._notificationText[0], 1));
+                StartCoroutine(PopupMassage(txt._notificationText[0], 2));
                 SetTermin4();
                 break;
 
             case 1:
                 SetVO(12);
-                StartCoroutine(PopupMassage(txt._questionText[13], 4));
+                StartCoroutine(PopupMassage(txt._questionText[13], 2));
                 break;
         }
     }
@@ -495,7 +534,6 @@ public class TerminController : MonoBehaviour
         }
     }
 
-
     public void Termin6Count(int value)
     {
         if(value >0 && value < 5)
@@ -505,7 +543,7 @@ public class TerminController : MonoBehaviour
         }
         else if (value == 0 || value == 5)
         {
-            StartCoroutine(PopupMassage(txt._questionText[13], 4));
+            StartCoroutine(PopupMassage(txt._questionText[13], 2));
             SetVO(12);
         }
     }
@@ -514,7 +552,6 @@ public class TerminController : MonoBehaviour
     {
         btnAnswer.btn6[value].gameObject.SetActive(false);
     }
-
 
     public void SetTermin7()
     {
@@ -535,7 +572,7 @@ public class TerminController : MonoBehaviour
     {
         if (value == 0 )
         {
-            StartCoroutine(PopupMassage(txt._questionText[18], 3));
+            StartCoroutine(PopupMassage(txt._questionText[18], 2));
         }
         else if (value > 0 || value <= 3)
         {
@@ -548,7 +585,6 @@ public class TerminController : MonoBehaviour
     {
         btnAnswer.btn4[value].gameObject.SetActive (false);
     }
-
 
     public void Termin7Progres()
     {
