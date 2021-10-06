@@ -9533,7 +9533,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Persiapan Sample
+  m_Text: Pembuatan Medium
 --- !u!1 &8709369275809111741
 GameObject:
   m_ObjectHideFlags: 0

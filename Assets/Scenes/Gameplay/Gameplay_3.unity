@@ -306,7 +306,7 @@ PrefabInstance:
     - target: {fileID: 8681471247683156016, guid: 4444c7fa02f0c4f4f9252cf1272c3108,
         type: 3}
       propertyPath: m_Text
-      value: Pembuatan Medium
+      value: Persiapan Sample
       objectReference: {fileID: 0}
     - target: {fileID: 8940637404846712891, guid: 4444c7fa02f0c4f4f9252cf1272c3108,
         type: 3}
